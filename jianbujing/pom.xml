@@ -5,11 +5,11 @@
 
 	<groupId>com.arloor</groupId>
 	<artifactId>jianbujing</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<packaging>jar</packaging>
 
 	<name>jianbujing</name>
-	<description>Demo project for Spring Boot</description>
+	<description>翦不惊的小本本——微信小程序后台</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -21,13 +21,17 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.9</java.version>
+		<java.version>9</java.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webflux</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
@@ -45,12 +49,17 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>io.projectreactor</groupId>
+			<artifactId>reactor-test</artifactId>
+			<scope>test</scope>
+		</dependency>
 		<!--七牛云对象存储的sdk，这里使用生成token的功能-->
-        <dependency>
-            <groupId>com.qiniu</groupId>
-            <artifactId>qiniu-java-sdk</artifactId>
-            <version>[7.0.0, 7.2.99]</version>
-        </dependency>
+		<dependency>
+			<groupId>com.qiniu</groupId>
+			<artifactId>qiniu-java-sdk</artifactId>
+			<version>[7.0.0, 7.2.99]</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -61,6 +70,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
-
 </project>
