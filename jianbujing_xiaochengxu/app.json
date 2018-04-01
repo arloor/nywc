@@ -1,7 +1,7 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs",
+    "pages/imagehub/imagehub",
     "pages/add/add"
   ],
   "window": {
@@ -22,7 +22,7 @@
        }, {  
          "selectedIconPath": "images/广场1.png",  
          "iconPath": "images/广场.png",  
-         "pagePath": "pages/logs/logs",  
+         "pagePath": "pages/imagehub/imagehub",  
          "text": "广场"  
        }, {  
          "selectedIconPath": "images/添加1.png",  

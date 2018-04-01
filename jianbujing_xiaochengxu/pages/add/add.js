@@ -42,6 +42,24 @@ function didPressChooesImage(that) {
         that.setData({
           'imageObject': res
         });
+        //调用存储到数据库的api
+        wx.request({
+          url: 'https://jianbujing.moontell.cn/api/image/insert',
+          data:{
+            "key": that.data.imageObject.key,
+            "imageURL": that.data.imageObject.imageURL,
+            "openId":app.globalData.openId,
+            "nickName":app.globalData.userInfo.nickName,
+            "info":""
+          },
+          header: { 'content-type': 'application/json' },
+          method:"post",
+          success:function(res){
+            console.log("插入图片信息的api调用结果: ");
+            console.log(res);
+            console.info("插入图片信息的api调用状态码： "+res.statusCode);
+          }
+        })
       }, (error) => {
         console.error('error: ' + JSON.stringify(error));
       },

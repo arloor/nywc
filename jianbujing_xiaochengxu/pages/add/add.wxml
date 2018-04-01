@@ -6,8 +6,8 @@
   </view>
   
   <view class="data">
-    hash: <text>{{imageObject.hash}}\n\n</text>
+     hash: <text>{{imageObject.hash}}\n\n</text>
     key: <text>{{imageObject.key}}\n\n</text>
-    imageURL: <text>{{imageObject.imageURL}}</text>
+    imageURL: <text>{{imageObject.imageURL}}</text> 
   </view>
 </view>
