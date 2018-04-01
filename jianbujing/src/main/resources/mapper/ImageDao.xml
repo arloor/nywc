@@ -4,4 +4,7 @@
     <insert id="insert" parameterType="com.arloor.jianbujing.domain.Imageinfo">
         INSERT INTO imageinfo(`key`,openid,nickName,imageURL,info) VALUE (#{key},#{openId},#{nickName},#{imageURL},#{info});
     </insert>
+    <update id="update" parameterType="com.arloor.jianbujing.domain.Imageinfo">
+        UPDATE imageinfo SET info=#{info},ispublic=#{ispublic} where openid=#{openId} and `key`=#{key};
+    </update>
 </mapper>

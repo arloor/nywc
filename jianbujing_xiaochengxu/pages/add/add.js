@@ -27,6 +27,28 @@ Page({
   didPressChooesImage: function () {
     var that = this;
     didPressChooesImage(that);
+  },
+  formSubmit: function (e) {
+    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    wx.request({
+      url: 'https://jianbujing.moontell.cn/api/image/update',
+      data: {
+        "key": this.data.imageObject.key,
+        "openId": app.globalData.openId,
+        "info": e.detail.value.info,
+        "ispublic": e.detail.value.ispublic
+      },
+      header: { 'content-type': 'application/json' },
+      method: "post",
+      success: function (res) {
+        console.log("修改图片信息的api调用结果: ");
+        console.log(res);
+        console.info("修改图片信息的api调用状态码： " + res.statusCode);
+      }
+    })
+  },
+  formReset: function () {
+    console.log('form发生了reset事件')
   }
 });
 

@@ -18,4 +18,10 @@ public class ImageService {
     public void insertImage(@RequestBody Imageinfo imageinfo){
         imageDao.insert(imageinfo);
     }
+
+
+    @RequestMapping("/update")
+    public void updateImage(@RequestBody Imageinfo imageinfo){
+        imageDao.update(imageinfo);
+    }
 }

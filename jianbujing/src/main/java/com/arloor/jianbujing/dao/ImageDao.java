@@ -7,4 +7,6 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface ImageDao {
     public void insert( Imageinfo imageinfo);
+
+    void update(Imageinfo imageinfo);
 }

@@ -5,9 +5,26 @@
     <progress percent="{{progress}}"/>
   </view>
   
-  <view class="data">
+  <view class="data" style='display:none'>
      hash: <text>{{imageObject.hash}}\n\n</text>
     key: <text>{{imageObject.key}}\n\n</text>
     imageURL: <text>{{imageObject.imageURL}}</text> 
   </view>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="section">
+    <view class="section__title">图片信息</view>
+    <textarea name="info"></textarea>
+  </view>
+  <view class="section section_gap">
+    <view class="section__title">是否公开</view>
+    <radio-group name="ispublic">
+      <label><radio value="true" checked='true' />公开</label>
+      <label><radio value="false"/>私有</label>
+    </radio-group>
+  </view>
+  <view class="btn-area">
+    <button formType="submit">Submit</button>
+    <button formType="reset">Reset</button>
+  </view>
+</form>
 </view>

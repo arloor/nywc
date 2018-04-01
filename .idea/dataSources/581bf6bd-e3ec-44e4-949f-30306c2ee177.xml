@@ -873,7 +873,14 @@
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="214" parent="207" name="PRIMARY">
+    <column id="214" parent="207" name="ispublic">
+      <Position>7</Position>
+      <Comment>&quot;是否公开&quot;</Comment>
+      <DataType>varchar(5)|0</DataType>
+      <DefaultExpression>&apos;true&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="215" parent="207" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>openid
 key</ColNames>
