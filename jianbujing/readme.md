@@ -8,6 +8,7 @@
 `server.ssl.key-store-password=123456`  
 `server.ssl.keyStoreType= PKCS12`  
 `server.ssl.keyAlias= jianbujing.moontell.cn`  
+注意：比较坑的是，使用jdk8来执行打包好的jar包会报错，必须使用jdk9  
 
 
 下面的自建ssl证书被证明无用   

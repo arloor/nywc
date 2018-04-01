@@ -1,66 +1,59 @@
-const qiniuUploader = require("../../utils/qiniuUploader");
 //index.js
-
-// 初始化七牛相关参数
-function initQiniu() {
-  var options = {
-    region: 'NCN', // 华北区
-    //uptokenURL: 'https://localhost/api/qiniu/uptoken',
-    uptokenURL: 'https://jianbujing.moontell.cn/api/qiniu/uptoken',
-    //uptoken: '',
-    domain: 'http://om319jsda.bkt.clouddn.com',
-    shouldUseQiniuFileName: true
-  };
-  qiniuUploader.init(options);
-}
-
 //获取应用实例
-var app = getApp()
+const app = getApp()
+
 Page({
   data: {
-    imageObject: {}
+    motto: '南大IP',
+    userInfo: {},
+    hasUserInfo: false,
+    canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   //事件处理函数
-  onLoad: function () {
-    console.log('onLoad')
-    var that = this;
-  },
-  didPressChooesImage: function() {
-    var that = this;
-    didPressChooesImage(that);
-  }
-});
-
-function didPressChooesImage(that) {
-  initQiniu();
-  // 微信 API 选文件
-  wx.chooseImage({
-      count: 1,
-      success: function (res) {
-        var filePath = res.tempFilePaths[0];
-        // 交给七牛上传
-        qiniuUploader.upload(filePath, (res) => {
-          that.setData({
-            'imageObject': res
-          });
-        }, (error) => {
-          console.error('error: ' + JSON.stringify(error));
-        },
-        // , {
-        //     region: 'NCN', // 华北区
-        //     uptokenURL: 'https://[yourserver.com]/api/uptoken',
-        //     domain: 'http://[yourBucketId].bkt.clouddn.com',
-        //     shouldUseQiniuFileName: false
-        //     key: 'testKeyNameLSAKDKASJDHKAS'
-        //     uptokenURL: 'myServer.com/api/uptoken'
-        // }
-        null,// 可以使用上述参数，或者使用 null 作为参数占位符
-        (progress) => {
-          console.log('上传进度', progress.progress)
-            console.log('已经上传的数据长度', progress.totalBytesSent)
-            console.log('预期需要上传的数据总长度', progress.totalBytesExpectedToSend)
-        }
-        );
-      }
+  bindViewTap: function () {
+    wx.navigateTo({
+      url: '../logs/logs'
     })
-}
+  },
+  bindNavTap: function () {
+    wx.navigateTo({
+      url: '../home/home',
+    })
+  },
+  onLoad: function () {
+    if (app.globalData.userInfo) {
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        hasUserInfo: true
+      })
+    } else if (this.data.canIUse) {
+      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      // 所以此处加入 callback 以防止这种情况
+      app.userInfoReadyCallback = res => {
+        this.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+      }
+    } else {
+      // 在没有 open-type=getUserInfo 版本的兼容处理
+      wx.getUserInfo({
+        success: res => {
+          app.globalData.userInfo = res.userInfo
+          this.setData({
+            userInfo: res.userInfo,
+            hasUserInfo: true
+          })
+        }
+      })
+    }
+  },
+  getUserInfo: function (e) {
+    console.log(e)
+    app.globalData.userInfo = e.detail.userInfo
+    this.setData({
+      userInfo: e.detail.userInfo,
+      hasUserInfo: true
+    })
+  }
+})

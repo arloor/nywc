@@ -1,13 +1,14 @@
 <!--index.wxml-->
-<view class="main">
-  <button bindtap='didPressChooesImage'>上传图片</button>
-  <view class="image-container">
-    <image class="image" src="{{imageObject.imageURL}}" mode="aspectFit"></image>
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <button bindtap='bindNavTap'>上传图片</button>
+    </block>
   </view>
-  
-  <view class="data">
-    hash: <text>{{imageObject.hash}}\n\n</text>
-    key: <text>{{imageObject.key}}\n\n</text>
-    imageURL: <text>{{imageObject.imageURL}}</text>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
   </view>
 </view>
