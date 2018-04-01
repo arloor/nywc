@@ -16,7 +16,8 @@ function initQiniu() {
 var app = getApp()
 Page({
   data: {
-    imageObject: {}
+    imageObject: {},
+    progress:0
   },
   //事件处理函数
   onLoad: function () {
@@ -54,6 +55,7 @@ function didPressChooesImage(that) {
         // }
         null,// 可以使用上述参数，或者使用 null 作为参数占位符
         (progress) => {
+          that.setData({ progress: progress.progress})
           console.log('上传进度', progress.progress)
           console.log('已经上传的数据长度', progress.totalBytesSent)
           console.log('预期需要上传的数据总长度', progress.totalBytesExpectedToSend)
@@ -61,4 +63,5 @@ function didPressChooesImage(that) {
       );
     }
   })
+  that.setData({ progress: 0 })
 }

@@ -4,9 +4,9 @@ const app = getApp()
 
 Page({
   data: {
-    motto: '南大IP',
+    appinfo: ["翦不惊的小本本\r\n" , "为了美的设计\r\n", "from NJUlgh\r\n", "——2018.04.01\r\n"],
     userInfo: {},
-    openId:null
+    openId:""
   },
   //事件处理函数
   bindViewTap: function () {

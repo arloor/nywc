@@ -1,8 +1,8 @@
 <!--home.wxml-->
 <view class="main">
-  <button bindtap='didPressChooesImage'>上传图片</button>
   <view class="image-container">
-    <image class="image" src="{{imageObject.imageURL}}" mode="aspectFit"></image>
+    <image bindtap='didPressChooesImage' class="image" src="{{imageObject.imageURL}}" mode="aspectFit"></image>
+    <progress percent="{{progress}}"/>
   </view>
   
   <view class="data">

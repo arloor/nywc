@@ -5,12 +5,12 @@ text {
 }
 
 .main {
-  height: 100%;
+  height: 750rpx;
+  width: 750rpx;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 100rpx 0;
   box-sizing: border-box;
 }
 
