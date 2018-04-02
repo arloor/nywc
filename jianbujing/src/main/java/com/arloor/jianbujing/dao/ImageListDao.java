@@ -2,12 +2,13 @@ package com.arloor.jianbujing.dao;
 
 import com.arloor.jianbujing.domain.Imageinfo;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 @Mapper
 public interface ImageListDao {
-    List<Imageinfo> selectPublic();
+    List<Imageinfo> selectPublicNewer(@Param("seconds") long seconds);
 
-    int selectCountPublic();
+    List<Imageinfo> selectPublicOlder(long smallseconds);
 }

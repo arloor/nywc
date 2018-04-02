@@ -11,10 +11,19 @@ public class Imageinfo {
   private String imageURL;
   private String info;
   private java.sql.Timestamp uptime;
+  private String seconds;
   private String ispublic;
   private String valid;
 
-  public String getKey() {
+    public String getSeconds() {
+        return seconds;
+    }
+
+    public void setSeconds(String seconds) {
+        this.seconds = seconds;
+    }
+
+    public String getKey() {
     return key;
   }
 

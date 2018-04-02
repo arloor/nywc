@@ -7,6 +7,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.sql.Timestamp;
+import java.util.Calendar;
+import java.util.Date;
+
 @RestController
 @RequestMapping("/api/image")
 public class ImageService {
@@ -16,6 +20,8 @@ public class ImageService {
 
     @RequestMapping("/insert")
     public void insertImage(@RequestBody Imageinfo imageinfo){
+        imageinfo.setSeconds(String.valueOf(new Date().getTime()));
+        imageinfo.setUptime(new Timestamp(Long.parseLong(imageinfo.getSeconds())));
         imageDao.insert(imageinfo);
     }
 

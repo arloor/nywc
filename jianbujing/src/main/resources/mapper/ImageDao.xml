@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.arloor.jianbujing.dao.ImageDao">
     <insert id="insert" parameterType="com.arloor.jianbujing.domain.Imageinfo">
-        INSERT INTO imageinfo(`key`,openid,nickName,imageURL,info) VALUE (#{key},#{openId},#{nickName},#{imageURL},#{info});
+        INSERT INTO imageinfo(`key`,openid,nickName,imageURL,uptime,seconds,info) VALUE (#{key},#{openId},#{nickName},#{imageURL},#{uptime},#{seconds},#{info});
     </insert>
     <update id="update" parameterType="com.arloor.jianbujing.domain.Imageinfo">
         UPDATE imageinfo SET info=#{info},ispublic=#{ispublic} where openid=#{openId} and `key`=#{key};

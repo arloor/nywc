@@ -828,48 +828,48 @@
       <Engine>InnoDB</Engine>
       <Collation>latin1_swedish_ci</Collation>
     </table>
-    <column id="208" parent="207" name="id">
+    <column id="208" parent="207" name="key">
       <Position>1</Position>
-      <DataType>int(20)|0</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="209" parent="207" name="key">
-      <Position>2</Position>
       <Comment>&quot;图片在云存储中的名称&quot;</Comment>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_general_ci</Collation>
     </column>
-    <column id="210" parent="207" name="openid">
-      <Position>3</Position>
+    <column id="209" parent="207" name="openid">
+      <Position>2</Position>
       <Comment>&quot;微信用户的openid&quot;</Comment>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_general_ci</Collation>
     </column>
-    <column id="211" parent="207" name="nickName">
-      <Position>4</Position>
+    <column id="210" parent="207" name="nickName">
+      <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_general_ci</Collation>
     </column>
-    <column id="212" parent="207" name="imageURL">
-      <Position>5</Position>
+    <column id="211" parent="207" name="imageURL">
+      <Position>4</Position>
       <Comment>&quot;图片的网址&quot;</Comment>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_general_ci</Collation>
     </column>
-    <column id="213" parent="207" name="info">
-      <Position>6</Position>
+    <column id="212" parent="207" name="info">
+      <Position>5</Position>
       <Comment>&quot;作者对这个设计的描述&quot;</Comment>
       <DataType>longtext|0</DataType>
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_general_ci</Collation>
+    </column>
+    <column id="213" parent="207" name="seconds">
+      <Position>6</Position>
+      <DataType>varchar(30)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
     </column>
     <column id="214" parent="207" name="uptime">
       <Position>7</Position>

@@ -5,8 +5,9 @@ Page({
   data: {
     logs: [],
     imagelist:[],
-    pageStart:1,//用于控制分页
-    pageSize:7//用于控制分页
+    largeseconds:0,
+    smallseconds:0,
+    pageSize:5//用于控制分页
   },
   onLoad: function () {
     this.setData({
@@ -17,15 +18,23 @@ Page({
 
     var that=this;
     wx.request({
-      url: 'https://jianbujing.moontell.cn/api/imagelist/selectpublic',
+      url: 'https://jianbujing.moontell.cn/api/imagelist/selectpublic?pageSize='+this.data.pageSize,
       method: "post",
       success: function (res) {
-        console.log("select所有公开图片api调用结果: ");
-        console.log(res);
-        console.info("select所有公开图片api调用状态码： " + res.statusCode);
-        that.setData({ imagelist:res.data});
-        var newpageStart = that.data.pageStart + that.data.pageSize;
-        that.setData({ pageStart: newpageStart });
+        if(res.data!=""){
+          console.log("select公开图片api调用结果: ");
+          console.log(res);
+          console.info("select公开图片api调用状态码： " + res.statusCode);
+          that.setData({ imagelist: res.data });
+          var tempsmallseconds = res.data[res.data.length - 1].seconds;
+          that.setData({ smallseconds: tempsmallseconds });
+          var templargeseconds = res.data[0].seconds;
+          that.setData({ largeseconds: templargeseconds });
+          console.log("最大最小秒数：" + templargeseconds + ">" + tempsmallseconds);
+        }
+        else{
+          console.log("没有图片");
+        }
       }
     })
     
@@ -37,17 +46,24 @@ Page({
 
         var that=this;
     　　wx.request({
-        url: 'https://jianbujing.moontell.cn/api/imagelist/selectpublic?start='+this.data.pageStart,
+        url: 'https://jianbujing.moontell.cn/api/imagelist/selectpublic?largeseconds=' + this.data.largeseconds + "&smallseconds=" + this.data.smallseconds+"&pageSize="+this.data.pageSize,
         method: "post",
         success: function (res) {
-          console.log("select所有公开图片api调用结果: ");
+          console.log("select公开图片api调用结果: ");
           console.log(res);
-          console.info("select所有公开图片api调用状态码： " + res.statusCode);
+          console.info("select公开图片api调用状态码： " + res.statusCode);
           if (res.data!=""){
             var images = res.data.concat(that.data.imagelist);
             that.setData({ imagelist: images });
-            var newpageStart = that.data.pageStart + that.data.pageSize;
-            that.setData({ pageStart: newpageStart });
+
+            //设置最大最小seconds
+            var tempsmallseconds = res.data[res.data.length - 1].seconds;
+            if (tempsmallseconds < that.data.smallseconds)
+              that.setData({ smallseconds: tempsmallseconds });
+            var templargeseconds = res.data[0].seconds;
+            if (templargeseconds > that.data.largeseconds)
+              that.setData({ largeseconds: templargeseconds });
+            console.log("最大最小秒数："+that.data.largeseconds + ">" + that.data.smallseconds);
           }
           // console.log(that.data.imagelist);
         }
@@ -57,8 +73,8 @@ Page({
           wx.stopPullDownRefresh() //停止下拉刷新
         }
     })    
-  }
-  ,
+  },
+  //调整图片大小
   imageLoad: function (e) {
     var width = e.detail.width,    //获取图片真实宽度
       height = e.detail.height,
