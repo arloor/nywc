@@ -1,5 +1,5 @@
 <!--imagehub.wxml-->
-<view class="container" >
+<view class="holder" >
   <view wx:for="{{imagelist}}" wx:for-item="imageinfo"> 
      <text class="log-item">{{imageinfo.nickName}}</text> 
       <image src="{{ imageinfo.imageURL }}" bindload="imageLoad" data-index="{{ index }}" 

@@ -6,3 +6,9 @@
 .log-item {
   margin: 10rpx;
 }
+.holder{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50rpx;
+}

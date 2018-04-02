@@ -83,19 +83,19 @@ Page({
    * 事件处理函数
    */
   getmine:function(){
-    console.log('--------下拉刷新-------')
+    console.log('--------点击刷新-------')
     wx.showNavigationBarLoading() //在标题栏中显示加载
 
-    this.setData({ minebuttonmsg:"查看更多"});
+    this.setData({ minebuttonmsg:"刷新查看更多"});
 
     var that = this;
     wx.request({
       url: 'https://jianbujing.moontell.cn/api/user/viewmine?largeseconds=' + this.data.largeseconds + "&smallseconds=" + this.data.smallseconds + "&pageSize=" + this.data.pageSize + "&openid="+this.data.openId,
       method: "post",
       success: function (res) {
-        console.log("select公开图片api调用结果: ");
+        console.log("select我的图片api调用结果: ");
         console.log(res);
-        console.info("select公开图片api调用状态码： " + res.statusCode);
+        console.info("select我的图片api调用状态码： " + res.statusCode);
         if (res.data != "") {
           var images = res.data.concat(that.data.imagelist);
           that.setData({ imagelist: images });
