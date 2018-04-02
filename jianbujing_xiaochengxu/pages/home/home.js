@@ -132,6 +132,14 @@ Page({
     this.setData({
       images: image
     })
+  },
+  //图片被点击的事件
+  tapimage: function (e) {
+    var image = this.data.imagelist;
+    console.log(image[e.target.dataset.index].key + " 被点击");
+    wx.navigateTo({
+      url: '../imagedetail/imagedetail?key=' + image[e.target.dataset.index].key + "&openid=" + image[e.target.dataset.index].openId + "&imageurl=" + image[e.target.dataset.index].imageURL,
+    })
   }
   
 })

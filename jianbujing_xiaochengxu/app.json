@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/imagehub/imagehub",
     "pages/add/add",
-    "pages/home/home"
+    "pages/home/home",
+    "pages/imagedetail/imagedetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

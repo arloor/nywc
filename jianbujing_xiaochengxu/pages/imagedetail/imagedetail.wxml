@@ -1,0 +1,5 @@
+<!--pages/imagedetail/imagedetail.wxml-->
+<text>pages/imagedetail/imagedetail.wxml\n</text>
+<text>{{key}}\n</text>
+<text>{{imageURL}}\n</text>
+<text>{{openId}}\n</text>
