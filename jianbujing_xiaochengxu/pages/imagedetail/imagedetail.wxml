@@ -1,5 +1,6 @@
 <!--pages/imagedetail/imagedetail.wxml-->
-<text>pages/imagedetail/imagedetail.wxml\n</text>
-<text>{{key}}\n</text>
-<text>{{imageURL}}\n</text>
-<text>{{openId}}\n</text>
+<view class="holder" >
+  <image src="{{ imageURL }}"  bindload="imageLoad" 
+style="width:{{ widthheight.width }}rpx; height:{{ widthheight.height }}rpx;"></image>
+<text>下面要在这个页面做工作啦！要做的有获取图片信息、加载评论信息、处理点击事件（包括，作者点击评论以回复评论——其他用户点击图片以评论——作者点击info以修改info）.关键在于对是否作者的判断。另外要考虑是否提供下载接口</text>
+</view>
