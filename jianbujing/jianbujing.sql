@@ -10,10 +10,28 @@ Target Server Type    : MariaDB
 Target Server Version : 50556
 File Encoding         : 65001
 
-Date: 2018-04-02 14:32:27
+Date: 2018-04-02 16:43:42
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for comments
+-- ----------------------------
+DROP TABLE IF EXISTS `comments`;
+CREATE TABLE `comments` (
+  `key` varchar(255) NOT NULL,
+  `commentopenid` varchar(40) NOT NULL,
+  `comment` varchar(255) DEFAULT NULL,
+  `reply` varchar(255) DEFAULT NULL,
+  `commenttime` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `replytime` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`key`,`commentopenid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of comments
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for imageinfo
@@ -43,8 +61,38 @@ INSERT INTO `imageinfo` VALUES ('Fmsozl8ns-z51QRCQfsL8nXpYPXV', 'oaRji5KZE-WSmM4
 INSERT INTO `imageinfo` VALUES ('FniI6lZXGO82-mTpbv30QMyySJNO', 'oaRji5KZE-WSmM4_m2dfsUrtouVM', '小木子学长', 'http://om319jsda.bkt.clouddn.com/FniI6lZXGO82-mTpbv30QMyySJNO', '', '1522650576373', '2018-04-02 14:29:36', 'true', 'true');
 INSERT INTO `imageinfo` VALUES ('FodVtNE8uKMs7OJvdLRc9hIpTFGY', 'oaRji5KZE-WSmM4_m2dfsUrtouVM', '小木子学长', 'http://om319jsda.bkt.clouddn.com/FodVtNE8uKMs7OJvdLRc9hIpTFGY', '', '1522650581680', '2018-04-02 14:29:41', 'true', 'true');
 INSERT INTO `imageinfo` VALUES ('FoIQm1qpKMRMKb-zMBCRc90V0xes', 'oaRji5KZE-WSmM4_m2dfsUrtouVM', '小木子学长', 'http://om319jsda.bkt.clouddn.com/FoIQm1qpKMRMKb-zMBCRc90V0xes', '', '1522650553678', '2018-04-02 14:29:13', 'true', 'true');
+INSERT INTO `imageinfo` VALUES ('FrPbyYs7PrJbeNjRn-Qi6dQyZwyp', 'oaRji5KZE-WSmM4_m2dfsUrtouVM', '小木子学长', 'http://om319jsda.bkt.clouddn.com/FrPbyYs7PrJbeNjRn-Qi6dQyZwyp', '哈哈哈哈', '1522651183633', '2018-04-02 14:39:43', 'true', 'true');
 INSERT INTO `imageinfo` VALUES ('Fss8jyIWkaDb4XxxYrh1WvQXeISl', 'oaRji5KZE-WSmM4_m2dfsUrtouVM', '小木子学长', 'http://om319jsda.bkt.clouddn.com/Fss8jyIWkaDb4XxxYrh1WvQXeISl', '', '1522650551546', '2018-04-02 14:29:11', 'true', 'true');
 INSERT INTO `imageinfo` VALUES ('Ftec5zwjkPPPVe1lJ0eKsjwy1heZ', 'oaRji5KZE-WSmM4_m2dfsUrtouVM', '小木子学长', 'http://om319jsda.bkt.clouddn.com/Ftec5zwjkPPPVe1lJ0eKsjwy1heZ', '', '1522650561158', '2018-04-02 14:29:21', 'true', 'true');
 INSERT INTO `imageinfo` VALUES ('Fu-ae2S782V6bfDOFdMxN2Ovxa4F', 'oaRji5KZE-WSmM4_m2dfsUrtouVM', '小木子学长', 'http://om319jsda.bkt.clouddn.com/Fu-ae2S782V6bfDOFdMxN2Ovxa4F', '', '1522650574152', '2018-04-02 14:29:34', 'true', 'true');
 INSERT INTO `imageinfo` VALUES ('FvwwE4QCbub2IHWFikAKxyKfKiOv', 'oaRji5KZE-WSmM4_m2dfsUrtouVM', '小木子学长', 'http://om319jsda.bkt.clouddn.com/FvwwE4QCbub2IHWFikAKxyKfKiOv', '', '1522650556058', '2018-04-02 14:29:16', 'true', 'true');
+
+-- ----------------------------
+-- Table structure for starimage
+-- ----------------------------
+DROP TABLE IF EXISTS `starimage`;
+CREATE TABLE `starimage` (
+  `openid` varchar(40) NOT NULL,
+  `key` varchar(255) NOT NULL,
+  PRIMARY KEY (`openid`,`key`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of starimage
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for userInfo
+-- ----------------------------
+DROP TABLE IF EXISTS `userInfo`;
+CREATE TABLE `userInfo` (
+  `openid` varchar(40) NOT NULL COMMENT '"微信公众平台用户的唯一id"',
+  `nickname` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`openid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='"用户信息表"';
+
+-- ----------------------------
+-- Records of userInfo
+-- ----------------------------
+INSERT INTO `userInfo` VALUES ('oaRji5KZE-WSmM4_m2dfsUrtouVM', '小木子学长');
 SET FOREIGN_KEY_CHECKS=1;
