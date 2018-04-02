@@ -12,6 +12,7 @@ public class Imageinfo {
   private String info;
   private java.sql.Timestamp uptime;
   private String ispublic;
+  private String valid;
 
   public String getKey() {
     return key;
@@ -67,5 +68,13 @@ public class Imageinfo {
 
   public void setIspublic(String ispublic) {
     this.ispublic = ispublic;
+  }
+
+  public String getValid() {
+    return valid;
+  }
+
+  public void setValid(String valid) {
+    this.valid = valid;
   }
 }

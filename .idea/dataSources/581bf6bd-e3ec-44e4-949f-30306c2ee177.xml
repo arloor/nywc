@@ -880,7 +880,14 @@
       <DefaultExpression>&apos;true&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="215" parent="207" name="PRIMARY">
+    <column id="215" parent="207" name="valid">
+      <Position>8</Position>
+      <Comment>有没有被标记为违规</Comment>
+      <DataType>varchar(5)|0</DataType>
+      <DefaultExpression>&apos;true&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="216" parent="207" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>openid
 key</ColNames>

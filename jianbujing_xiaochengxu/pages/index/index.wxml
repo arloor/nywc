@@ -6,6 +6,6 @@
        <!-- <text class="userinfo-nickname">{{openId}}</text>  -->
   </view>
   <view>
-    <view class="appinfo" wx:for="{{appinfo}}">{{item}}</view>
+    <text class="appinfo" wx:for="{{appinfo}}">{{item}}</text>
   </view>
 </view>

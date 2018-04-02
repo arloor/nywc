@@ -1,10 +1,16 @@
 <!--imagehub.wxml-->
-
-<view class="container log-list" >
-  <block wx:for="{{imagelist}}" wx:for-item="imageinfo"> 
+<view class="container" >
+  <view wx:for="{{imagelist}}" wx:for-item="imageinfo"> 
      <text class="log-item">{{imageinfo.nickName}}</text> 
-     <image src="{{imageinfo.imageURL}}"></image>
-  </block>
+     <!-- <image src="{{imageinfo.imageURL}}" class="image" mode="aspectFit"></image> -->
+     
+
+<image src="{{ imageinfo.imageURL }}" bindload="imageLoad" data-index="{{ index }}" 
+style="width:{{ images[index].width }}rpx; height:{{ images[index].height }}rpx;"></image>
+
+
+     <text class="log-item">{{imageinfo.info}}</text> 
+  </view>
 </view>
 <view class="container log-list" style='display:none'>
   <block wx:for="{{logs}}" wx:for-item="log">
