@@ -60,6 +60,12 @@
 			<artifactId>qiniu-java-sdk</artifactId>
 			<version>[7.0.0, 7.2.99]</version>
 		</dependency>
+		<!--PageHelper-->
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper-spring-boot-starter</artifactId>
+			<version>1.2.3</version>
+		</dependency>
 	</dependencies>
 
 	<build>

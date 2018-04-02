@@ -2,6 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.arloor.jianbujing.dao.ImageListDao">
     <select id="selectPublic" resultType="com.arloor.jianbujing.domain.Imageinfo">
-        SELECT * FROM imageinfo WHERE ispublic="true" ORDER BY uptime DESC ;
+        SELECT * FROM imageinfo WHERE ispublic="true" AND valid="true" ORDER BY uptime DESC
+    </select>
+    <select id="selectCountPublic" resultType="java.lang.Integer">
+        SELECT count(*) FROM imageinfo WHERE ispublic="true" AND valid="true";
     </select>
 </mapper>

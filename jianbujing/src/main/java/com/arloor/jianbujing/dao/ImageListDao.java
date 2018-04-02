@@ -7,5 +7,7 @@ import java.util.List;
 
 @Mapper
 public interface ImageListDao {
-    public List<Imageinfo> selectPublic();
+    List<Imageinfo> selectPublic();
+
+    int selectCountPublic();
 }
