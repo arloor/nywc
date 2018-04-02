@@ -1,52 +1,96 @@
-//logs.js
-const util = require('../../utils/util.js')
+// pages/home/home.js
 
+const app = getApp();
 Page({
-  data: {
-    logs: [],
-    imagelist:[],
-    largeseconds:0,
-    smallseconds:0,
-    pageSize:5//用于控制分页
-  },
-  onLoad: function () {
-    this.setData({
-      logs: (wx.getStorageSync('logs') || []).map(log => {
-        return util.formatTime(new Date(log))
-      })
-    });
 
-    var that=this;
-    wx.request({
-      url: 'https://jianbujing.moontell.cn/api/imagelist/selectpublic?pageSize='+this.data.pageSize,
-      method: "post",
-      success: function (res) {
-        if(res.data!=""){
-          console.log("select公开图片api调用结果: ");
-          console.log(res);
-          console.info("select公开图片api调用状态码： " + res.statusCode);
-          that.setData({ imagelist: res.data });
-          var tempsmallseconds = res.data[res.data.length - 1].seconds;
-          that.setData({ smallseconds: tempsmallseconds });
-          var templargeseconds = res.data[0].seconds;
-          that.setData({ largeseconds: templargeseconds });
-          console.log("最大最小秒数：" + templargeseconds + ">" + tempsmallseconds);
-        }
-        else{
-          console.log("没有图片");
-        }
-      }
-    })
-    
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    userInfo:{},
+    openId:"",
+    minebuttonmsg:"点击查看我的作品",
+    imagelist: [],
+    largeseconds: 0,
+    smallseconds: 0,
+    pageSize: 5//用于控制分页
   },
-  //下拉刷新
-  onPullDownRefresh() {
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    this.setData({ userInfo: app.globalData.userInfo});
+    this.setData({ openId: app.globalData.openId });
+
+    //更新数据库中的用户信息
+    wx.request({
+      url: 'https://jianbujing.moontell.cn/api/user/updateuser?openid='+this.data.openId+"&nickname="+this.data.userInfo.nickName,
+    })
+
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+  
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+  
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+  
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+  
+  },
+  /**
+   * 事件处理函数
+   */
+  getmine:function(){
     console.log('--------下拉刷新-------')
     wx.showNavigationBarLoading() //在标题栏中显示加载
 
+    this.setData({ minebuttonmsg:"查看更多"});
+
     var that = this;
     wx.request({
-      url: 'https://jianbujing.moontell.cn/api/imagelist/selectpublic?largeseconds=' + this.data.largeseconds + "&smallseconds=" + this.data.smallseconds + "&pageSize=" + this.data.pageSize,
+      url: 'https://jianbujing.moontell.cn/api/user/viewmine?largeseconds=' + this.data.largeseconds + "&smallseconds=" + this.data.smallseconds + "&pageSize=" + this.data.pageSize + "&openid="+this.data.openId,
       method: "post",
       success: function (res) {
         console.log("select公开图片api调用结果: ");
@@ -58,7 +102,7 @@ Page({
 
           //设置最大最小seconds
           var tempsmallseconds = res.data[res.data.length - 1].seconds;
-          if (tempsmallseconds < that.data.smallseconds)
+          if (tempsmallseconds < that.data.smallseconds || that.data.smallseconds==0)
             that.setData({ smallseconds: tempsmallseconds });
           var templargeseconds = res.data[0].seconds;
           if (templargeseconds > that.data.largeseconds)
@@ -72,7 +116,7 @@ Page({
         wx.hideNavigationBarLoading() //完成停止加载
         wx.stopPullDownRefresh() //停止下拉刷新
       }
-    })    
+    }) 
   },
   //调整图片大小
   imageLoad: function (e) {
@@ -90,5 +134,4 @@ Page({
     })
   }
   
-
 })

@@ -823,12 +823,65 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="207" parent="3" name="imageinfo">
+    <table id="207" parent="3" name="comments">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="208" parent="3" name="imageinfo">
       <Comment>图片信息表</Comment>
       <Engine>InnoDB</Engine>
       <Collation>latin1_swedish_ci</Collation>
     </table>
-    <column id="208" parent="207" name="key">
+    <table id="209" parent="3" name="starimage">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="210" parent="3" name="staruser">
+      <Comment>用户关注的关系</Comment>
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="211" parent="3" name="userInfo">
+      <Comment>&quot;用户信息表&quot;</Comment>
+      <Engine>InnoDB</Engine>
+    </table>
+    <column id="212" parent="207" name="key">
+      <Position>1</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="213" parent="207" name="commentopenid">
+      <Position>2</Position>
+      <DataType>varchar(40)|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="214" parent="207" name="comment">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="215" parent="207" name="reply">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="216" parent="207" name="commenttime">
+      <Position>5</Position>
+      <DataType>timestamp|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+      <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
+    </column>
+    <column id="217" parent="207" name="replytime">
+      <Position>6</Position>
+      <DataType>timestamp|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="218" parent="207" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>key
+commentopenid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="219" parent="208" name="key">
       <Position>1</Position>
       <Comment>&quot;图片在云存储中的名称&quot;</Comment>
       <DataType>varchar(255)|0</DataType>
@@ -836,7 +889,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_general_ci</Collation>
     </column>
-    <column id="209" parent="207" name="openid">
+    <column id="220" parent="208" name="openid">
       <Position>2</Position>
       <Comment>&quot;微信用户的openid&quot;</Comment>
       <DataType>varchar(255)|0</DataType>
@@ -844,14 +897,14 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_general_ci</Collation>
     </column>
-    <column id="210" parent="207" name="nickName">
+    <column id="221" parent="208" name="nickName">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_general_ci</Collation>
     </column>
-    <column id="211" parent="207" name="imageURL">
+    <column id="222" parent="208" name="imageURL">
       <Position>4</Position>
       <Comment>&quot;图片的网址&quot;</Comment>
       <DataType>varchar(255)|0</DataType>
@@ -859,43 +912,96 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_general_ci</Collation>
     </column>
-    <column id="212" parent="207" name="info">
+    <column id="223" parent="208" name="info">
       <Position>5</Position>
       <Comment>&quot;作者对这个设计的描述&quot;</Comment>
       <DataType>longtext|0</DataType>
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_general_ci</Collation>
     </column>
-    <column id="213" parent="207" name="seconds">
+    <column id="224" parent="208" name="seconds">
       <Position>6</Position>
       <DataType>varchar(30)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="214" parent="207" name="uptime">
+    <column id="225" parent="208" name="uptime">
       <Position>7</Position>
       <DataType>timestamp|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="215" parent="207" name="ispublic">
+    <column id="226" parent="208" name="ispublic">
       <Position>8</Position>
       <Comment>&quot;是否公开&quot;</Comment>
       <DataType>varchar(5)|0</DataType>
       <DefaultExpression>&apos;true&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="216" parent="207" name="valid">
+    <column id="227" parent="208" name="valid">
       <Position>9</Position>
       <Comment>有没有被标记为违规</Comment>
       <DataType>varchar(5)|0</DataType>
       <DefaultExpression>&apos;true&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="217" parent="207" name="PRIMARY">
+    <key id="228" parent="208" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>openid
 key</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="229" parent="209" name="openid">
+      <Position>1</Position>
+      <DataType>varchar(40)|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="230" parent="209" name="key">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="231" parent="209" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>openid
+key</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="232" parent="210" name="openid">
+      <Position>1</Position>
+      <DataType>varchar(40)|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="233" parent="210" name="staropenid">
+      <Position>2</Position>
+      <DataType>varchar(40)|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="234" parent="210" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>openid
+staropenid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="235" parent="211" name="openid">
+      <Position>1</Position>
+      <Comment>&quot;微信公众平台用户的唯一id&quot;</Comment>
+      <DataType>varchar(40)|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="236" parent="211" name="nickname">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="237" parent="211" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>openid</ColNames>
       <Primary>1</Primary>
     </key>
   </database-model>

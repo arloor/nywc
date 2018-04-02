@@ -1,0 +1,14 @@
+<!--pages/home/home.wxml-->
+<view class="holder">
+  <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+  <text>{{userInfo.nickName}}\n</text>
+  <text style='display:none'>{{openId}}</text>
+</view>
+<view class='holder'>
+  <button bindtap='getmine'>{{minebuttonmsg}}</button>
+  <view wx:for="{{imagelist}}" wx:for-item="imageinfo"> 
+      <image src="{{ imageinfo.imageURL }}" bindload="imageLoad" data-index="{{ index }}" 
+style="width:{{ images[index].width }}rpx; height:{{ images[index].height }}rpx;"></image>
+      <text>\n</text> 
+  </view>
+</view>

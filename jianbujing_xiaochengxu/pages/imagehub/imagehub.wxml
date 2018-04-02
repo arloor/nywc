@@ -4,7 +4,8 @@
      <text class="log-item">{{imageinfo.nickName}}</text> 
       <image src="{{ imageinfo.imageURL }}" bindload="imageLoad" data-index="{{ index }}" 
 style="width:{{ images[index].width }}rpx; height:{{ images[index].height }}rpx;"></image>
-      <text class="log-item">{{imageinfo.info}}</text> 
+      <text class="log-item" style='display:none' >{{imageinfo.info}}</text>
+      <text>\n</text> 
   </view>
 </view>
 <view class="container log-list" style='display:none'>
