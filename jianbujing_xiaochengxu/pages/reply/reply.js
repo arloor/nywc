@@ -79,7 +79,12 @@ Page({
       url: 'https://jianbujing.moontell.cn/api/user/updatereply?openid=' + this.data.commentopenid + "&key=" + this.data.key + "&reply=" + reply,
     })
     //返回图片详情页
-    wx.navigateBack({
+    wx.showToast({
+      title: '回复成功',
+      duration:2000,
+      complete:function(){
+      }
     })
+
   }
 })

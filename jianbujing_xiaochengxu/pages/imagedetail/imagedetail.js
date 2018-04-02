@@ -124,6 +124,12 @@ Page({
     wx.request({
       url: 'https://jianbujing.moontell.cn/api/user/updatecomment?openid=' + this.data.curopenId+"&key="+this.data.key+"&comment="+mycomment,
     })
+    wx.showToast({
+      title: '评论成功',
+      duration: 2000,
+      complete: function () {
+      }
+    })
   },
   formSubmitOwner:function(e){
     console.log("======修改图片信息=====");
@@ -141,6 +147,12 @@ Page({
       success: function (res) {
         console.info("修改图片信息的api调用状态码： " + res.statusCode);
         console.log("修改图片信息的api调用结果: ",res);
+        wx.showToast({
+          title: '修改信息成功',
+          duration: 2000,
+          complete: function () {
+          }
+        })
       }
     })
   },
