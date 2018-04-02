@@ -41,6 +41,9 @@ Page({
       header: { 'content-type': 'application/json' },
       method: "post",
       success: function (res) {
+        wx.showToast({
+          title: '修改信息成功',
+        })
         console.log("修改图片信息的api调用结果: ");
         console.log(res);
         console.info("修改图片信息的api调用状态码： " + res.statusCode);
@@ -80,6 +83,9 @@ function didPressChooesImage(that) {
             console.log("插入图片信息的api调用结果: ");
             console.log(res);
             console.info("插入图片信息的api调用状态码： "+res.statusCode);
+            wx.showToast({
+              title: '上传成功',
+            })
           }
         })
       }, (error) => {

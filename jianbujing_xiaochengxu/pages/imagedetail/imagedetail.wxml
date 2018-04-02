@@ -18,6 +18,7 @@ style="width:{{ widthheight.width }}rpx; height:{{ widthheight.height }}rpx;"></
 
 
   <form wx:if="{{curopenId==openId}}" bindsubmit="formSubmitOwner">
+    <text>您是作者!\n\n</text>
   <view class="section">
     <view class="section__title">图片信息</view>
     <textarea name="info" value='{{imageinfo.info}}'></textarea>
