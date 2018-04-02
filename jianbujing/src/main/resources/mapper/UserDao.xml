@@ -4,8 +4,17 @@
     <insert id="insertUser">
         INSERT INTO userInfo(openid, nickname) VALUE (#{openId},#{nickName});
     </insert>
+    <insert id="insertComment">
+        INSERT INTO comments(`key`,commentopenid,comment) VALUE (#{key},#{openId},#{comment});
+    </insert>
     <update id="updateUser">
         UPDATE userInfo SET nickName=#{nickName} where openid=#{openId};
+    </update>
+    <update id="updateComment">
+        UPDATE comments SET comment=#{comment},commenttime=current_timestamp where commentopenid=#{openId} and `key`=#{key};
+    </update>
+    <update id="updateReply">
+        UPDATE comments SET reply=#{reply},replytime=current_timestamp where commentopenid=#{openId} and `key`=#{key};
     </update>
     <select id="selectMineNewer" resultType="com.arloor.jianbujing.domain.Imageinfo">
         SELECT * FROM imageinfo WHERE openid=#{openid} AND seconds>#{seconds} ORDER BY uptime DESC

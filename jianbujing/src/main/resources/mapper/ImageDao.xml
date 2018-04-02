@@ -7,4 +7,10 @@
 <update id="update" parameterType="com.arloor.jianbujing.domain.Imageinfo">
     UPDATE imageinfo SET info=#{info},ispublic=#{ispublic} where openid=#{openId} and `key`=#{key};
 </update>
+    <select id="selectImageInfo" resultType="com.arloor.jianbujing.domain.Imageinfo" parameterType="com.arloor.jianbujing.domain.Imageinfo">
+        SELECT * FROM imageinfo WHERE openid=#{openId} and `key`=#{key};
+    </select>
+    <select id="selectComments" resultType="com.arloor.jianbujing.domain.Comment">
+        SELECT * FROM comments left join userInfo on comments.commentopenid=userInfo.openid WHERE `key`=#{key} order by commenttime DESC ;
+    </select>
 </mapper>

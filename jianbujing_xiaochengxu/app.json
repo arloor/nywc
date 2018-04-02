@@ -4,7 +4,8 @@
     "pages/imagehub/imagehub",
     "pages/add/add",
     "pages/home/home",
-    "pages/imagedetail/imagedetail"
+    "pages/imagedetail/imagedetail",
+    "pages/reply/reply"
   ],
   "window": {
     "backgroundTextStyle": "light",

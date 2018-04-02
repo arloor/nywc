@@ -1,14 +1,21 @@
 // pages/imagedetail/imagedetail.js
+const app = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    curopenId:null,
+    mycomment:"",
+    mycommentreply:"",
     openId:null,
     key:null,
     imageURL:null,
-    widthheight:{}
+    widthheight:{},
+    comments:[],
+    imageinfo:{}
   },
 
   /**
@@ -18,6 +25,7 @@ Page({
     this.setData({ openId: options.openid});
     this.setData({ key: options.key });
     this.setData({ imageURL: options.imageurl });
+    this.setData({ curopenId:app.globalData.openId});
   },
 
   /**
@@ -31,7 +39,33 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    var that = this;
+
+    wx.request({
+      url: 'https://jianbujing.moontell.cn/api/image/viewdetail',
+      data: {
+        "key": this.data.key,
+        "openId": this.data.openId
+      },
+      header: { 'content-type': 'application/json' },
+      method: "post",
+      success: function (res) {
+        console.info("获取图片信息以及评论的api调用状态码： " + res.statusCode);
+        console.log("获取图片信息以及评论的api调用结果: ");
+        console.log(res);
+
+        that.setData({ imageinfo: res.data.imageinfo });
+        for (var i = 0; i < res.data.comments.length; i++) {
+          if (res.data.comments[i].commentopenid == that.data.curopenId) {
+            that.setData({ mycomment: res.data.comments[i].comment });
+            that.setData({ mycommentreply: res.data.comments[i].reply });
+            res.data.comments.splice(i, 1);
+            break;
+          }
+        }
+        that.setData({ comments: res.data.comments });
+      }
+    })
   },
 
   /**
@@ -81,6 +115,41 @@ Page({
     widthheight.height = viewHeight;
     this.setData({
       widthheight: widthheight
+    })
+  },
+  formSubmitComment:function(e){
+    console.log("======评论图片=====");
+    // console.log(e);
+    var mycomment = e.detail.value.mycomment;
+    wx.request({
+      url: 'https://jianbujing.moontell.cn/api/user/updatecomment?openid=' + this.data.curopenId+"&key="+this.data.key+"&comment="+mycomment,
+    })
+  },
+  formSubmitOwner:function(e){
+    console.log("======修改图片信息=====");
+    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    wx.request({
+      url: 'https://jianbujing.moontell.cn/api/image/update',
+      data: {
+        "key": this.data.key,
+        "openId": app.globalData.openId,
+        "info": e.detail.value.info,
+        "ispublic": e.detail.value.ispublic
+      },
+      header: { 'content-type': 'application/json' },
+      method: "post",
+      success: function (res) {
+        console.info("修改图片信息的api调用状态码： " + res.statusCode);
+        console.log("修改图片信息的api调用结果: ",res);
+      }
+    })
+  },
+  reply:function(e){
+    console.log("======reply激发======");
+    console.log("e.target.dataset", e.target.dataset);
+    console.log("跳转到reply页面");
+    wx.navigateTo({
+      url: '../reply/reply?key=' + e.target.dataset.key + "&reply=" + e.target.dataset.reply + "&commentopenid=" + e.target.dataset.commentopenid,
     })
   }
 })

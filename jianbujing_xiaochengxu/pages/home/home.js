@@ -93,9 +93,9 @@ Page({
       url: 'https://jianbujing.moontell.cn/api/user/viewmine?largeseconds=' + this.data.largeseconds + "&smallseconds=" + this.data.smallseconds + "&pageSize=" + this.data.pageSize + "&openid="+this.data.openId,
       method: "post",
       success: function (res) {
+        console.info("select我的图片api调用状态码： " + res.statusCode);
         console.log("select我的图片api调用结果: ");
         console.log(res);
-        console.info("select我的图片api调用状态码： " + res.statusCode);
         if (res.data != "") {
           var images = res.data.concat(that.data.imagelist);
           that.setData({ imagelist: images });

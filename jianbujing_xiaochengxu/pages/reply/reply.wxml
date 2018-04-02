@@ -1,0 +1,10 @@
+<!--pages/reply/reply.wxml-->
+<form bindsubmit="formSubmitReply">
+  <view class="section">
+    <view class="section__title">回复评论</view>
+    <textarea value='{{reply}}' name="reply"></textarea>
+    <view class="btn-area">
+      <button formType="submit">Submit</button>
+    </view>
+  </view>
+</form>

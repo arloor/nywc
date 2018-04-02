@@ -4,6 +4,7 @@ import com.arloor.jianbujing.dao.UserDao;
 import com.arloor.jianbujing.domain.Imageinfo;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,6 +26,26 @@ public class UserService {
         if(userDao.updateUser(openid, nickname)==0){
             userDao.insertUser(openid,nickname);
         }
+    }
+
+    @RequestMapping("/updatecomment")
+    public void updatecomment(
+            @RequestParam String openid,
+            @RequestParam String key,
+            @RequestParam String comment
+    ){
+        if(userDao.updateComment(openid,key,comment)==0){
+            userDao.insertComment(openid,key,comment);
+        }
+    }
+
+    @RequestMapping("updatereply")
+    public void updatereply(
+            @RequestParam String openid,
+            @RequestParam String key,
+            @RequestParam String reply
+    ){
+        userDao.updateReply(openid,key,reply);
     }
 
     @RequestMapping("/viewmine")
@@ -53,7 +74,6 @@ public class UserService {
                 imageinfoList=userDao.selectMineOlder(openid,smallseconds);
                 return imageinfoList;
             }
-
         }
     }
 }
