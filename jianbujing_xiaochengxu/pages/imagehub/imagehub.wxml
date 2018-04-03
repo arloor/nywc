@@ -1,7 +1,7 @@
 <!--imagehub.wxml-->
 <view class="holder" >
   <view wx:for="{{imagelist}}" wx:for-item="imageinfo"> 
-     <text class="log-item">{{imageinfo.nickName}}</text> 
+     <text class="log-item">{{imageinfo.nickName}}\n</text> 
       <image src="{{ imageinfo.imageURL }}" bindtap="tapimage" bindload="imageLoad" data-index="{{ index }}" 
 style="width:{{ images[index].width }}rpx; height:{{ images[index].height }}rpx;"></image>
       <text class="log-item" style='display:none' >{{imageinfo.info}}</text>

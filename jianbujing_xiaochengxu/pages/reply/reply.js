@@ -83,6 +83,9 @@ Page({
       title: '回复成功',
       duration:2000,
       complete:function(){
+        wx.navigateBack({
+          
+        })
       }
     })
 

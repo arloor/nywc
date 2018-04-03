@@ -32,10 +32,10 @@ style="width:{{ widthheight.width }}rpx; height:{{ widthheight.height }}rpx;"></
   </view>
   <text>\n</text>
   <view wx:for="{{comments}}" wx:for-item="comment"> 
-      <text>{{comment.nickName}}:\n</text> 
+      <text style='color:#20519f;font-size:larger'>{{comment.nickName}}:\n</text> 
       <text>{{comment.comment}}\n</text>
-      <text>reply:\n</text>
-      <input data-key='{{key}}' data-reply='{{comment.reply}}' data-commentopenid="{{comment.commentopenid}}" placeholder='回复评论：' bindtap='reply' value='{{comment.reply}}'></input>
+      <text style='color:#20519f;font-size:larger'>reply:\n</text>
+      <input data-key='{{key}}' data-reply='{{comment.reply}}' data-commentopenid="{{comment.commentopenid}}" placeholder='回复评论：' bindtap='reply' value='{{comment.reply}}' disabled='true'></input>
       <text>\n</text> 
   </view>
   <view class="btn-area">
@@ -54,16 +54,16 @@ style="width:{{ widthheight.width }}rpx; height:{{ widthheight.height }}rpx;"></
     <text>\n</text>
   </view>
   <view wx:for="{{comments}}" wx:for-item="comment"> 
-      <text>{{comment.nickName}}:\n</text> 
+      <text style='color:#20519f;font-size:larger'>{{comment.nickName}}:\n</text> 
       <text>{{comment.comment}}\n</text>
-      <text>reply:\n</text>
+      <text style='color:#20519f;font-size:larger'>reply:\n</text>
       <input placeholder='无回复' value='{{comment.reply}}' disabled='true'></input>
       <text>\n</text>
   </view>
   <view class="section">
-    <view class="section__title">我的评论</view>
+    <view style='color:#20519f;font-size:larger' class="section__title">我的评论</view>
     <input name="mycomment" placeholder='输入评论' value='{{mycomment}}'/>
-    <text>reply:\n</text>
+    <text style='color:#20519f;font-size:larger'>reply:\n</text>
       <input placeholder='无回复' value='{{mycommentreply}}' disabled='true'></input>
   </view>
   <view class="btn-area">

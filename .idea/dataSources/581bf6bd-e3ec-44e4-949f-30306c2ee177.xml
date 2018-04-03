@@ -977,7 +977,14 @@ key</ColNames>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="233" parent="210" name="PRIMARY">
+    <column id="233" parent="210" name="lasttime">
+      <Position>3</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="234" parent="210" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>openid</ColNames>
       <Primary>1</Primary>

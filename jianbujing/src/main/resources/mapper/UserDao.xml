@@ -8,7 +8,7 @@
         INSERT INTO comments(`key`,commentopenid,comment) VALUE (#{key},#{openId},#{comment});
     </insert>
     <update id="updateUser">
-        UPDATE userInfo SET nickName=#{nickName} where openid=#{openId};
+        UPDATE userInfo SET nickName=#{nickName},lasttime=current_timestamp where openid=#{openId};
     </update>
     <update id="updateComment">
         UPDATE comments SET comment=#{comment},commenttime=current_timestamp where commentopenid=#{openId} and `key`=#{key};
