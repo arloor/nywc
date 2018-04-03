@@ -31,7 +31,7 @@ application.properties如下
 `server.ssl.keyAlias= jianbujing`   
  
 ## 开发和版本控制说明
-- 使用微信web开发工具，项目目录选择本git项目中`jianbujing_xiaochengxu`模块所在的文件夹，这是微信web开发工具会自动的显示appid和项目名称
+- 使用微信web开发工具，项目目录选择本git项目中`jianbujing_xiaochengxu`模块所在的文件夹，这样微信web开发工具会自动的显示appid和项目名称
 - 开发及测试使用本地运行提供的api。因为小程序前端使用的api域名为`https://jianbujing.moontell.cn`。需要开发人员覆盖本地的hosts文件，具体操作是为了产生`127.0.0.1 jianbujing.moontell.cn`的映射，将后端项目根目录下的hosts文件复制到`C:\Windows\System32\drivers\etc`文件下，linux、mac和其他windows版本的hosts文件地址会不同。    
 - 版本控制：使用idea内置的git管理   
 - 应该经常备份数据库！
