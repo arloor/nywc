@@ -36,6 +36,15 @@ application.properties如下
 - 版本控制：使用idea内置的git管理   
 - 应该经常备份数据库！
 
+## 运维要求
+基本没有  
+- 使用的`jianbujing.moontell.cn`服务器的续费
+- `jianbujing.moontell.cn` ssl证书的一年一次的续费
+- 关注七牛云方面的变化
+- 数据库服务器维护
+- 可执行jar包的保存
+- 一定要使用jdk9 
+
 ## 小程序截图
 ![avatar](screenshot/a.png)
 
@@ -47,9 +56,4 @@ application.properties如下
 
 ![avatar](screenshot/e.png)
 
-## 运维要求
-基本没有什么要求
-- 使用的`jianbujing.moontell.cn`服务器的续费
-- `jianbujing.moontell.cn` ssl证书的一年一次的续费
-- 关注七牛云方面的变化
-- 数据库服务器维护
+
