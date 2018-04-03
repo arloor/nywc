@@ -46,3 +46,10 @@ application.properties如下
 ![avatar](screenshot/d.png)
 
 ![avatar](screenshot/e.png)
+
+## 运维要求
+基本没有什么要求
+- 使用的`jianbujing.moontell.cn`服务器的续费
+- `jianbujing.moontell.cn` ssl证书的一年一次的续费
+- 关注七牛云方面的变化
+- 数据库服务器维护
