@@ -37,7 +37,11 @@ application.properties如下
 
 ##小程序截图
 ![avatar](screenshot/a.png)
+
 ![avatar](screenshot/b.png)
+
 ![avatar](screenshot/c.png)
+
 ![avatar](screenshot/d.png)
+
 ![avatar](screenshot/e.png)
