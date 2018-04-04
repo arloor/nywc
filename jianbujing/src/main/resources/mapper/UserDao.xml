@@ -22,4 +22,7 @@
     <select id="selectMineOlder" resultType="com.arloor.jianbujing.domain.Imageinfo">
         SELECT * FROM imageinfo WHERE openid=#{openid} AND seconds &lt; #{seconds} ORDER BY uptime DESC
     </select>
+    <select id="selectAllUser" resultType="com.arloor.jianbujing.domain.UserInfo">
+        SELECT * FROM userInfo;
+    </select>
 </mapper>

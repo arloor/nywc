@@ -2,6 +2,7 @@ package com.arloor.jianbujing.service;
 
 import com.arloor.jianbujing.dao.UserDao;
 import com.arloor.jianbujing.domain.Imageinfo;
+import com.arloor.jianbujing.domain.UserInfo;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,6 +38,11 @@ public class UserService {
         if(userDao.updateComment(openid,key,comment)==0){
             userDao.insertComment(openid,key,comment);
         }
+    }
+
+    @RequestMapping("/viewusers")
+    public List<UserInfo> viewUsers(){
+        return userDao.selectAllUser();
     }
 
     @RequestMapping("updatereply")

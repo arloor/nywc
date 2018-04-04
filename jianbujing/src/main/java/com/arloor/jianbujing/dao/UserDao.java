@@ -1,6 +1,7 @@
 package com.arloor.jianbujing.dao;
 
 import com.arloor.jianbujing.domain.Imageinfo;
+import com.arloor.jianbujing.domain.UserInfo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -20,4 +21,6 @@ public interface UserDao {
     void insertComment(@Param("openId")String openid, @Param("key") String key, @Param("comment")String comment);
 
     void updateReply(@Param("openId")String openid, @Param("key") String key, @Param("reply")String reply);
+
+    List<UserInfo> selectAllUser();
 }
