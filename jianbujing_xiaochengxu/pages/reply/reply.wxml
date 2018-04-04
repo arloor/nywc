@@ -1,5 +1,5 @@
 <!--pages/reply/reply.wxml-->
-<form bindsubmit="formSubmitReply">
+<form bindsubmit="formSubmitReply" report-submit='true'>
   <view class="section">
     <view class="section__title">回复评论</view>
     <textarea value='{{reply}}' name="reply"></textarea>

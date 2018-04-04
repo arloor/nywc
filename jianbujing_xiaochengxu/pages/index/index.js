@@ -6,7 +6,8 @@ Page({
   data: {
     appinfo: ["翦不惊的小本本\r\n" , "为了美的设计\r\n", "from NJUlgh\r\n", "——2018.04.01\r\n"],
     userInfo: {},
-    openId:""
+    openId:"",
+    accessToken:""
   },
   //事件处理函数
   bindViewTap: function () {
@@ -20,6 +21,19 @@ Page({
     })
   },
   onLoad: function () {
+    
+    // 样例代码：从后端获取access_token
+    // var that = this;
+    // wx.request({
+    //   url: 'https://jianbujing.moontell.cn/api/weixin/accesstoken',
+    //   success: function (res) {
+    //     that.data.accessToken = res.data.access_token;
+    //     console.log("设置access_token: ", that.data.accessToken);
+    //   }
+    // })
+
+    
+
     //获得用户数据，并设置到app.globalData
     var that = this;
     wx.login({
@@ -73,5 +87,7 @@ Page({
       }
     });
     //获得用户数据，并设置到app.globalData-----结束
+
+    
   }
 })

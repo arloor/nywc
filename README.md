@@ -8,6 +8,30 @@
 
 另外，由于小程序本身对代码和静态资源大小的限制，静态资源（主要是图片）需要找到合适的存储方式。这里选择了七牛云的免费10G对象存储。由于七牛云对上传时的安全策略，需要获取一个uptoken。本项目的QiniuService中有获取uptoken的api    
 
+## 小程序发送模板消息
+
+模板消息用来向用户发送通知  
+关于access_token:  
+access_token 是全局唯一接口调用凭据，开发者调用各接口时都需使用 access_token    
+接口地址：   
+https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET   
+access_token目前两个小时就会失效，使用失效的access_token会有`{"errcode": 
+40001, "errmsg": "invalid credential, access_token is invalid or not latest hint: [7c2Oya0303vr61!]"}`  
+对此后端中定时每两个小时执行以此更新access_code的任务。  
+前端需要使用如下代码获得access_code  
+`\\从后端获取access_token`  
+`var that=this;`   
+`wx.request({`    
+`   url: 'https://jianbujing.moontell.cn/api/weixin/accesstoken',`   
+`   success: function (res) {`  
+`   that.data.accessToken = res.data.access_token;`  
+`   console.log("设置access_token: ", that.data.accessToken);`  
+`   }`  
+`})` 
+
+    
+
+
 ## springboot ssl配置
 使用了腾讯云的免费ssl证书   
 将文件夹中用于tomcat的证书复制到`main/resources`文件夹下   

@@ -119,10 +119,34 @@ Page({
   },
   formSubmitComment:function(e){
     console.log("======评论图片=====");
-    // console.log(e);
+    console.log("submit",e);
     var mycomment = e.detail.value.mycomment;
     wx.request({
-      url: 'https://jianbujing.moontell.cn/api/user/updatecomment?openid=' + this.data.curopenId+"&key="+this.data.key+"&comment="+mycomment,
+      url: 'https://jianbujing.moontell.cn/api/user/updatecomment',
+    })
+    wx.request({
+      url: 'https://jianbujing.moontell.cn/api/weixin/sendtemplatemessage',
+      data: {
+        touser: this.data.openId,
+        template_id: "0Qh28GZNMujyYvtIFtMM4Iun4wsW4Vq-g0l7QCQCYtI",//评论提交成功通知
+        //template_id: "H0RMhfAjU4G_5KUH5EWap_2lg1Jb35Heb8ik9BKtniU",//评论回复通知
+        page: "pages/imagedetail/imagedetail?openid=" + this.data.openId + "&key=" + this.data.key + "&imageurl=" + this.data.imageURL,
+        data: {
+          "keyword1": {
+            "value":  "您的作品被"+app.globalData.userInfo.nickName +"评论了",
+            "color": "#173177"
+          },
+          "keyword2": {
+            "value": mycomment,
+            "color": "#173177"
+          }
+        },
+        form_id: e.detail.formId
+      },
+      method: "post",
+      success: function (res) {
+        console.log(res);
+      }
     })
     wx.showToast({
       title: '评论成功',
@@ -161,7 +185,7 @@ Page({
     console.log("e.target.dataset", e.target.dataset);
     console.log("跳转到reply页面");
     wx.navigateTo({
-      url: '../reply/reply?key=' + e.target.dataset.key + "&reply=" + e.target.dataset.reply + "&commentopenid=" + e.target.dataset.commentopenid,
+      url: '../reply/reply?key=' + e.target.dataset.key + "&reply=" + e.target.dataset.reply + "&commentopenid=" + e.target.dataset.commentopenid + "&openid=" + this.data.openId + "&imageurl=" + this.data.imageURL + "&comment=" + e.target.dataset.comment,
     })
   }
 })
