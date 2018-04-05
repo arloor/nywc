@@ -18,9 +18,9 @@ Page({
       url: 'https://jianbujing.moontell.cn/api/imagelist/selectpublic?largeseconds=' + this.data.largeseconds + "&smallseconds=" + this.data.smallseconds + "&pageSize=" + this.data.pageSize,
       method: "post",
       success: function (res) {
-        console.info("select公开图片api调用状态码： " + res.statusCode);
-        console.log("select公开图片api调用结果: ");
-        console.log(res);
+        // console.info("select公开图片api调用状态码： " + res.statusCode);
+        // console.log("select公开图片api调用结果: ");
+        // console.log(res);
         if (res.data != "") {
           var images = res.data.concat(that.data.imagelist);
           that.setData({ imagelist: images });
@@ -32,7 +32,7 @@ Page({
           var templargeseconds = res.data[0].seconds;
           if (templargeseconds > that.data.largeseconds)
             that.setData({ largeseconds: templargeseconds });
-          console.log("最大最小秒数：" + that.data.largeseconds + ">" + that.data.smallseconds);
+          // console.log("最大最小秒数：" + that.data.largeseconds + ">" + that.data.smallseconds);
         }
         // console.log(that.data.imagelist);
       }

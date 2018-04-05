@@ -1,6 +1,10 @@
 package com.arloor.jianbujing.service;
 
+import com.arloor.jianbujing.dao.WeixinDao;
+
+import com.arloor.jianbujing.model.Openidformid;
 import com.arloor.jianbujing.utils.MyHttpClient;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +18,9 @@ import java.io.IOException;
 @RestController
 @RequestMapping("/api/weixin")
 public class WeixinService {
+
+    @Autowired
+    private WeixinDao weixinDao;
 
     private String accessTokenJson ="null";
 
@@ -72,5 +79,10 @@ public class WeixinService {
         String resStr=httpClient.doPost("https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token="+accessToken,json);
         System.out.println(resStr);
         return resStr;
+    }
+
+    @RequestMapping("/saveformid")
+    public void saveformid(@RequestBody Openidformid openidformid){
+        weixinDao.insertOpenidAndFormID(openidformid);
     }
 }

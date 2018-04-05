@@ -1,5 +1,6 @@
 // pages/imagedetail/imagedetail.js
 const app = getApp();
+const util = require('../../utils/util.js');
 
 Page({
 
@@ -50,9 +51,10 @@ Page({
       header: { 'content-type': 'application/json' },
       method: "post",
       success: function (res) {
-        console.info("获取图片信息以及评论的api调用状态码： " + res.statusCode);
-        console.log("获取图片信息以及评论的api调用结果: ");
-        console.log(res);
+        console.log("====成功获取图片和评论详情====");
+        // console.info("获取图片信息以及评论的api调用状态码： " + res.statusCode);
+        // console.log("获取图片信息以及评论的api调用结果: ");
+        // console.log(res);
 
         that.setData({ imageinfo: res.data.imageinfo });
         for (var i = 0; i < res.data.comments.length; i++) {
@@ -118,19 +120,20 @@ Page({
     })
   },
   formSubmitComment:function(e){
+    //将formid保存到数据库
+    util.saveFormId(e.detail.formId);
+
     console.log("======评论图片=====");
-    console.log("submit",e);
+    // console.log("submit",e);
     var mycomment = e.detail.value.mycomment;
+    
+
     wx.request({
       url: 'https://jianbujing.moontell.cn/api/user/updatecomment?openid=' + this.data.curopenId + "&key=" + this.data.key + "&comment=" + mycomment,
     })
     wx.request({
       url: 'https://jianbujing.moontell.cn/api/weixin/sendtemplatemessage',
       data: {
-        touser: this.data.openId,
-        template_id: "0Qh28GZNMujyYvtIFtMM4Iun4wsW4Vq-g0l7QCQCYtI",//评论提交成功通知
-        //template_id: "H0RMhfAjU4G_5KUH5EWap_2lg1Jb35Heb8ik9BKtniU",//评论回复通知
-        page: "pages/imagedetail/imagedetail?openid=" + this.data.openId + "&key=" + this.data.key + "&imageurl=" + this.data.imageURL,
         data: {
           "keyword1": {
             "value":  "您的作品被"+app.globalData.userInfo.nickName +"评论了",
@@ -141,11 +144,15 @@ Page({
             "color": "#173177"
           }
         },
-        form_id: e.detail.formId
+        "form_id": e.detail.formId,
+        "touser": app.globalData.openId,//this.data.openId,
+        "template_id": "0Qh28GZNMujyYvtIFtMM4Iun4wsW4Vq-g0l7QCQCYtI",//评论提交成功通知
+        //template_id: "H0RMhfAjU4G_5KUH5EWap_2lg1Jb35Heb8ik9BKtniU",//评论回复通知
+        "page": "pages/imagedetail/imagedetail?openid=" + this.data.openId + "&key=" + this.data.key + "&imageurl=" + this.data.imageURL
       },
       method: "post",
       success: function (res) {
-        console.log(res);
+         console.log("====发送模板消息结果",res.data,"====");
       }
     })
     wx.showToast({
@@ -156,8 +163,12 @@ Page({
     })
   },
   formSubmitOwner:function(e){
+    //将formid保存到数据库
+    util.saveFormId(e.detail.formId);
+
+
     console.log("======修改图片信息=====");
-    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    // console.log('form发生了submit事件，携带数据为：', e.detail.value)
     wx.request({
       url: 'https://jianbujing.moontell.cn/api/image/update',
       data: {
@@ -169,8 +180,8 @@ Page({
       header: { 'content-type': 'application/json' },
       method: "post",
       success: function (res) {
-        console.info("修改图片信息的api调用状态码： " + res.statusCode);
-        console.log("修改图片信息的api调用结果: ",res);
+        // console.info("修改图片信息的api调用状态码： " + res.statusCode);
+        // console.log("修改图片信息的api调用结果: ",res);
         wx.showToast({
           title: '修改信息成功',
           duration: 2000,

@@ -1,4 +1,5 @@
 const qiniuUploader = require("../../utils/qiniuUploader");
+const util = require('../../utils/util.js');
 //index.js
 
 // 初始化七牛相关参数
@@ -21,7 +22,7 @@ Page({
   },
   //事件处理函数
   onLoad: function () {
-    console.log('onLoad')
+    // console.log('onLoad')
     var that = this;
   },
   didPressChooesImage: function () {
@@ -29,6 +30,9 @@ Page({
     didPressChooesImage(that);
   },
   formSubmit: function (e) {
+    //将formid保存到数据库
+    util.saveFormId(e.detail.formId);
+
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
     wx.request({
       url: 'https://jianbujing.moontell.cn/api/image/update',
@@ -44,9 +48,9 @@ Page({
         wx.showToast({
           title: '修改信息成功',
         })
-        console.log("修改图片信息的api调用结果: ");
-        console.log(res);
-        console.info("修改图片信息的api调用状态码： " + res.statusCode);
+        // console.log("修改图片信息的api调用结果: ");
+        // console.log(res);
+        // console.info("修改图片信息的api调用状态码： " + res.statusCode);
       }
     })
   },
@@ -80,9 +84,9 @@ function didPressChooesImage(that) {
           header: { 'content-type': 'application/json' },
           method:"post",
           success:function(res){
-            console.log("插入图片信息的api调用结果: ");
-            console.log(res);
-            console.info("插入图片信息的api调用状态码： "+res.statusCode);
+            // console.log("插入图片信息的api调用结果: ");
+            // console.log(res);
+            // console.info("插入图片信息的api调用状态码： "+res.statusCode);
             wx.showToast({
               title: '上传成功',
             })
@@ -103,8 +107,8 @@ function didPressChooesImage(that) {
         (progress) => {
           that.setData({ progress: progress.progress})
           console.log('上传进度', progress.progress)
-          console.log('已经上传的数据长度', progress.totalBytesSent)
-          console.log('预期需要上传的数据总长度', progress.totalBytesExpectedToSend)
+          // console.log('已经上传的数据长度', progress.totalBytesSent)
+          // console.log('预期需要上传的数据总长度', progress.totalBytesExpectedToSend)
         }
       );
     }

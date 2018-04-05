@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="ded5639b-5a39-4f42-b371-3d531a69f0b0" name="jianbujing.moontell.cn" url="http://jianbujing.moontell.cn">
+        <fileTransfer host="jianbujing.moontell.cn" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

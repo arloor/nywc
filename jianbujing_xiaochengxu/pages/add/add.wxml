@@ -10,7 +10,7 @@
     key: <text>{{imageObject.key}}\n\n</text>
     imageURL: <text>{{imageObject.imageURL}}</text> 
   </view>
-  <form bindsubmit="formSubmit" bindreset="formReset">
+  <form bindsubmit="formSubmit" bindreset="formReset" report-submit='true'>
   <view class="section">
     <view class="section__title">图片信息</view>
     <textarea name="info"></textarea>

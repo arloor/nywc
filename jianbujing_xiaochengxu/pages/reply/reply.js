@@ -1,4 +1,6 @@
 // pages/reply/reply.js
+const app = getApp();
+const util = require('../../utils/util.js');
 Page({
 
   /**
@@ -17,7 +19,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      console.log("页面跳转options:",options);
+      // console.log("页面跳转options:",options);
       this.setData({
         key:options.key,
         commentopenid: options.commentopenid,
@@ -26,7 +28,7 @@ Page({
         imageURL:options.imageurl,
         comment:options.comment
       });
-      console.log(this.data);
+      // console.log(this.data);
   },
 
   /**
@@ -80,19 +82,21 @@ Page({
   ,
   formSubmitReply:function(e){
     console.log("======回复评论=====");
-    console.log(e);
-    console.log(e.detail.formId);
+    // console.log(e);
+    // console.log(e.detail.formId);
+    // console.log(this.data.commentopenid);
     var reply = e.detail.value.reply;
+
+
+    //将formid保存到数据库
+    util.saveFormId(e.detail.formId);
+
     wx.request({
       url: 'https://jianbujing.moontell.cn/api/user/updatereply?openid=' + this.data.commentopenid + "&key=" + this.data.key + "&reply=" + reply,
     })
     wx.request({
       url: 'https://jianbujing.moontell.cn/api/weixin/sendtemplatemessage',
       data: {
-        touser: this.data.commentopenid,
-        //template_id: "0Qh28GZNMujyYvtIFtMM4Iun4wsW4Vq-g0l7QCQCYtI",//评论提交成功通知
-        template_id: "H0RMhfAjU4G_5KUH5EWap_2lg1Jb35Heb8ik9BKtniU",//评论回复通知
-        page: "pages/imagedetail/imagedetail?openid=" + this.data.commentopenid + "&key=" + this.data.key + "&imageurl=" + this.data.imageURL,
         data: {
           "keyword1": {
             "value": this.data.comment,
@@ -107,14 +111,17 @@ Page({
             "color": "#173177"
           }
         },
-        form_id: e.detail.formId
+        "form_id": e.detail.formId,
+        "touser": app.globalData.openId,//this.data.commentopenid,
+        //template_id: "0Qh28GZNMujyYvtIFtMM4Iun4wsW4Vq-g0l7QCQCYtI",//评论提交成功通知
+        "template_id": "H0RMhfAjU4G_5KUH5EWap_2lg1Jb35Heb8ik9BKtniU",//评论回复通知
+        "page": "pages/imagedetail/imagedetail?openid=" + this.data.commentopenid + "&key=" + this.data.key + "&imageurl=" + this.data.imageURL
       },
       method: "post",
       success: function (res) {
-        console.log(res);
+        console.log("====发送模板消息结果",res.data,"====");
       }
     })
-    console.log("发送模板消息")
     //返回图片详情页
     wx.showToast({
       title: '回复成功',

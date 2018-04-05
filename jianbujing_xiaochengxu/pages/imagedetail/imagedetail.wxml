@@ -17,7 +17,7 @@ style="width:{{ widthheight.width }}rpx; height:{{ widthheight.height }}rpx;"></
   </view> -->
 
 
-  <form wx:if="{{curopenId==openId}}" bindsubmit="formSubmitOwner">
+  <form wx:if="{{curopenId==openId}}" bindsubmit="formSubmitOwner" report-submit='true'>
     <text>您是作者!\n\n</text>
   <view class="section">
     <view class="section__title">图片信息</view>
