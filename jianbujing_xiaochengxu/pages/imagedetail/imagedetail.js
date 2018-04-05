@@ -122,7 +122,7 @@ Page({
     console.log("submit",e);
     var mycomment = e.detail.value.mycomment;
     wx.request({
-      url: 'https://jianbujing.moontell.cn/api/user/updatecomment',
+      url: 'https://jianbujing.moontell.cn/api/user/updatecomment?openid=' + this.data.curopenId + "&key=" + this.data.key + "&comment=" + mycomment,
     })
     wx.request({
       url: 'https://jianbujing.moontell.cn/api/weixin/sendtemplatemessage',
