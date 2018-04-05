@@ -31,7 +31,11 @@ function saveFormId(formId){
   }
   wx.request({
     url: 'https://jianbujing.moontell.cn/api/weixin/saveformid',
-    data:data
+    data:data,
+    method:"post",
+    success:function(res){
+      console.log("====保存formid成功", data, "======");
+    }
   })
 }
 

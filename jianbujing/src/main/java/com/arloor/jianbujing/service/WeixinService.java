@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
-import java.io.IOException;
-
 @RestController
 @RequestMapping("/api/weixin")
 public class WeixinService {
@@ -75,9 +73,19 @@ public class WeixinService {
         String accessToken=accessTokenJson.substring(accessTokenJson.indexOf("\":\"")+3);
         accessToken=accessToken.substring(0,accessToken.indexOf("\""));
         MyHttpClient httpClient=new MyHttpClient();
+
+
+        System.out.println(json);
+        String touesr=json.substring(json.indexOf("{start}")+7,json.indexOf("{end}"));
+        String formId=weixinDao.selectFormId(touesr);
+        json=json.replace("{start}","");
+        json=json.replace("{end}","");
+
+        json=json.replace("{toreplaceforformid}",formId);
         System.out.println(json);
         String resStr=httpClient.doPost("https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token="+accessToken,json);
         System.out.println(resStr);
+        weixinDao.removeFormId(touesr,formId);
         return resStr;
     }
 

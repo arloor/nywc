@@ -19,7 +19,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      // console.log("页面跳转options:",options);
+      console.log("页面跳转options:",options);
       this.setData({
         key:options.key,
         commentopenid: options.commentopenid,
@@ -28,7 +28,7 @@ Page({
         imageURL:options.imageurl,
         comment:options.comment
       });
-      // console.log(this.data);
+       console.log(this.data);
   },
 
   /**
@@ -103,7 +103,7 @@ Page({
             "color": "#173177"
           },
           "keyword2": {
-            "value": this.data.reply,
+            "value": reply,
             "color": "#173177"
           },
           "keyword3": {
@@ -111,11 +111,12 @@ Page({
             "color": "#173177"
           }
         },
-        "form_id": e.detail.formId,
-        "touser": app.globalData.openId,//this.data.commentopenid,
+        "form_id": "{toreplaceforformid}",
+        "touser": "{start}"+this.data.commentopenid+"{end}",//app.globalData.openId,//
         //template_id: "0Qh28GZNMujyYvtIFtMM4Iun4wsW4Vq-g0l7QCQCYtI",//评论提交成功通知
         "template_id": "H0RMhfAjU4G_5KUH5EWap_2lg1Jb35Heb8ik9BKtniU",//评论回复通知
-        "page": "pages/imagedetail/imagedetail?openid=" + this.data.commentopenid + "&key=" + this.data.key + "&imageurl=" + this.data.imageURL
+        //页面填/notmineimage/notmineimage
+        "page": "pages/notmineimage/notmineimage?openId=" + this.data.openid + "&key=" + this.data.key + "&imageUrl=" + this.data.imageURL + "&curopenId=" + this.data.commentopenid,
       },
       method: "post",
       success: function (res) {

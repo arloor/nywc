@@ -4,8 +4,9 @@
     "pages/imagehub/imagehub",
     "pages/add/add",
     "pages/home/home",
-    "pages/imagedetail/imagedetail",
-    "pages/reply/reply"
+    "pages/reply/reply",
+    "pages/mineimage/mineimage",
+    "pages/notmineimage/notmineimage"
   ],
   "window": {
     "backgroundTextStyle": "light",

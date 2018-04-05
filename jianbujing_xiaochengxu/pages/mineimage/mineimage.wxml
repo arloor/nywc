@@ -1,0 +1,33 @@
+<!--pages/mineimage/mineimage.wxml-->
+<view class="holder" >
+  <image src="{{ imageUrl }}"  bindload="imageLoad" 
+style="width:{{ widthheight.width }}rpx; height:{{ widthheight.height }}rpx;"></image>
+
+
+  <form bindsubmit="formSubmitOwner" report-submit='true'>
+  <navigator open-type='reLaunch' url="../index/index" style='color:#20519f;font-size:larger' >回到首页</navigator>
+    <text>您是作者!\n\n</text>
+  <view class="section">
+    <view class="section__title">图片信息</view>
+    <textarea name="info" value='{{imageinfo.info}}'></textarea>
+  </view>
+  <view class="section section_gap">
+    <view class="section__title">是否公开</view>
+    <radio-group name="ispublic">
+      <label><radio value="true" checked='{{imageinfo.ispublic=="true"}}' />公开</label>
+      <label><radio value="false" checked='{{imageinfo.ispublic=="false"}}'/>私有</label>
+    </radio-group>
+  </view>
+  <text>\n</text>
+  <view wx:for="{{comments}}" wx:for-item="comment"> 
+      <text style='color:#20519f;font-size:larger'>{{comment.nickName}}:\n</text> 
+      <text>{{comment.comment}}\n</text>
+      <text style='color:#20519f;font-size:larger'>reply:\n</text>
+      <input data-key='{{key}}' data-comment="{{comment.comment}}" data-reply='{{comment.reply}}' data-commentopenid="{{comment.commentopenid}}" placeholder='回复评论：' bindtap='reply' value='{{comment.reply}}' disabled='true'></input>
+      <text>\n</text> 
+  </view>
+  <view class="btn-area">
+    <button formType="submit">Submit</button>
+  </view>
+</form>
+</view>

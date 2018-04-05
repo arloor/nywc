@@ -1,5 +1,6 @@
-//logs.js
+
 const util = require('../../utils/util.js')
+const app=getApp();
 
 Page({
   data: {
@@ -75,10 +76,18 @@ Page({
   //图片被点击的事件
   tapimage:function(e){
     var image = this.data.imagelist;
-    console.log(image[e.target.dataset.index].key+" 被点击");
-    wx.navigateTo({
-      url: '../imagedetail/imagedetail?key=' + image[e.target.dataset.index].key + "&openid=" + image[e.target.dataset.index].openId + "&imageurl=" + image[e.target.dataset.index].imageURL,
-    })
+    console.log("点击",image[e.target.dataset.index]);
+    //如果是作者：
+    if (image[e.target.dataset.index].openId == app.globalData.openId){
+      wx.navigateTo({
+        url: '../mineimage/mineimage?key=' + image[e.target.dataset.index].key + "&openId=" + image[e.target.dataset.index].openId + "&imageUrl=" + image[e.target.dataset.index].imageURL,
+      })
+    }
+    else{
+      wx.navigateTo({
+        url: '../notmineimage/notmineimage?key=' + image[e.target.dataset.index].key + "&openId=" + image[e.target.dataset.index].openId + "&imageUrl=" + image[e.target.dataset.index].imageURL + "&curopenId=" + app.globalData.openId,
+      })
+    }
   }
   
 

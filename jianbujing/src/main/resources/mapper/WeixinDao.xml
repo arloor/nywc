@@ -4,4 +4,10 @@
     <insert id="insertOpenidAndFormID" parameterType="com.arloor.jianbujing.model.Openidformid">
         INSERT INTO openidformid(openId, formId)  VALUE (#{openId},#{formId});
     </insert>
+    <select id="selectFormId" resultType="java.lang.String">
+        SELECT formId FROM openidformid WHERE openId=#{openid} ORDER by "time" DESC limit 2,1;
+    </select>
+    <delete id="removeFormId">
+        DELETE FROM openidformid WHERE openId=#{openid} AND formId=#{formid};
+    </delete>
 </mapper>

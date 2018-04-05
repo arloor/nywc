@@ -138,7 +138,7 @@ Page({
     var image = this.data.imagelist;
     console.log(image[e.target.dataset.index].key + " 被点击");
     wx.navigateTo({
-      url: '../imagedetail/imagedetail?key=' + image[e.target.dataset.index].key + "&openid=" + image[e.target.dataset.index].openId + "&imageurl=" + image[e.target.dataset.index].imageURL,
+      url: '../mineimage/mineimage?key=' + image[e.target.dataset.index].key + "&openId=" + image[e.target.dataset.index].openId + "&imageUrl=" + image[e.target.dataset.index].imageURL,
     })
   }
   
