@@ -5,9 +5,17 @@
         INSERT INTO openidformid(openId, formId)  VALUE (#{openId},#{formId});
     </insert>
     <select id="selectFormId" resultType="java.lang.String">
-        SELECT formId FROM openidformid WHERE openId=#{openid} ORDER by "time" DESC limit 2,1;
+        SELECT formId FROM openidformid WHERE openId=#{openid} ORDER by `time` ASC limit 0,1;
     </select>
     <delete id="removeFormId">
         DELETE FROM openidformid WHERE openId=#{openid} AND formId=#{formid};
     </delete>
+
+    <delete id="removeInvalidFormId">
+        DELETE FROM openidformid WHERE `time` &lt;  #{time};
+    </delete>
+
+    <select id="selectInvalidFormID" resultType="java.lang.String">
+        SELECT  formId FROM openidformid WHERE `time` &lt;  #{time};
+    </select>
 </mapper>

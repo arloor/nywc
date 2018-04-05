@@ -1,4 +1,4 @@
-package com.arloor.jianbujing;
+package com.arloor.jianbujing.utils;
 
 
 import com.arloor.jianbujing.service.WeixinService;
@@ -9,7 +9,7 @@ import reactor.core.publisher.Mono;
 
 
 /**
- * 检查未支付订单的超时情况的线程
+ * 定时更新access_token的任务
  */
 public class TimedSetWeixinAccessTokenRunnable implements Runnable{
 

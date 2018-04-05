@@ -78,6 +78,9 @@ public class WeixinService {
         System.out.println(json);
         String touesr=json.substring(json.indexOf("{start}")+7,json.indexOf("{end}"));
         String formId=weixinDao.selectFormId(touesr);
+        if(formId==null){
+            formId="the formId is a mock one";
+        }
         json=json.replace("{start}","");
         json=json.replace("{end}","");
 
