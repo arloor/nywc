@@ -4,8 +4,7 @@ import com.arloor.jianbujing.dao.WeixinDao;
 import com.arloor.jianbujing.service.WeixinService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Mono;
+
 
 import java.sql.Timestamp;
 import java.util.Calendar;
