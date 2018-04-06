@@ -40,11 +40,7 @@ import java.util.Map;
 public class MyHttpClient {
     private  static  CloseableHttpClient client;
 
-    /**
-     * 构造方法
-     * 可以使用ssl
-     */
-    public MyHttpClient() {
+    static{
         // Create a trust manager that does not validate certificate chains
         TrustManager[] trustAllCerts = new TrustManager[]{
                 new X509TrustManager() {
@@ -76,7 +72,15 @@ public class MyHttpClient {
         LayeredConnectionSocketFactory sslSocketFactory = new SSLConnectionSocketFactory(ctx);
 
         RequestConfig requestConfig = RequestConfig.custom().setCookieSpec(CookieSpecs.STANDARD_STRICT).build();
-        this.client = HttpClients.custom().setDefaultRequestConfig(requestConfig).setSSLSocketFactory(sslSocketFactory).build();
+        client = HttpClients.custom().setDefaultRequestConfig(requestConfig).setSSLSocketFactory(sslSocketFactory).build();
+    }
+
+    /**
+     * 构造方法
+     * 可以使用ssl
+     */
+    public MyHttpClient() {
+
     }
 
     public String doPost(String apiUrl, Object json) {
