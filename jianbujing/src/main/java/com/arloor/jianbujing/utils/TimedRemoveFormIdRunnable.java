@@ -2,6 +2,7 @@ package com.arloor.jianbujing.utils;
 
 import com.arloor.jianbujing.dao.WeixinDao;
 import com.arloor.jianbujing.service.WeixinService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
@@ -17,11 +18,8 @@ import java.util.List;
 public class TimedRemoveFormIdRunnable implements Runnable{
 
 
+    @Autowired
     private WeixinDao weixinDao;
-
-    public TimedRemoveFormIdRunnable(WeixinDao weixinDao) {
-        this.weixinDao=weixinDao;
-    }
 
     @Override
     public void run() {
@@ -29,7 +27,7 @@ public class TimedRemoveFormIdRunnable implements Runnable{
         calendar.add(Calendar.DATE,-8);
         Timestamp timestamp=new Timestamp(calendar.getTime().getTime());
         List<String> formIds=weixinDao.selectInvalidFormID(timestamp);
-        System.out.println("即将删除下列早于"+timestamp+"的formId：");
+        System.out.println("定时任务：即将删除下列早于"+timestamp+"的formId：");
         for (String formId:formIds
              ) {
             System.out.print(formId+" ");

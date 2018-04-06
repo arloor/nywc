@@ -1,47 +1,44 @@
 package com.arloor.jianbujing.utils;
 
 import org.apache.http.*;
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.config.CookieSpecs;
 import org.apache.http.client.config.RequestConfig;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.conn.socket.LayeredConnectionSocketFactory;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
-import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+import org.springframework.stereotype.Component;
 
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 import java.io.IOException;
-import java.net.URI;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.X509Certificate;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Created by arloor on 17-5-7.
  */
 
-/**
- * todo:需要线程封闭
- */
 
+
+@Component
 public class MyHttpClient {
-    private  static  CloseableHttpClient client;
+    private  CloseableHttpClient client;
 
-    static{
-        // Create a trust manager that does not validate certificate chains
+    /**
+     * 构造方法
+     * 可以使用ssl
+     */
+    public MyHttpClient() {
+    // Create a trust manager that does not validate certificate chains
         TrustManager[] trustAllCerts = new TrustManager[]{
                 new X509TrustManager() {
                     public X509Certificate[] getAcceptedIssuers() {
@@ -76,20 +73,18 @@ public class MyHttpClient {
     }
 
     /**
-     * 构造方法
-     * 可以使用ssl
+     * 发送post请求，请求体json
+     * @param apiUrl
+     * @param json
+     * @return
      */
-    public MyHttpClient() {
-
-    }
-
-    public String doPost(String apiUrl, Object json) {
+    public String doPostJson(String apiUrl, String json) {
         String httpStr = null;
         HttpPost httpPost = new HttpPost(apiUrl);
         CloseableHttpResponse response = null;
 
         try {
-            StringEntity stringEntity = new StringEntity(json.toString(),"UTF-8");//解决中文乱码问题
+            StringEntity stringEntity = new StringEntity(json,"UTF-8");//解决中文乱码问题
             stringEntity.setContentEncoding("UTF-8");
             stringEntity.setContentType("application/json");
             httpPost.setEntity(stringEntity);
@@ -108,6 +103,58 @@ public class MyHttpClient {
             }
         }
         return httpStr;
+    }
+
+    /**
+     * 发送 get请求
+     */
+    public String get(String getUrl) {
+
+        String result="";
+        try {
+            // 创建httpget.
+            HttpGet httpget = new HttpGet(getUrl);
+            // 执行get请求.
+            CloseableHttpResponse response = client.execute(httpget);
+            try {
+                // 获取响应实体
+                HttpEntity entity = response.getEntity();
+//                System.out.println("--------------------------------------");
+                // 打印响应状态
+//                System.out.println(response.getStatusLine());
+                if (entity != null) {
+                    // 打印响应内容长度
+//                    System.out.println("Response content length: " + entity.getContentLength());
+                    // 打印响应内容
+                    result= EntityUtils.toString(entity);
+//                    System.out.println("Response content: " +result);
+                }
+//                System.out.println("------------------------------------");
+            } finally {
+                if (response != null) {
+                    try {
+                        EntityUtils.consume(response.getEntity());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        } catch (ClientProtocolException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            //由于client需要服用，不能关闭
+            // 关闭连接,释放资源
+//            try {
+//                client.close();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+        }
+        return result;
     }
 
 

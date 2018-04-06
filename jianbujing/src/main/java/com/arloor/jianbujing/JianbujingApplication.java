@@ -1,6 +1,8 @@
 package com.arloor.jianbujing;
 
+import com.arloor.jianbujing.dao.WeixinDao;
 import com.arloor.jianbujing.service.WeixinService;
+import com.arloor.jianbujing.utils.TimedRemoveFormIdRunnable;
 import com.arloor.jianbujing.utils.TimedSetWeixinAccessTokenRunnable;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,11 +17,14 @@ public class JianbujingApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext app=SpringApplication.run(JianbujingApplication.class, args);
-		WeixinService weixinService=app.getBean(WeixinService.class);
+		TimedSetWeixinAccessTokenRunnable timedSetWeixinAccessTokenRunnable=app.getBean(TimedSetWeixinAccessTokenRunnable.class);
+		TimedRemoveFormIdRunnable timedRemoveFormIdRunnable=app.getBean(TimedRemoveFormIdRunnable.class);
 
 		ScheduledExecutorService executor= Executors.newScheduledThreadPool(1);
 		//定时执行更新微信access_token的任务,access_token定义为2小时失效，我们就115分钟刷新一次
-		executor.scheduleAtFixedRate(new TimedSetWeixinAccessTokenRunnable(weixinService),0, 115, TimeUnit.MINUTES);
+		executor.scheduleAtFixedRate(timedSetWeixinAccessTokenRunnable,0, 115, TimeUnit.MINUTES);
+		//定时执行删除过期form_id的任务。
+		executor.scheduleAtFixedRate(timedRemoveFormIdRunnable,0, 8, TimeUnit.DAYS);
 
 	}
 
