@@ -7,7 +7,7 @@ function initQiniu() {
   var options = {
     region: 'NCN', // 华北区
     uptokenURL: 'https://jianbujing.moontell.cn/api/qiniu/uptoken',
-    domain: 'http://jianbujingimages.moontell.cn/',
+    domain: 'http://jianbujingimages.moontell.cn',
     shouldUseQiniuFileName: true
   };
   qiniuUploader.init(options);
