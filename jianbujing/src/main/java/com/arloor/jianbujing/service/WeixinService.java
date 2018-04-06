@@ -4,6 +4,8 @@ import com.arloor.jianbujing.dao.WeixinDao;
 
 import com.arloor.jianbujing.model.Openidformid;
 import com.arloor.jianbujing.utils.MyHttpClient;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/weixin")
 public class WeixinService {
+
+    private Logger logger= LoggerFactory.getLogger(WeixinService.class);
 
     @Autowired
     private WeixinDao weixinDao;
@@ -51,6 +55,7 @@ public class WeixinService {
     public String updateaccesstoken() {
         String getUrl=String.format("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=%s&secret=%s",appid,appsecret);
         this.accessTokenJson=httpClient.get(getUrl);
+        logger.info("更新access token为："+this.accessTokenJson);
         return this.accessTokenJson;
     }
     @RequestMapping("/accesstoken")
@@ -76,9 +81,10 @@ public class WeixinService {
         json=json.replace("{end}","");
 
         json=json.replace("{toreplaceforformid}",formId);
-//        System.out.println(json);
+
+        logger.info("发送模板消息的请求："+json);
         String resStr=httpClient.doPostJson("https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token="+accessToken,json);
-//        System.out.println(resStr);
+        logger.info("发送模板消息的响应："+resStr);
         weixinDao.removeFormId(touesr,formId);
         return resStr;
     }

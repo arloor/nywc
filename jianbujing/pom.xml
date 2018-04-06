@@ -45,6 +45,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-logging</artifactId>
+    </dependency>
+
 		<!--七牛云对象存储的sdk，这里使用生成token的功能-->
 		<dependency>
 			<groupId>com.qiniu</groupId>

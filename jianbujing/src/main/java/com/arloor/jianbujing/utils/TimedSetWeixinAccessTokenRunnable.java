@@ -3,6 +3,8 @@ package com.arloor.jianbujing.utils;
 
 import com.arloor.jianbujing.service.WeixinService;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -14,6 +16,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class TimedSetWeixinAccessTokenRunnable implements Runnable{
+    private Logger logger= LoggerFactory.getLogger(TimedSetWeixinAccessTokenRunnable.class);
 
     @Autowired
     private WeixinService weixinService;
@@ -21,6 +24,7 @@ public class TimedSetWeixinAccessTokenRunnable implements Runnable{
 
     @Override
     public void run() {
-        System.out.println("定时任务：更新微信的access_token为："+weixinService.updateaccesstoken());
+        String accessTokenJson=weixinService.updateaccesstoken();
+        logger.info("定时任务：更新access token为："+accessTokenJson);
     }
 }
