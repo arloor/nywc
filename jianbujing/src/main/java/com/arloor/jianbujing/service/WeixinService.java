@@ -50,6 +50,7 @@ public class WeixinService {
     @RequestMapping("/updateaccesstoken")
     public String updateaccesstoken() {
         String getUrl=String.format("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=%s&secret=%s",appid,appsecret);
+        this.accessTokenJson=httpClient.get(getUrl);
         return httpClient.get(getUrl);
     }
     @RequestMapping("/accesstoken")
