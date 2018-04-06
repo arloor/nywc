@@ -1,6 +1,7 @@
 // pages/home/home.js
 
 const app = getApp();
+const util = require('../../utils/util.js');
 Page({
 
   /**
@@ -13,7 +14,7 @@ Page({
     imagelist: [],
     largeseconds: 0,
     smallseconds: 0,
-    pageSize: 5//用于控制分页
+    pageSize: 10//用于控制分页
   },
 
   /**
@@ -82,7 +83,10 @@ Page({
   /**
    * 事件处理函数
    */
-  getmine:function(){
+  getmine:function(e){
+    //将formid保存到数据库
+    util.saveFormId(e.detail.formId);
+
     console.log('--------点击刷新-------')
     wx.showNavigationBarLoading() //在标题栏中显示加载
 

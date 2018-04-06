@@ -8,7 +8,7 @@ Page({
     imagelist:[],
     largeseconds:0,
     smallseconds:0,
-    pageSize:5//用于控制分页
+    pageSize:10//用于控制分页
   },
   getpublic:function(){
     

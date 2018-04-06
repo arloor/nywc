@@ -5,7 +5,11 @@
   <text style='display:none'>{{openId}}</text>
 </view>
 <view class='holder'>
-  <button bindtap='getmine'>{{minebuttonmsg}}</button>
+<form bindsubmit="getmine" report-submit='true'>
+  <view class="btn-area">
+    <button formType="submit">{{minebuttonmsg}}</button>
+  </view>
+</form>
   <view wx:for="{{imagelist}}" wx:for-item="imageinfo"> 
       <image src="{{ imageinfo.imageURL }}" bindtap="tapimage" bindload="imageLoad" data-index="{{ index }}" 
 style="width:{{ images[index].width }}rpx; height:{{ images[index].height }}rpx;"></image>
