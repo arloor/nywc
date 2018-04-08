@@ -14,6 +14,7 @@ public class ApiAccessSecurityinterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         //进行一下限制，禁止未授权的对api的访问
+        //todo：完善这部分的认证代码，去掉注释
 //        if(request.getHeader("token")==null){
 //            response.addHeader("Content-Type" , "application/json;charset=UTF-8");
 //            Writer writer=response.getWriter();
