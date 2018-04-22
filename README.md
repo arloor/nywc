@@ -90,27 +90,31 @@ access_token目前两个小时就会失效，使用失效的access_token会有`{
 40001, "errmsg": "invalid credential, access_token is invalid or not latest hint: [7c2Oya0303vr61!]"}`  
 对此后端中定时每两个小时执行以此更新access_code的任务。  
 前端需要使用如下代码获得access_code  
-`\\从后端获取access_token`  
-`var that=this;`   
-`wx.request({`    
-`   url: 'https://jianbujing.moontell.cn/api/weixin/accesstoken',`   
-`   success: function (res) {`  
-`   that.data.accessToken = res.data.access_token;`  
-`   console.log("设置access_token: ", that.data.accessToken);`  
-`   }`  
-`})` 
 
+```js
+//从后端获取access_token
+var that=this
+wx.request({
+   url: 'https://jianbujing.moontell.cn/api/weixin/accesstoken',
+   success: function (res) {
+   that.data.accessToken = res.data.access_token;
+   console.log("设置access_token: ", that.data.accessToken);
+   }
+})
+```
     
 
 
 ## springboot ssl配置
 使用了腾讯云的免费ssl证书   
 将文件夹中用于tomcat的证书复制到`main/resources`文件夹下   
-`server.port= 443`   
-`server.ssl.key-store= classpath:jianbujing.moontell.cn.jks`   
-`server.ssl.key-store-password=123456`  
-`server.ssl.keyStoreType= PKCS12`  
-`server.ssl.keyAlias= jianbujing.moontell.cn`  
+```
+server.port= 443
+server.ssl.key-store= classpath:nywc.moontell.cn.jks
+server.ssl.key-store-password=123456
+server.ssl.keyStoreType= PKCS12
+server.ssl.keyAlias= nywc.moontell.cn
+```
 注意：比较坑的是，使用jdk8来执行打包好的jar包会报错，必须使用jdk9！重要的事一定要注意！  
 
 
@@ -119,17 +123,20 @@ access_token目前两个小时就会失效，使用失效的access_token会有`{
 创建名为`keystore.p12`的密钥库，并将它移动到`main/resources`下。  
 
 application.properties如下   
-`server.port= 8443`  
-`server.ssl.key-store= classpath:keystore.p12`  
-`server.ssl.key-store-password= 123456`  
-`server.ssl.keyStoreType= PKCS12`   
-`server.ssl.keyAlias= jianbujing`   
+```
+server.port= 8443
+server.ssl.key-store= classpath:keystore.p12
+server.ssl.key-store-password= 123456
+server.ssl.keyStoreType= PKCS12
+server.ssl.keyAlias= jianbujing
+```
+
  
 
 ## 运维要求
 基本没有  
-- 使用的`jianbujing.moontell.cn`服务器的续费
-- `jianbujing.moontell.cn` ssl证书的一年一次的续费
+- 使用的`nywc.moontell.cn`服务器的续费
+- `nywc.moontell.cn` ssl证书的一年一次的续费
 - 关注七牛云方面的变化
 - 数据库服务器维护
 - 可执行jar包的保存
