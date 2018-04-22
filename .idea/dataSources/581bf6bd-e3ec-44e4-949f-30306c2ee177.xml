@@ -837,50 +837,53 @@
     <table id="210" parent="3" name="starimage">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="211" parent="3" name="userInfo">
+    <table id="211" parent="3" name="test">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="212" parent="3" name="userInfo">
       <Comment>&quot;用户信息表&quot;</Comment>
       <Engine>InnoDB</Engine>
     </table>
-    <column id="212" parent="207" name="key">
+    <column id="213" parent="207" name="key">
       <Position>1</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="213" parent="207" name="commentopenid">
+    <column id="214" parent="207" name="commentopenid">
       <Position>2</Position>
       <DataType>varchar(40)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="214" parent="207" name="comment">
+    <column id="215" parent="207" name="comment">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="215" parent="207" name="reply">
+    <column id="216" parent="207" name="reply">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="216" parent="207" name="commenttime">
+    <column id="217" parent="207" name="commenttime">
       <Position>5</Position>
       <DataType>timestamp|0</DataType>
       <ColumnKind>normal</ColumnKind>
       <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
     </column>
-    <column id="217" parent="207" name="replytime">
+    <column id="218" parent="207" name="replytime">
       <Position>6</Position>
       <DataType>timestamp|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="218" parent="207" name="PRIMARY">
+    <key id="219" parent="207" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>key
 commentopenid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="219" parent="208" name="key">
+    <column id="220" parent="208" name="key">
       <Position>1</Position>
       <Comment>&quot;图片在云存储中的名称&quot;</Comment>
       <DataType>varchar(255)|0</DataType>
@@ -888,7 +891,7 @@ commentopenid</ColNames>
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_general_ci</Collation>
     </column>
-    <column id="220" parent="208" name="openid">
+    <column id="221" parent="208" name="openid">
       <Position>2</Position>
       <Comment>&quot;微信用户的openid&quot;</Comment>
       <DataType>varchar(255)|0</DataType>
@@ -896,14 +899,14 @@ commentopenid</ColNames>
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_general_ci</Collation>
     </column>
-    <column id="221" parent="208" name="nickName">
+    <column id="222" parent="208" name="nickName">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_general_ci</Collation>
     </column>
-    <column id="222" parent="208" name="imageURL">
+    <column id="223" parent="208" name="imageURL">
       <Position>4</Position>
       <Comment>&quot;图片的网址&quot;</Comment>
       <DataType>varchar(255)|0</DataType>
@@ -911,108 +914,119 @@ commentopenid</ColNames>
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_general_ci</Collation>
     </column>
-    <column id="223" parent="208" name="info">
+    <column id="224" parent="208" name="info">
       <Position>5</Position>
       <Comment>&quot;作者对这个设计的描述&quot;</Comment>
       <DataType>longtext|0</DataType>
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_general_ci</Collation>
     </column>
-    <column id="224" parent="208" name="seconds">
+    <column id="225" parent="208" name="seconds">
       <Position>6</Position>
       <DataType>varchar(30)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="225" parent="208" name="uptime">
+    <column id="226" parent="208" name="uptime">
       <Position>7</Position>
       <DataType>timestamp|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="226" parent="208" name="ispublic">
+    <column id="227" parent="208" name="ispublic">
       <Position>8</Position>
       <Comment>&quot;是否公开&quot;</Comment>
       <DataType>varchar(5)|0</DataType>
       <DefaultExpression>&apos;true&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="227" parent="208" name="valid">
+    <column id="228" parent="208" name="valid">
       <Position>9</Position>
       <Comment>有没有被标记为违规</Comment>
       <DataType>varchar(5)|0</DataType>
       <DefaultExpression>&apos;true&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="228" parent="208" name="PRIMARY">
+    <key id="229" parent="208" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>openid
 key</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="229" parent="209" name="openId">
+    <column id="230" parent="209" name="openId">
       <Position>1</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="230" parent="209" name="formId">
+    <column id="231" parent="209" name="formId">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="231" parent="209" name="time">
+    <column id="232" parent="209" name="time">
       <Position>3</Position>
       <DataType>timestamp|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="232" parent="209" name="PRIMARY">
+    <key id="233" parent="209" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>openId
 time</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="233" parent="210" name="openid">
+    <column id="234" parent="210" name="openid">
       <Position>1</Position>
       <DataType>varchar(40)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="234" parent="210" name="key">
+    <column id="235" parent="210" name="key">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="235" parent="210" name="PRIMARY">
+    <key id="236" parent="210" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>openid
 key</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="236" parent="211" name="openid">
+    <column id="237" parent="211" name="num">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="238" parent="211" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>num</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="239" parent="212" name="openid">
       <Position>1</Position>
       <Comment>&quot;微信公众平台用户的唯一id&quot;</Comment>
       <DataType>varchar(40)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="237" parent="211" name="nickname">
+    <column id="240" parent="212" name="nickname">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="238" parent="211" name="lasttime">
+    <column id="241" parent="212" name="lasttime">
       <Position>3</Position>
       <DataType>timestamp|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="239" parent="211" name="PRIMARY">
+    <key id="242" parent="212" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>openid</ColNames>
       <Primary>1</Primary>
