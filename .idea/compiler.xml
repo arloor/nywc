@@ -7,11 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="jianbujing" />
+        <module name="nywc" />
         <module name="rabbitmqdemo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="jianbujing" target="9" />
+      <module name="nywc" target="9" />
       <module name="rabbitmqdemo" target="1.9" />
     </bytecodeTargetLevel>
   </component>

@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/jianbujing/jianbujing.iml" filepath="$PROJECT_DIR$/jianbujing/jianbujing.iml" />
       <module fileurl="file://$PROJECT_DIR$/jianbujing_xiaochengxu/jianbujing_xiaochengxu.iml" filepath="$PROJECT_DIR$/jianbujing_xiaochengxu/jianbujing_xiaochengxu.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nywc/nywc.iml" filepath="$PROJECT_DIR$/nywc/nywc.iml" />
       <module fileurl="file://$PROJECT_DIR$/rabbitmqdemo/rabbitmqdemo.iml" filepath="$PROJECT_DIR$/rabbitmqdemo/rabbitmqdemo.iml" />
     </modules>
   </component>
