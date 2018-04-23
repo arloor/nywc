@@ -13,7 +13,6 @@ import java.util.concurrent.TimeUnit;
 
 
 @SpringBootApplication
-@MapperScan("com.arloor.mywc.dao")
 public class NYWCApplication {
 
 	public static void main(String[] args) {

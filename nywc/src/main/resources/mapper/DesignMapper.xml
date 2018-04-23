@@ -1,35 +1,35 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.arloor.nywc.dao.DesignMapper">
-  <resultMap id="BaseResultMap" type="com.arloor.nywc.domain.Design">
-    <id column="key" jdbcType="VARCHAR" property="key" />
-    <result column="openId" jdbcType="VARCHAR" property="openId" />
-    <result column="dname" jdbcType="VARCHAR" property="dname" />
-    <result column="imageURL" jdbcType="VARCHAR" property="imageURL" />
-    <result column="status" jdbcType="VARCHAR" property="status" />
-    <result column="dinfo" jdbcType="VARCHAR" property="dinfo" />
-    <result column="dTempInfo" jdbcType="VARCHAR" property="dTempInfo" />
-    <result column="seconds" jdbcType="VARCHAR" property="seconds" />
-    <result column="uploadTime" jdbcType="TIMESTAMP" property="uploadTime" />
-    <result column="theme" jdbcType="VARCHAR" property="theme" />
-    <result column="numLike" jdbcType="INTEGER" property="numLike" />
-    <result column="numDislike" jdbcType="DECIMAL" property="numDislike" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.arloor.nywc.dao.DesignMapper" >
+  <resultMap id="BaseResultMap" type="com.arloor.nywc.domain.Design" >
+    <id column="key" property="key" jdbcType="VARCHAR" />
+    <result column="openId" property="openId" jdbcType="VARCHAR" />
+    <result column="dname" property="dname" jdbcType="VARCHAR" />
+    <result column="imageURL" property="imageURL" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="dinfo" property="dinfo" jdbcType="VARCHAR" />
+    <result column="dTempInfo" property="dTempInfo" jdbcType="VARCHAR" />
+    <result column="seconds" property="seconds" jdbcType="VARCHAR" />
+    <result column="uploadTime" property="uploadTime" jdbcType="TIMESTAMP" />
+    <result column="theme" property="theme" jdbcType="VARCHAR" />
+    <result column="numLike" property="numLike" jdbcType="INTEGER" />
+    <result column="numDislike" property="numDislike" jdbcType="DECIMAL" />
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     key, openId, dname, imageURL, status, dinfo, dTempInfo, seconds, uploadTime, theme, 
     numLike, numDislike
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from design
     where key = #{key,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from design
     where key = #{key,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.arloor.nywc.domain.Design">
+  <insert id="insert" parameterType="com.arloor.nywc.domain.Design" >
     insert into design (key, openId, dname, 
       imageURL, status, dinfo, 
       dTempInfo, seconds, uploadTime, 
@@ -41,471 +41,125 @@
       #{theme,jdbcType=VARCHAR}, #{numLike,jdbcType=INTEGER}, #{numDislike,jdbcType=DECIMAL}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.arloor.nywc.domain.Design">
+  <insert id="insertSelective" parameterType="com.arloor.nywc.domain.Design" >
     insert into design
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="key != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="key != null" >
         key,
       </if>
-      <if test="openId != null">
+      <if test="openId != null" >
         openId,
       </if>
-      <if test="dname != null">
+      <if test="dname != null" >
         dname,
       </if>
-      <if test="imageURL != null">
+      <if test="imageURL != null" >
         imageURL,
       </if>
-      <if test="status != null">
+      <if test="status != null" >
         status,
       </if>
-      <if test="dinfo != null">
+      <if test="dinfo != null" >
         dinfo,
       </if>
-      <if test="dTempInfo != null">
+      <if test="dTempInfo != null" >
         dTempInfo,
       </if>
-      <if test="seconds != null">
+      <if test="seconds != null" >
         seconds,
       </if>
-      <if test="uploadTime != null">
+      <if test="uploadTime != null" >
         uploadTime,
       </if>
-      <if test="theme != null">
+      <if test="theme != null" >
         theme,
       </if>
-      <if test="numLike != null">
+      <if test="numLike != null" >
         numLike,
       </if>
-      <if test="numDislike != null">
+      <if test="numDislike != null" >
         numDislike,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="key != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="key != null" >
         #{key,jdbcType=VARCHAR},
       </if>
-      <if test="openId != null">
+      <if test="openId != null" >
         #{openId,jdbcType=VARCHAR},
       </if>
-      <if test="dname != null">
+      <if test="dname != null" >
         #{dname,jdbcType=VARCHAR},
       </if>
-      <if test="imageURL != null">
+      <if test="imageURL != null" >
         #{imageURL,jdbcType=VARCHAR},
       </if>
-      <if test="status != null">
+      <if test="status != null" >
         #{status,jdbcType=VARCHAR},
       </if>
-      <if test="dinfo != null">
+      <if test="dinfo != null" >
         #{dinfo,jdbcType=VARCHAR},
       </if>
-      <if test="dTempInfo != null">
+      <if test="dTempInfo != null" >
         #{dTempInfo,jdbcType=VARCHAR},
       </if>
-      <if test="seconds != null">
+      <if test="seconds != null" >
         #{seconds,jdbcType=VARCHAR},
       </if>
-      <if test="uploadTime != null">
+      <if test="uploadTime != null" >
         #{uploadTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="theme != null">
+      <if test="theme != null" >
         #{theme,jdbcType=VARCHAR},
       </if>
-      <if test="numLike != null">
+      <if test="numLike != null" >
         #{numLike,jdbcType=INTEGER},
       </if>
-      <if test="numDislike != null">
+      <if test="numDislike != null" >
         #{numDislike,jdbcType=DECIMAL},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.arloor.nywc.domain.Design">
+  <update id="updateByPrimaryKeySelective" parameterType="com.arloor.nywc.domain.Design" >
     update design
-    <set>
-      <if test="openId != null">
+    <set >
+      <if test="openId != null" >
         openId = #{openId,jdbcType=VARCHAR},
       </if>
-      <if test="dname != null">
+      <if test="dname != null" >
         dname = #{dname,jdbcType=VARCHAR},
       </if>
-      <if test="imageURL != null">
+      <if test="imageURL != null" >
         imageURL = #{imageURL,jdbcType=VARCHAR},
       </if>
-      <if test="status != null">
+      <if test="status != null" >
         status = #{status,jdbcType=VARCHAR},
       </if>
-      <if test="dinfo != null">
+      <if test="dinfo != null" >
         dinfo = #{dinfo,jdbcType=VARCHAR},
       </if>
-      <if test="dTempInfo != null">
+      <if test="dTempInfo != null" >
         dTempInfo = #{dTempInfo,jdbcType=VARCHAR},
       </if>
-      <if test="seconds != null">
+      <if test="seconds != null" >
         seconds = #{seconds,jdbcType=VARCHAR},
       </if>
-      <if test="uploadTime != null">
+      <if test="uploadTime != null" >
         uploadTime = #{uploadTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="theme != null">
+      <if test="theme != null" >
         theme = #{theme,jdbcType=VARCHAR},
       </if>
-      <if test="numLike != null">
+      <if test="numLike != null" >
         numLike = #{numLike,jdbcType=INTEGER},
       </if>
-      <if test="numDislike != null">
+      <if test="numDislike != null" >
         numDislike = #{numDislike,jdbcType=DECIMAL},
       </if>
     </set>
     where key = #{key,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.arloor.nywc.domain.Design">
-    update design
-    set openId = #{openId,jdbcType=VARCHAR},
-      dname = #{dname,jdbcType=VARCHAR},
-      imageURL = #{imageURL,jdbcType=VARCHAR},
-      status = #{status,jdbcType=VARCHAR},
-      dinfo = #{dinfo,jdbcType=VARCHAR},
-      dTempInfo = #{dTempInfo,jdbcType=VARCHAR},
-      seconds = #{seconds,jdbcType=VARCHAR},
-      uploadTime = #{uploadTime,jdbcType=TIMESTAMP},
-      theme = #{theme,jdbcType=VARCHAR},
-      numLike = #{numLike,jdbcType=INTEGER},
-      numDislike = #{numDislike,jdbcType=DECIMAL}
-    where key = #{key,jdbcType=VARCHAR}
-  </update>
-  <resultMap id="BaseResultMap" type="com.arloor.nywc.domain.Design">
-    <id column="key" jdbcType="VARCHAR" property="key" />
-    <result column="openId" jdbcType="VARCHAR" property="openId" />
-    <result column="dname" jdbcType="VARCHAR" property="dname" />
-    <result column="imageURL" jdbcType="VARCHAR" property="imageURL" />
-    <result column="status" jdbcType="VARCHAR" property="status" />
-    <result column="dinfo" jdbcType="VARCHAR" property="dinfo" />
-    <result column="dTempInfo" jdbcType="VARCHAR" property="dTempInfo" />
-    <result column="seconds" jdbcType="VARCHAR" property="seconds" />
-    <result column="uploadTime" jdbcType="TIMESTAMP" property="uploadTime" />
-    <result column="theme" jdbcType="VARCHAR" property="theme" />
-    <result column="numLike" jdbcType="INTEGER" property="numLike" />
-    <result column="numDislike" jdbcType="DECIMAL" property="numDislike" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    key, openId, dname, imageURL, status, dinfo, dTempInfo, seconds, uploadTime, theme, 
-    numLike, numDislike
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from design
-    where key = #{key,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from design
-    where key = #{key,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.arloor.nywc.domain.Design">
-    insert into design (key, openId, dname, 
-      imageURL, status, dinfo, 
-      dTempInfo, seconds, uploadTime, 
-      theme, numLike, numDislike
-      )
-    values (#{key,jdbcType=VARCHAR}, #{openId,jdbcType=VARCHAR}, #{dname,jdbcType=VARCHAR}, 
-      #{imageURL,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{dinfo,jdbcType=VARCHAR}, 
-      #{dTempInfo,jdbcType=VARCHAR}, #{seconds,jdbcType=VARCHAR}, #{uploadTime,jdbcType=TIMESTAMP}, 
-      #{theme,jdbcType=VARCHAR}, #{numLike,jdbcType=INTEGER}, #{numDislike,jdbcType=DECIMAL}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.arloor.nywc.domain.Design">
-    insert into design
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="key != null">
-        key,
-      </if>
-      <if test="openId != null">
-        openId,
-      </if>
-      <if test="dname != null">
-        dname,
-      </if>
-      <if test="imageURL != null">
-        imageURL,
-      </if>
-      <if test="status != null">
-        status,
-      </if>
-      <if test="dinfo != null">
-        dinfo,
-      </if>
-      <if test="dTempInfo != null">
-        dTempInfo,
-      </if>
-      <if test="seconds != null">
-        seconds,
-      </if>
-      <if test="uploadTime != null">
-        uploadTime,
-      </if>
-      <if test="theme != null">
-        theme,
-      </if>
-      <if test="numLike != null">
-        numLike,
-      </if>
-      <if test="numDislike != null">
-        numDislike,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="key != null">
-        #{key,jdbcType=VARCHAR},
-      </if>
-      <if test="openId != null">
-        #{openId,jdbcType=VARCHAR},
-      </if>
-      <if test="dname != null">
-        #{dname,jdbcType=VARCHAR},
-      </if>
-      <if test="imageURL != null">
-        #{imageURL,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null">
-        #{status,jdbcType=VARCHAR},
-      </if>
-      <if test="dinfo != null">
-        #{dinfo,jdbcType=VARCHAR},
-      </if>
-      <if test="dTempInfo != null">
-        #{dTempInfo,jdbcType=VARCHAR},
-      </if>
-      <if test="seconds != null">
-        #{seconds,jdbcType=VARCHAR},
-      </if>
-      <if test="uploadTime != null">
-        #{uploadTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="theme != null">
-        #{theme,jdbcType=VARCHAR},
-      </if>
-      <if test="numLike != null">
-        #{numLike,jdbcType=INTEGER},
-      </if>
-      <if test="numDislike != null">
-        #{numDislike,jdbcType=DECIMAL},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.arloor.nywc.domain.Design">
-    update design
-    <set>
-      <if test="openId != null">
-        openId = #{openId,jdbcType=VARCHAR},
-      </if>
-      <if test="dname != null">
-        dname = #{dname,jdbcType=VARCHAR},
-      </if>
-      <if test="imageURL != null">
-        imageURL = #{imageURL,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null">
-        status = #{status,jdbcType=VARCHAR},
-      </if>
-      <if test="dinfo != null">
-        dinfo = #{dinfo,jdbcType=VARCHAR},
-      </if>
-      <if test="dTempInfo != null">
-        dTempInfo = #{dTempInfo,jdbcType=VARCHAR},
-      </if>
-      <if test="seconds != null">
-        seconds = #{seconds,jdbcType=VARCHAR},
-      </if>
-      <if test="uploadTime != null">
-        uploadTime = #{uploadTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="theme != null">
-        theme = #{theme,jdbcType=VARCHAR},
-      </if>
-      <if test="numLike != null">
-        numLike = #{numLike,jdbcType=INTEGER},
-      </if>
-      <if test="numDislike != null">
-        numDislike = #{numDislike,jdbcType=DECIMAL},
-      </if>
-    </set>
-    where key = #{key,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.arloor.nywc.domain.Design">
-    update design
-    set openId = #{openId,jdbcType=VARCHAR},
-      dname = #{dname,jdbcType=VARCHAR},
-      imageURL = #{imageURL,jdbcType=VARCHAR},
-      status = #{status,jdbcType=VARCHAR},
-      dinfo = #{dinfo,jdbcType=VARCHAR},
-      dTempInfo = #{dTempInfo,jdbcType=VARCHAR},
-      seconds = #{seconds,jdbcType=VARCHAR},
-      uploadTime = #{uploadTime,jdbcType=TIMESTAMP},
-      theme = #{theme,jdbcType=VARCHAR},
-      numLike = #{numLike,jdbcType=INTEGER},
-      numDislike = #{numDislike,jdbcType=DECIMAL}
-    where key = #{key,jdbcType=VARCHAR}
-  </update>
-  <resultMap id="BaseResultMap" type="com.arloor.nywc.domain.Design">
-    <id column="key" jdbcType="VARCHAR" property="key" />
-    <result column="openId" jdbcType="VARCHAR" property="openId" />
-    <result column="dname" jdbcType="VARCHAR" property="dname" />
-    <result column="imageURL" jdbcType="VARCHAR" property="imageURL" />
-    <result column="status" jdbcType="VARCHAR" property="status" />
-    <result column="dinfo" jdbcType="VARCHAR" property="dinfo" />
-    <result column="dTempInfo" jdbcType="VARCHAR" property="dTempInfo" />
-    <result column="seconds" jdbcType="VARCHAR" property="seconds" />
-    <result column="uploadTime" jdbcType="TIMESTAMP" property="uploadTime" />
-    <result column="theme" jdbcType="VARCHAR" property="theme" />
-    <result column="numLike" jdbcType="INTEGER" property="numLike" />
-    <result column="numDislike" jdbcType="DECIMAL" property="numDislike" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    key, openId, dname, imageURL, status, dinfo, dTempInfo, seconds, uploadTime, theme, 
-    numLike, numDislike
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from design
-    where key = #{key,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from design
-    where key = #{key,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.arloor.nywc.domain.Design">
-    insert into design (key, openId, dname, 
-      imageURL, status, dinfo, 
-      dTempInfo, seconds, uploadTime, 
-      theme, numLike, numDislike
-      )
-    values (#{key,jdbcType=VARCHAR}, #{openId,jdbcType=VARCHAR}, #{dname,jdbcType=VARCHAR}, 
-      #{imageURL,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{dinfo,jdbcType=VARCHAR}, 
-      #{dTempInfo,jdbcType=VARCHAR}, #{seconds,jdbcType=VARCHAR}, #{uploadTime,jdbcType=TIMESTAMP}, 
-      #{theme,jdbcType=VARCHAR}, #{numLike,jdbcType=INTEGER}, #{numDislike,jdbcType=DECIMAL}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.arloor.nywc.domain.Design">
-    insert into design
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="key != null">
-        key,
-      </if>
-      <if test="openId != null">
-        openId,
-      </if>
-      <if test="dname != null">
-        dname,
-      </if>
-      <if test="imageURL != null">
-        imageURL,
-      </if>
-      <if test="status != null">
-        status,
-      </if>
-      <if test="dinfo != null">
-        dinfo,
-      </if>
-      <if test="dTempInfo != null">
-        dTempInfo,
-      </if>
-      <if test="seconds != null">
-        seconds,
-      </if>
-      <if test="uploadTime != null">
-        uploadTime,
-      </if>
-      <if test="theme != null">
-        theme,
-      </if>
-      <if test="numLike != null">
-        numLike,
-      </if>
-      <if test="numDislike != null">
-        numDislike,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="key != null">
-        #{key,jdbcType=VARCHAR},
-      </if>
-      <if test="openId != null">
-        #{openId,jdbcType=VARCHAR},
-      </if>
-      <if test="dname != null">
-        #{dname,jdbcType=VARCHAR},
-      </if>
-      <if test="imageURL != null">
-        #{imageURL,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null">
-        #{status,jdbcType=VARCHAR},
-      </if>
-      <if test="dinfo != null">
-        #{dinfo,jdbcType=VARCHAR},
-      </if>
-      <if test="dTempInfo != null">
-        #{dTempInfo,jdbcType=VARCHAR},
-      </if>
-      <if test="seconds != null">
-        #{seconds,jdbcType=VARCHAR},
-      </if>
-      <if test="uploadTime != null">
-        #{uploadTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="theme != null">
-        #{theme,jdbcType=VARCHAR},
-      </if>
-      <if test="numLike != null">
-        #{numLike,jdbcType=INTEGER},
-      </if>
-      <if test="numDislike != null">
-        #{numDislike,jdbcType=DECIMAL},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.arloor.nywc.domain.Design">
-    update design
-    <set>
-      <if test="openId != null">
-        openId = #{openId,jdbcType=VARCHAR},
-      </if>
-      <if test="dname != null">
-        dname = #{dname,jdbcType=VARCHAR},
-      </if>
-      <if test="imageURL != null">
-        imageURL = #{imageURL,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null">
-        status = #{status,jdbcType=VARCHAR},
-      </if>
-      <if test="dinfo != null">
-        dinfo = #{dinfo,jdbcType=VARCHAR},
-      </if>
-      <if test="dTempInfo != null">
-        dTempInfo = #{dTempInfo,jdbcType=VARCHAR},
-      </if>
-      <if test="seconds != null">
-        seconds = #{seconds,jdbcType=VARCHAR},
-      </if>
-      <if test="uploadTime != null">
-        uploadTime = #{uploadTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="theme != null">
-        theme = #{theme,jdbcType=VARCHAR},
-      </if>
-      <if test="numLike != null">
-        numLike = #{numLike,jdbcType=INTEGER},
-      </if>
-      <if test="numDislike != null">
-        numDislike = #{numDislike,jdbcType=DECIMAL},
-      </if>
-    </set>
-    where key = #{key,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.arloor.nywc.domain.Design">
+  <update id="updateByPrimaryKey" parameterType="com.arloor.nywc.domain.Design" >
     update design
     set openId = #{openId,jdbcType=VARCHAR},
       dname = #{dname,jdbcType=VARCHAR},
