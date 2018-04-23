@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.arloor.nywc.dao.MemberMapper" >
+  <resultMap id="BaseResultMap" type="com.arloor.nywc.domain.Member" >
+    <id column="openId" property="openId" jdbcType="VARCHAR" />
+    <result column="nickName" property="nickName" jdbcType="VARCHAR" />
+    <result column="role" property="role" jdbcType="VARCHAR" />
+    <result column="bonus" property="bonus" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    openId, nickName, role, bonus
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from member
+    where openId = #{openId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from member
+    where openId = #{openId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.arloor.nywc.domain.Member" >
+    insert into member (openId, nickName, role, 
+      bonus)
+    values (#{openId,jdbcType=VARCHAR}, #{nickName,jdbcType=VARCHAR}, #{role,jdbcType=VARCHAR}, 
+      #{bonus,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.arloor.nywc.domain.Member" >
+    insert into member
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="openId != null" >
+        openId,
+      </if>
+      <if test="nickName != null" >
+        nickName,
+      </if>
+      <if test="role != null" >
+        role,
+      </if>
+      <if test="bonus != null" >
+        bonus,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="openId != null" >
+        #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null" >
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="role != null" >
+        #{role,jdbcType=VARCHAR},
+      </if>
+      <if test="bonus != null" >
+        #{bonus,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.arloor.nywc.domain.Member" >
+    update member
+    <set >
+      <if test="nickName != null" >
+        nickName = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="role != null" >
+        role = #{role,jdbcType=VARCHAR},
+      </if>
+      <if test="bonus != null" >
+        bonus = #{bonus,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where openId = #{openId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.arloor.nywc.domain.Member" >
+    update member
+    set nickName = #{nickName,jdbcType=VARCHAR},
+      role = #{role,jdbcType=VARCHAR},
+      bonus = #{bonus,jdbcType=DECIMAL}
+    where openId = #{openId,jdbcType=VARCHAR}
+  </update>
+</mapper>

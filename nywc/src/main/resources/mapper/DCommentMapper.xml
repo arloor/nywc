@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.arloor.nywc.dao.DCommentMapper" >
+  <resultMap id="BaseResultMap" type="com.arloor.nywc.domain.DComment" >
+    <id column="dcid" property="dcid" jdbcType="INTEGER" />
+    <result column="key" property="key" jdbcType="VARCHAR" />
+    <result column="openIdComm" property="openIdComm" jdbcType="VARCHAR" />
+    <result column="comment" property="comment" jdbcType="VARCHAR" />
+    <result column="reply" property="reply" jdbcType="VARCHAR" />
+    <result column="commentStatus" property="commentStatus" jdbcType="BIT" />
+    <result column="comTime" property="comTime" jdbcType="TIMESTAMP" />
+    <result column="replyTime" property="replyTime" jdbcType="TIMESTAMP" />
+    <result column="numLike" property="numLike" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    dcid, key, openIdComm, comment, reply, commentStatus, comTime, replyTime, numLike
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from dcomment
+    where dcid = #{dcid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from dcomment
+    where dcid = #{dcid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.arloor.nywc.domain.DComment" >
+    insert into dcomment (dcid, key, openIdComm, 
+      comment, reply, commentStatus, 
+      comTime, replyTime, numLike
+      )
+    values (#{dcid,jdbcType=INTEGER}, #{key,jdbcType=VARCHAR}, #{openIdComm,jdbcType=VARCHAR}, 
+      #{comment,jdbcType=VARCHAR}, #{reply,jdbcType=VARCHAR}, #{commentStatus,jdbcType=BIT}, 
+      #{comTime,jdbcType=TIMESTAMP}, #{replyTime,jdbcType=TIMESTAMP}, #{numLike,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.arloor.nywc.domain.DComment" >
+    insert into dcomment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="dcid != null" >
+        dcid,
+      </if>
+      <if test="key != null" >
+        key,
+      </if>
+      <if test="openIdComm != null" >
+        openIdComm,
+      </if>
+      <if test="comment != null" >
+        comment,
+      </if>
+      <if test="reply != null" >
+        reply,
+      </if>
+      <if test="commentStatus != null" >
+        commentStatus,
+      </if>
+      <if test="comTime != null" >
+        comTime,
+      </if>
+      <if test="replyTime != null" >
+        replyTime,
+      </if>
+      <if test="numLike != null" >
+        numLike,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="dcid != null" >
+        #{dcid,jdbcType=INTEGER},
+      </if>
+      <if test="key != null" >
+        #{key,jdbcType=VARCHAR},
+      </if>
+      <if test="openIdComm != null" >
+        #{openIdComm,jdbcType=VARCHAR},
+      </if>
+      <if test="comment != null" >
+        #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="reply != null" >
+        #{reply,jdbcType=VARCHAR},
+      </if>
+      <if test="commentStatus != null" >
+        #{commentStatus,jdbcType=BIT},
+      </if>
+      <if test="comTime != null" >
+        #{comTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="replyTime != null" >
+        #{replyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="numLike != null" >
+        #{numLike,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.arloor.nywc.domain.DComment" >
+    update dcomment
+    <set >
+      <if test="key != null" >
+        key = #{key,jdbcType=VARCHAR},
+      </if>
+      <if test="openIdComm != null" >
+        openIdComm = #{openIdComm,jdbcType=VARCHAR},
+      </if>
+      <if test="comment != null" >
+        comment = #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="reply != null" >
+        reply = #{reply,jdbcType=VARCHAR},
+      </if>
+      <if test="commentStatus != null" >
+        commentStatus = #{commentStatus,jdbcType=BIT},
+      </if>
+      <if test="comTime != null" >
+        comTime = #{comTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="replyTime != null" >
+        replyTime = #{replyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="numLike != null" >
+        numLike = #{numLike,jdbcType=INTEGER},
+      </if>
+    </set>
+    where dcid = #{dcid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.arloor.nywc.domain.DComment" >
+    update dcomment
+    set key = #{key,jdbcType=VARCHAR},
+      openIdComm = #{openIdComm,jdbcType=VARCHAR},
+      comment = #{comment,jdbcType=VARCHAR},
+      reply = #{reply,jdbcType=VARCHAR},
+      commentStatus = #{commentStatus,jdbcType=BIT},
+      comTime = #{comTime,jdbcType=TIMESTAMP},
+      replyTime = #{replyTime,jdbcType=TIMESTAMP},
+      numLike = #{numLike,jdbcType=INTEGER}
+    where dcid = #{dcid,jdbcType=INTEGER}
+  </update>
+</mapper>

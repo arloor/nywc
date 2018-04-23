@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.arloor.nywc.dao.IWantMapper" >
+  <resultMap id="BaseResultMap" type="com.arloor.nywc.domain.IWant" >
+    <id column="key" property="key" jdbcType="VARCHAR" />
+    <id column="wantOpenId" property="wantOpenId" jdbcType="VARCHAR" />
+    <id column="what" property="what" jdbcType="VARCHAR" />
+    <result column="wantTime" property="wantTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    key, wantOpenId, what, wantTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.arloor.nywc.domain.IWantKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from iwant
+    where key = #{key,jdbcType=VARCHAR}
+      and wantOpenId = #{wantOpenId,jdbcType=VARCHAR}
+      and what = #{what,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.arloor.nywc.domain.IWantKey" >
+    delete from iwant
+    where key = #{key,jdbcType=VARCHAR}
+      and wantOpenId = #{wantOpenId,jdbcType=VARCHAR}
+      and what = #{what,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.arloor.nywc.domain.IWant" >
+    insert into iwant (key, wantOpenId, what, 
+      wantTime)
+    values (#{key,jdbcType=VARCHAR}, #{wantOpenId,jdbcType=VARCHAR}, #{what,jdbcType=VARCHAR}, 
+      #{wantTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.arloor.nywc.domain.IWant" >
+    insert into iwant
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="key != null" >
+        key,
+      </if>
+      <if test="wantOpenId != null" >
+        wantOpenId,
+      </if>
+      <if test="what != null" >
+        what,
+      </if>
+      <if test="wantTime != null" >
+        wantTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="key != null" >
+        #{key,jdbcType=VARCHAR},
+      </if>
+      <if test="wantOpenId != null" >
+        #{wantOpenId,jdbcType=VARCHAR},
+      </if>
+      <if test="what != null" >
+        #{what,jdbcType=VARCHAR},
+      </if>
+      <if test="wantTime != null" >
+        #{wantTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.arloor.nywc.domain.IWant" >
+    update iwant
+    <set >
+      <if test="wantTime != null" >
+        wantTime = #{wantTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where key = #{key,jdbcType=VARCHAR}
+      and wantOpenId = #{wantOpenId,jdbcType=VARCHAR}
+      and what = #{what,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.arloor.nywc.domain.IWant" >
+    update iwant
+    set wantTime = #{wantTime,jdbcType=TIMESTAMP}
+    where key = #{key,jdbcType=VARCHAR}
+      and wantOpenId = #{wantOpenId,jdbcType=VARCHAR}
+      and what = #{what,jdbcType=VARCHAR}
+  </update>
+</mapper>

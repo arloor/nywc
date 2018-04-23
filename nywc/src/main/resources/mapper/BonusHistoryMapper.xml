@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.arloor.nywc.dao.BonusHistoryMapper" >
+  <resultMap id="BaseResultMap" type="com.arloor.nywc.domain.BonusHistory" >
+    <id column="openId" property="openId" jdbcType="VARCHAR" />
+    <id column="time" property="time" jdbcType="TIMESTAMP" />
+    <result column="operatiron" property="operatiron" jdbcType="VARCHAR" />
+    <result column="change" property="change" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    openId, time, operatiron, change
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.arloor.nywc.domain.BonusHistoryKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from bonusHistory
+    where openId = #{openId,jdbcType=VARCHAR}
+      and time = #{time,jdbcType=TIMESTAMP}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.arloor.nywc.domain.BonusHistoryKey" >
+    delete from bonusHistory
+    where openId = #{openId,jdbcType=VARCHAR}
+      and time = #{time,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.arloor.nywc.domain.BonusHistory" >
+    insert into bonusHistory (openId, time, operatiron, 
+      change)
+    values (#{openId,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP}, #{operatiron,jdbcType=VARCHAR}, 
+      #{change,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.arloor.nywc.domain.BonusHistory" >
+    insert into bonusHistory
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="openId != null" >
+        openId,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+      <if test="operatiron != null" >
+        operatiron,
+      </if>
+      <if test="change != null" >
+        change,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="openId != null" >
+        #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatiron != null" >
+        #{operatiron,jdbcType=VARCHAR},
+      </if>
+      <if test="change != null" >
+        #{change,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.arloor.nywc.domain.BonusHistory" >
+    update bonusHistory
+    <set >
+      <if test="operatiron != null" >
+        operatiron = #{operatiron,jdbcType=VARCHAR},
+      </if>
+      <if test="change != null" >
+        change = #{change,jdbcType=INTEGER},
+      </if>
+    </set>
+    where openId = #{openId,jdbcType=VARCHAR}
+      and time = #{time,jdbcType=TIMESTAMP}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.arloor.nywc.domain.BonusHistory" >
+    update bonusHistory
+    set operatiron = #{operatiron,jdbcType=VARCHAR},
+      change = #{change,jdbcType=INTEGER}
+    where openId = #{openId,jdbcType=VARCHAR}
+      and time = #{time,jdbcType=TIMESTAMP}
+  </update>
+</mapper>

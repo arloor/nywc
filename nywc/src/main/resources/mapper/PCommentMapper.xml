@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.arloor.nywc.dao.PCommentMapper" >
+  <resultMap id="BaseResultMap" type="com.arloor.nywc.domain.PComment" >
+    <id column="pcid" property="pcid" jdbcType="INTEGER" />
+    <result column="pname" property="pname" jdbcType="VARCHAR" />
+    <result column="openIdComm" property="openIdComm" jdbcType="VARCHAR" />
+    <result column="comment" property="comment" jdbcType="VARCHAR" />
+    <result column="reply" property="reply" jdbcType="VARCHAR" />
+    <result column="comTime" property="comTime" jdbcType="TIMESTAMP" />
+    <result column="replyTime" property="replyTime" jdbcType="TIMESTAMP" />
+    <result column="numLike" property="numLike" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    pcid, pname, openIdComm, comment, reply, comTime, replyTime, numLike
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from pcomment
+    where pcid = #{pcid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from pcomment
+    where pcid = #{pcid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.arloor.nywc.domain.PComment" >
+    insert into pcomment (pcid, pname, openIdComm, 
+      comment, reply, comTime, 
+      replyTime, numLike)
+    values (#{pcid,jdbcType=INTEGER}, #{pname,jdbcType=VARCHAR}, #{openIdComm,jdbcType=VARCHAR}, 
+      #{comment,jdbcType=VARCHAR}, #{reply,jdbcType=VARCHAR}, #{comTime,jdbcType=TIMESTAMP}, 
+      #{replyTime,jdbcType=TIMESTAMP}, #{numLike,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.arloor.nywc.domain.PComment" >
+    insert into pcomment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="pcid != null" >
+        pcid,
+      </if>
+      <if test="pname != null" >
+        pname,
+      </if>
+      <if test="openIdComm != null" >
+        openIdComm,
+      </if>
+      <if test="comment != null" >
+        comment,
+      </if>
+      <if test="reply != null" >
+        reply,
+      </if>
+      <if test="comTime != null" >
+        comTime,
+      </if>
+      <if test="replyTime != null" >
+        replyTime,
+      </if>
+      <if test="numLike != null" >
+        numLike,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="pcid != null" >
+        #{pcid,jdbcType=INTEGER},
+      </if>
+      <if test="pname != null" >
+        #{pname,jdbcType=VARCHAR},
+      </if>
+      <if test="openIdComm != null" >
+        #{openIdComm,jdbcType=VARCHAR},
+      </if>
+      <if test="comment != null" >
+        #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="reply != null" >
+        #{reply,jdbcType=VARCHAR},
+      </if>
+      <if test="comTime != null" >
+        #{comTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="replyTime != null" >
+        #{replyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="numLike != null" >
+        #{numLike,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.arloor.nywc.domain.PComment" >
+    update pcomment
+    <set >
+      <if test="pname != null" >
+        pname = #{pname,jdbcType=VARCHAR},
+      </if>
+      <if test="openIdComm != null" >
+        openIdComm = #{openIdComm,jdbcType=VARCHAR},
+      </if>
+      <if test="comment != null" >
+        comment = #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="reply != null" >
+        reply = #{reply,jdbcType=VARCHAR},
+      </if>
+      <if test="comTime != null" >
+        comTime = #{comTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="replyTime != null" >
+        replyTime = #{replyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="numLike != null" >
+        numLike = #{numLike,jdbcType=INTEGER},
+      </if>
+    </set>
+    where pcid = #{pcid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.arloor.nywc.domain.PComment" >
+    update pcomment
+    set pname = #{pname,jdbcType=VARCHAR},
+      openIdComm = #{openIdComm,jdbcType=VARCHAR},
+      comment = #{comment,jdbcType=VARCHAR},
+      reply = #{reply,jdbcType=VARCHAR},
+      comTime = #{comTime,jdbcType=TIMESTAMP},
+      replyTime = #{replyTime,jdbcType=TIMESTAMP},
+      numLike = #{numLike,jdbcType=INTEGER}
+    where pcid = #{pcid,jdbcType=INTEGER}
+  </update>
+</mapper>

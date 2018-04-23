@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.arloor.nywc.dao.ProductMapper" >
+  <resultMap id="BaseResultMap" type="com.arloor.nywc.domain.Product" >
+    <id column="pname" property="pname" jdbcType="VARCHAR" />
+    <result column="dkey" property="dkey" jdbcType="VARCHAR" />
+    <result column="pImageURL" property="pImageURL" jdbcType="VARCHAR" />
+    <result column="pInfo" property="pInfo" jdbcType="VARCHAR" />
+    <result column="seconds" property="seconds" jdbcType="VARCHAR" />
+    <result column="releaseTime" property="releaseTime" jdbcType="TIMESTAMP" />
+    <result column="isNew" property="isNew" jdbcType="BIT" />
+    <result column="numLike" property="numLike" jdbcType="DECIMAL" />
+    <result column="numDislike" property="numDislike" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    pname, dkey, pImageURL, pInfo, seconds, releaseTime, isNew, numLike, numDislike
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from product
+    where pname = #{pname,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from product
+    where pname = #{pname,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.arloor.nywc.domain.Product" >
+    insert into product (pname, dkey, pImageURL, 
+      pInfo, seconds, releaseTime, 
+      isNew, numLike, numDislike
+      )
+    values (#{pname,jdbcType=VARCHAR}, #{dkey,jdbcType=VARCHAR}, #{pImageURL,jdbcType=VARCHAR}, 
+      #{pInfo,jdbcType=VARCHAR}, #{seconds,jdbcType=VARCHAR}, #{releaseTime,jdbcType=TIMESTAMP}, 
+      #{isNew,jdbcType=BIT}, #{numLike,jdbcType=DECIMAL}, #{numDislike,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.arloor.nywc.domain.Product" >
+    insert into product
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="pname != null" >
+        pname,
+      </if>
+      <if test="dkey != null" >
+        dkey,
+      </if>
+      <if test="pImageURL != null" >
+        pImageURL,
+      </if>
+      <if test="pInfo != null" >
+        pInfo,
+      </if>
+      <if test="seconds != null" >
+        seconds,
+      </if>
+      <if test="releaseTime != null" >
+        releaseTime,
+      </if>
+      <if test="isNew != null" >
+        isNew,
+      </if>
+      <if test="numLike != null" >
+        numLike,
+      </if>
+      <if test="numDislike != null" >
+        numDislike,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="pname != null" >
+        #{pname,jdbcType=VARCHAR},
+      </if>
+      <if test="dkey != null" >
+        #{dkey,jdbcType=VARCHAR},
+      </if>
+      <if test="pImageURL != null" >
+        #{pImageURL,jdbcType=VARCHAR},
+      </if>
+      <if test="pInfo != null" >
+        #{pInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="seconds != null" >
+        #{seconds,jdbcType=VARCHAR},
+      </if>
+      <if test="releaseTime != null" >
+        #{releaseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isNew != null" >
+        #{isNew,jdbcType=BIT},
+      </if>
+      <if test="numLike != null" >
+        #{numLike,jdbcType=DECIMAL},
+      </if>
+      <if test="numDislike != null" >
+        #{numDislike,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.arloor.nywc.domain.Product" >
+    update product
+    <set >
+      <if test="dkey != null" >
+        dkey = #{dkey,jdbcType=VARCHAR},
+      </if>
+      <if test="pImageURL != null" >
+        pImageURL = #{pImageURL,jdbcType=VARCHAR},
+      </if>
+      <if test="pInfo != null" >
+        pInfo = #{pInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="seconds != null" >
+        seconds = #{seconds,jdbcType=VARCHAR},
+      </if>
+      <if test="releaseTime != null" >
+        releaseTime = #{releaseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isNew != null" >
+        isNew = #{isNew,jdbcType=BIT},
+      </if>
+      <if test="numLike != null" >
+        numLike = #{numLike,jdbcType=DECIMAL},
+      </if>
+      <if test="numDislike != null" >
+        numDislike = #{numDislike,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where pname = #{pname,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.arloor.nywc.domain.Product" >
+    update product
+    set dkey = #{dkey,jdbcType=VARCHAR},
+      pImageURL = #{pImageURL,jdbcType=VARCHAR},
+      pInfo = #{pInfo,jdbcType=VARCHAR},
+      seconds = #{seconds,jdbcType=VARCHAR},
+      releaseTime = #{releaseTime,jdbcType=TIMESTAMP},
+      isNew = #{isNew,jdbcType=BIT},
+      numLike = #{numLike,jdbcType=DECIMAL},
+      numDislike = #{numDislike,jdbcType=DECIMAL}
+    where pname = #{pname,jdbcType=VARCHAR}
+  </update>
+</mapper>

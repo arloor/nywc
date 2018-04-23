@@ -2,6 +2,7 @@ package com.arloor.nywc;
 
 
 import com.arloor.nywc.utils.TimedSetWeixinAccessTokenRunnable;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -12,6 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 
 @SpringBootApplication
+@MapperScan("com.arloor.mywc.dao")
 public class NYWCApplication {
 
 	public static void main(String[] args) {
