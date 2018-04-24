@@ -1,18 +1,18 @@
 package com.arloor.nywc.domain;
 
 public class IWantKey {
-    private String key;
+    private String dkey;
 
     private String wantOpenId;
 
     private String what;
 
-    public String getKey() {
-        return key;
+    public String getDkey() {
+        return dkey;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void setDkey(String dkey) {
+        this.dkey = dkey;
     }
 
     public String getWantOpenId() {

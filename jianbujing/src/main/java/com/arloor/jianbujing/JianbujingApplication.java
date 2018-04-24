@@ -1,7 +1,5 @@
 package com.arloor.jianbujing;
 
-import com.arloor.jianbujing.dao.WeixinDao;
-import com.arloor.jianbujing.service.WeixinService;
 import com.arloor.jianbujing.utils.TimedRemoveFormIdRunnable;
 import com.arloor.jianbujing.utils.TimedSetWeixinAccessTokenRunnable;
 import org.springframework.boot.SpringApplication;

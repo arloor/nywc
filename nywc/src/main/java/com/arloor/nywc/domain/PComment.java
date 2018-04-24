@@ -9,7 +9,7 @@ public class PComment {
 
     private String openIdComm;
 
-    private String comment;
+    private String pcomment;
 
     private String reply;
 
@@ -43,12 +43,12 @@ public class PComment {
         this.openIdComm = openIdComm;
     }
 
-    public String getComment() {
-        return comment;
+    public String getPcomment() {
+        return pcomment;
     }
 
-    public void setComment(String comment) {
-        this.comment = comment;
+    public void setPcomment(String pcomment) {
+        this.pcomment = pcomment;
     }
 
     public String getReply() {

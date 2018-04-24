@@ -3,30 +3,30 @@
 <mapper namespace="com.arloor.nywc.dao.BonusHistoryMapper" >
   <resultMap id="BaseResultMap" type="com.arloor.nywc.domain.BonusHistory" >
     <id column="openId" property="openId" jdbcType="VARCHAR" />
-    <id column="time" property="time" jdbcType="TIMESTAMP" />
+    <id column="changeTime" property="changeTime" jdbcType="TIMESTAMP" />
     <result column="operatiron" property="operatiron" jdbcType="VARCHAR" />
-    <result column="change" property="change" jdbcType="INTEGER" />
+    <result column="numChange" property="numChange" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    openId, time, operatiron, change
+    openId, changeTime, operatiron, numChange
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.arloor.nywc.domain.BonusHistoryKey" >
     select 
     <include refid="Base_Column_List" />
     from bonusHistory
     where openId = #{openId,jdbcType=VARCHAR}
-      and time = #{time,jdbcType=TIMESTAMP}
+      and changeTime = #{changeTime,jdbcType=TIMESTAMP}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="com.arloor.nywc.domain.BonusHistoryKey" >
     delete from bonusHistory
     where openId = #{openId,jdbcType=VARCHAR}
-      and time = #{time,jdbcType=TIMESTAMP}
+      and changeTime = #{changeTime,jdbcType=TIMESTAMP}
   </delete>
   <insert id="insert" parameterType="com.arloor.nywc.domain.BonusHistory" >
-    insert into bonusHistory (openId, time, operatiron, 
-      change)
-    values (#{openId,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP}, #{operatiron,jdbcType=VARCHAR}, 
-      #{change,jdbcType=INTEGER})
+    insert into bonusHistory (openId, changeTime, operatiron, 
+      numChange)
+    values (#{openId,jdbcType=VARCHAR}, #{changeTime,jdbcType=TIMESTAMP}, #{operatiron,jdbcType=VARCHAR}, 
+      #{numChange,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.arloor.nywc.domain.BonusHistory" >
     insert into bonusHistory
@@ -34,28 +34,28 @@
       <if test="openId != null" >
         openId,
       </if>
-      <if test="time != null" >
-        time,
+      <if test="changeTime != null" >
+        changeTime,
       </if>
       <if test="operatiron != null" >
         operatiron,
       </if>
-      <if test="change != null" >
-        change,
+      <if test="numChange != null" >
+        numChange,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="openId != null" >
         #{openId,jdbcType=VARCHAR},
       </if>
-      <if test="time != null" >
-        #{time,jdbcType=TIMESTAMP},
+      <if test="changeTime != null" >
+        #{changeTime,jdbcType=TIMESTAMP},
       </if>
       <if test="operatiron != null" >
         #{operatiron,jdbcType=VARCHAR},
       </if>
-      <if test="change != null" >
-        #{change,jdbcType=INTEGER},
+      <if test="numChange != null" >
+        #{numChange,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -65,18 +65,18 @@
       <if test="operatiron != null" >
         operatiron = #{operatiron,jdbcType=VARCHAR},
       </if>
-      <if test="change != null" >
-        change = #{change,jdbcType=INTEGER},
+      <if test="numChange != null" >
+        numChange = #{numChange,jdbcType=INTEGER},
       </if>
     </set>
     where openId = #{openId,jdbcType=VARCHAR}
-      and time = #{time,jdbcType=TIMESTAMP}
+      and changeTime = #{changeTime,jdbcType=TIMESTAMP}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.arloor.nywc.domain.BonusHistory" >
     update bonusHistory
     set operatiron = #{operatiron,jdbcType=VARCHAR},
-      change = #{change,jdbcType=INTEGER}
+      numChange = #{numChange,jdbcType=INTEGER}
     where openId = #{openId,jdbcType=VARCHAR}
-      and time = #{time,jdbcType=TIMESTAMP}
+      and changeTime = #{changeTime,jdbcType=TIMESTAMP}
   </update>
 </mapper>

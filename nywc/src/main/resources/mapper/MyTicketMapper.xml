@@ -5,11 +5,11 @@
     <id column="tid" property="tid" jdbcType="INTEGER" />
     <result column="openId" property="openId" jdbcType="VARCHAR" />
     <result column="tname" property="tname" jdbcType="VARCHAR" />
-    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="ticketStatus" property="ticketStatus" jdbcType="VARCHAR" />
     <result column="getTime" property="getTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    tid, openId, tname, status, getTime
+    tid, openId, tname, ticketStatus, getTime
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -23,9 +23,9 @@
   </delete>
   <insert id="insert" parameterType="com.arloor.nywc.domain.MyTicket" >
     insert into myTicket (tid, openId, tname, 
-      status, getTime)
+      ticketStatus, getTime)
     values (#{tid,jdbcType=INTEGER}, #{openId,jdbcType=VARCHAR}, #{tname,jdbcType=VARCHAR}, 
-      #{status,jdbcType=VARCHAR}, #{getTime,jdbcType=TIMESTAMP})
+      #{ticketStatus,jdbcType=VARCHAR}, #{getTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.arloor.nywc.domain.MyTicket" >
     insert into myTicket
@@ -39,8 +39,8 @@
       <if test="tname != null" >
         tname,
       </if>
-      <if test="status != null" >
-        status,
+      <if test="ticketStatus != null" >
+        ticketStatus,
       </if>
       <if test="getTime != null" >
         getTime,
@@ -56,8 +56,8 @@
       <if test="tname != null" >
         #{tname,jdbcType=VARCHAR},
       </if>
-      <if test="status != null" >
-        #{status,jdbcType=VARCHAR},
+      <if test="ticketStatus != null" >
+        #{ticketStatus,jdbcType=VARCHAR},
       </if>
       <if test="getTime != null" >
         #{getTime,jdbcType=TIMESTAMP},
@@ -73,8 +73,8 @@
       <if test="tname != null" >
         tname = #{tname,jdbcType=VARCHAR},
       </if>
-      <if test="status != null" >
-        status = #{status,jdbcType=VARCHAR},
+      <if test="ticketStatus != null" >
+        ticketStatus = #{ticketStatus,jdbcType=VARCHAR},
       </if>
       <if test="getTime != null" >
         getTime = #{getTime,jdbcType=TIMESTAMP},
@@ -86,7 +86,7 @@
     update myTicket
     set openId = #{openId,jdbcType=VARCHAR},
       tname = #{tname,jdbcType=VARCHAR},
-      status = #{status,jdbcType=VARCHAR},
+      ticketStatus = #{ticketStatus,jdbcType=VARCHAR},
       getTime = #{getTime,jdbcType=TIMESTAMP}
     where tid = #{tid,jdbcType=INTEGER}
   </update>

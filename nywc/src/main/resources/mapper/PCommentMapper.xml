@@ -5,14 +5,14 @@
     <id column="pcid" property="pcid" jdbcType="INTEGER" />
     <result column="pname" property="pname" jdbcType="VARCHAR" />
     <result column="openIdComm" property="openIdComm" jdbcType="VARCHAR" />
-    <result column="comment" property="comment" jdbcType="VARCHAR" />
+    <result column="pcomment" property="pcomment" jdbcType="VARCHAR" />
     <result column="reply" property="reply" jdbcType="VARCHAR" />
     <result column="comTime" property="comTime" jdbcType="TIMESTAMP" />
     <result column="replyTime" property="replyTime" jdbcType="TIMESTAMP" />
     <result column="numLike" property="numLike" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    pcid, pname, openIdComm, comment, reply, comTime, replyTime, numLike
+    pcid, pname, openIdComm, pcomment, reply, comTime, replyTime, numLike
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -26,10 +26,10 @@
   </delete>
   <insert id="insert" parameterType="com.arloor.nywc.domain.PComment" >
     insert into pcomment (pcid, pname, openIdComm, 
-      comment, reply, comTime, 
+      pcomment, reply, comTime, 
       replyTime, numLike)
     values (#{pcid,jdbcType=INTEGER}, #{pname,jdbcType=VARCHAR}, #{openIdComm,jdbcType=VARCHAR}, 
-      #{comment,jdbcType=VARCHAR}, #{reply,jdbcType=VARCHAR}, #{comTime,jdbcType=TIMESTAMP}, 
+      #{pcomment,jdbcType=VARCHAR}, #{reply,jdbcType=VARCHAR}, #{comTime,jdbcType=TIMESTAMP}, 
       #{replyTime,jdbcType=TIMESTAMP}, #{numLike,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.arloor.nywc.domain.PComment" >
@@ -44,8 +44,8 @@
       <if test="openIdComm != null" >
         openIdComm,
       </if>
-      <if test="comment != null" >
-        comment,
+      <if test="pcomment != null" >
+        pcomment,
       </if>
       <if test="reply != null" >
         reply,
@@ -70,8 +70,8 @@
       <if test="openIdComm != null" >
         #{openIdComm,jdbcType=VARCHAR},
       </if>
-      <if test="comment != null" >
-        #{comment,jdbcType=VARCHAR},
+      <if test="pcomment != null" >
+        #{pcomment,jdbcType=VARCHAR},
       </if>
       <if test="reply != null" >
         #{reply,jdbcType=VARCHAR},
@@ -96,8 +96,8 @@
       <if test="openIdComm != null" >
         openIdComm = #{openIdComm,jdbcType=VARCHAR},
       </if>
-      <if test="comment != null" >
-        comment = #{comment,jdbcType=VARCHAR},
+      <if test="pcomment != null" >
+        pcomment = #{pcomment,jdbcType=VARCHAR},
       </if>
       <if test="reply != null" >
         reply = #{reply,jdbcType=VARCHAR},
@@ -118,7 +118,7 @@
     update pcomment
     set pname = #{pname,jdbcType=VARCHAR},
       openIdComm = #{openIdComm,jdbcType=VARCHAR},
-      comment = #{comment,jdbcType=VARCHAR},
+      pcomment = #{pcomment,jdbcType=VARCHAR},
       reply = #{reply,jdbcType=VARCHAR},
       comTime = #{comTime,jdbcType=TIMESTAMP},
       replyTime = #{replyTime,jdbcType=TIMESTAMP},

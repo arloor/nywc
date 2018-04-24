@@ -3,9 +3,9 @@
 <mapper namespace="com.arloor.nywc.dao.DCommentMapper" >
   <resultMap id="BaseResultMap" type="com.arloor.nywc.domain.DComment" >
     <id column="dcid" property="dcid" jdbcType="INTEGER" />
-    <result column="key" property="key" jdbcType="VARCHAR" />
+    <result column="dkey" property="dkey" jdbcType="VARCHAR" />
     <result column="openIdComm" property="openIdComm" jdbcType="VARCHAR" />
-    <result column="comment" property="comment" jdbcType="VARCHAR" />
+    <result column="dcomment" property="dcomment" jdbcType="VARCHAR" />
     <result column="reply" property="reply" jdbcType="VARCHAR" />
     <result column="commentStatus" property="commentStatus" jdbcType="BIT" />
     <result column="comTime" property="comTime" jdbcType="TIMESTAMP" />
@@ -13,7 +13,7 @@
     <result column="numLike" property="numLike" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    dcid, key, openIdComm, comment, reply, commentStatus, comTime, replyTime, numLike
+    dcid, dkey, openIdComm, dcomment, reply, commentStatus, comTime, replyTime, numLike
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -26,12 +26,12 @@
     where dcid = #{dcid,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.arloor.nywc.domain.DComment" >
-    insert into dcomment (dcid, key, openIdComm, 
-      comment, reply, commentStatus, 
+    insert into dcomment (dcid, dkey, openIdComm, 
+      dcomment, reply, commentStatus, 
       comTime, replyTime, numLike
       )
-    values (#{dcid,jdbcType=INTEGER}, #{key,jdbcType=VARCHAR}, #{openIdComm,jdbcType=VARCHAR}, 
-      #{comment,jdbcType=VARCHAR}, #{reply,jdbcType=VARCHAR}, #{commentStatus,jdbcType=BIT}, 
+    values (#{dcid,jdbcType=INTEGER}, #{dkey,jdbcType=VARCHAR}, #{openIdComm,jdbcType=VARCHAR}, 
+      #{dcomment,jdbcType=VARCHAR}, #{reply,jdbcType=VARCHAR}, #{commentStatus,jdbcType=BIT}, 
       #{comTime,jdbcType=TIMESTAMP}, #{replyTime,jdbcType=TIMESTAMP}, #{numLike,jdbcType=INTEGER}
       )
   </insert>
@@ -41,14 +41,14 @@
       <if test="dcid != null" >
         dcid,
       </if>
-      <if test="key != null" >
-        key,
+      <if test="dkey != null" >
+        dkey,
       </if>
       <if test="openIdComm != null" >
         openIdComm,
       </if>
-      <if test="comment != null" >
-        comment,
+      <if test="dcomment != null" >
+        dcomment,
       </if>
       <if test="reply != null" >
         reply,
@@ -70,14 +70,14 @@
       <if test="dcid != null" >
         #{dcid,jdbcType=INTEGER},
       </if>
-      <if test="key != null" >
-        #{key,jdbcType=VARCHAR},
+      <if test="dkey != null" >
+        #{dkey,jdbcType=VARCHAR},
       </if>
       <if test="openIdComm != null" >
         #{openIdComm,jdbcType=VARCHAR},
       </if>
-      <if test="comment != null" >
-        #{comment,jdbcType=VARCHAR},
+      <if test="dcomment != null" >
+        #{dcomment,jdbcType=VARCHAR},
       </if>
       <if test="reply != null" >
         #{reply,jdbcType=VARCHAR},
@@ -99,14 +99,14 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.arloor.nywc.domain.DComment" >
     update dcomment
     <set >
-      <if test="key != null" >
-        key = #{key,jdbcType=VARCHAR},
+      <if test="dkey != null" >
+        dkey = #{dkey,jdbcType=VARCHAR},
       </if>
       <if test="openIdComm != null" >
         openIdComm = #{openIdComm,jdbcType=VARCHAR},
       </if>
-      <if test="comment != null" >
-        comment = #{comment,jdbcType=VARCHAR},
+      <if test="dcomment != null" >
+        dcomment = #{dcomment,jdbcType=VARCHAR},
       </if>
       <if test="reply != null" >
         reply = #{reply,jdbcType=VARCHAR},
@@ -128,9 +128,9 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.arloor.nywc.domain.DComment" >
     update dcomment
-    set key = #{key,jdbcType=VARCHAR},
+    set dkey = #{dkey,jdbcType=VARCHAR},
       openIdComm = #{openIdComm,jdbcType=VARCHAR},
-      comment = #{comment,jdbcType=VARCHAR},
+      dcomment = #{dcomment,jdbcType=VARCHAR},
       reply = #{reply,jdbcType=VARCHAR},
       commentStatus = #{commentStatus,jdbcType=BIT},
       comTime = #{comTime,jdbcType=TIMESTAMP},

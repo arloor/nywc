@@ -3,7 +3,7 @@ package com.arloor.nywc.domain;
 import java.util.Date;
 
 public class Design {
-    private String key;
+    private String dkey;
 
     private String openId;
 
@@ -11,7 +11,7 @@ public class Design {
 
     private String imageURL;
 
-    private String status;
+    private String dstatus;
 
     private String dinfo;
 
@@ -27,12 +27,12 @@ public class Design {
 
     private Long numDislike;
 
-    public String getKey() {
-        return key;
+    public String getDkey() {
+        return dkey;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void setDkey(String dkey) {
+        this.dkey = dkey;
     }
 
     public String getOpenId() {
@@ -59,12 +59,12 @@ public class Design {
         this.imageURL = imageURL;
     }
 
-    public String getStatus() {
-        return status;
+    public String getDstatus() {
+        return dstatus;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setDstatus(String dstatus) {
+        this.dstatus = dstatus;
     }
 
     public String getDinfo() {

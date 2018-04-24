@@ -5,11 +5,11 @@ import java.util.Date;
 public class DComment {
     private Integer dcid;
 
-    private String key;
+    private String dkey;
 
     private String openIdComm;
 
-    private String comment;
+    private String dcomment;
 
     private String reply;
 
@@ -29,12 +29,12 @@ public class DComment {
         this.dcid = dcid;
     }
 
-    public String getKey() {
-        return key;
+    public String getDkey() {
+        return dkey;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void setDkey(String dkey) {
+        this.dkey = dkey;
     }
 
     public String getOpenIdComm() {
@@ -45,12 +45,12 @@ public class DComment {
         this.openIdComm = openIdComm;
     }
 
-    public String getComment() {
-        return comment;
+    public String getDcomment() {
+        return dcomment;
     }
 
-    public void setComment(String comment) {
-        this.comment = comment;
+    public void setDcomment(String dcomment) {
+        this.dcomment = dcomment;
     }
 
     public String getReply() {
