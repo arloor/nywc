@@ -15,6 +15,7 @@ App({
             url: 'https://jianbujing.moontell.cn/api/weixin/openid?js_code=' + res.code,
             method: "get",
             success: function (openIdRes) {
+              console.log(openIdRes);
               // console.info("登录成功返回的openId：" + openIdRes.data.openid);
 
               // 判断openId是否获取成功
