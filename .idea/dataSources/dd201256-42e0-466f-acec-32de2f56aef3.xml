@@ -1045,7 +1045,6 @@ what</ColNames>
     <column id="251" parent="211" name="nickName">
       <Position>2</Position>
       <DataType>varchar(30)|0s</DataType>
-      <DefaultExpression>&apos;未授权&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="252" parent="211" name="role">

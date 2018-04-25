@@ -4,7 +4,7 @@
 
 ### 通过wx.login获得openid以及其他用户信息。
 
-`/api/weixin/memberinfo？js_code=...`
+`/api/member/memberinfo？js_code=...`
 
 ```json
 {"openId":"oPL165XH7WzJiFHWBwQAiMmT5fh0","nickName":"未授权","role":"user","bonus":0,"avatarURL":"https://wx.qlogo.cn/mmopen/vi_32/mb1BYYNugkz6icqUndwg1nVX5cTBuDBY4qhSVTx4HRIGicbaElcKCXkfwB3sNEj9Sk6Q39E0ZVvNuoQBkibFePH9g/0"}
