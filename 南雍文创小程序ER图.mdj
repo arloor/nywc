@@ -2626,7 +2626,7 @@
 									"containerExtending": false,
 									"left": 512,
 									"top": 533,
-									"width": 195.40087890625,
+									"width": 212.03173828125,
 									"height": 13,
 									"autoResize": false,
 									"underline": false,
@@ -2665,7 +2665,7 @@
 											"containerExtending": false,
 											"left": 517,
 											"top": 556,
-											"width": 185.40087890625,
+											"width": 202.03173828125,
 											"height": 13,
 											"autoResize": false
 										},
@@ -2689,7 +2689,7 @@
 											"containerExtending": false,
 											"left": 517,
 											"top": 571,
-											"width": 185.40087890625,
+											"width": 202.03173828125,
 											"height": 13,
 											"autoResize": false
 										},
@@ -2713,7 +2713,7 @@
 											"containerExtending": false,
 											"left": 517,
 											"top": 586,
-											"width": 185.40087890625,
+											"width": 202.03173828125,
 											"height": 13,
 											"autoResize": false
 										},
@@ -2737,7 +2737,7 @@
 											"containerExtending": false,
 											"left": 517,
 											"top": 601,
-											"width": 185.40087890625,
+											"width": 202.03173828125,
 											"height": 13,
 											"autoResize": false
 										}
@@ -2753,7 +2753,7 @@
 									"containerExtending": false,
 									"left": 512,
 									"top": 551,
-									"width": 195.40087890625,
+									"width": 212.03173828125,
 									"height": 68,
 									"autoResize": false
 								}
@@ -2769,7 +2769,7 @@
 							"containerExtending": false,
 							"left": 512,
 							"top": 528,
-							"width": 195.40087890625,
+							"width": 212.03173828125,
 							"height": 91,
 							"autoResize": false,
 							"nameLabel": {
@@ -2937,7 +2937,7 @@
 									"containerExtending": false,
 									"left": 848,
 									"top": 397,
-									"width": 191.7890625,
+									"width": 209.8671875,
 									"height": 13,
 									"autoResize": false,
 									"underline": false,
@@ -2976,7 +2976,7 @@
 											"containerExtending": false,
 											"left": 853,
 											"top": 420,
-											"width": 181.7890625,
+											"width": 199.8671875,
 											"height": 13,
 											"autoResize": false
 										},
@@ -3000,7 +3000,7 @@
 											"containerExtending": false,
 											"left": 853,
 											"top": 435,
-											"width": 181.7890625,
+											"width": 199.8671875,
 											"height": 13,
 											"autoResize": false
 										},
@@ -3024,7 +3024,7 @@
 											"containerExtending": false,
 											"left": 853,
 											"top": 450,
-											"width": 181.7890625,
+											"width": 199.8671875,
 											"height": 13,
 											"autoResize": false
 										},
@@ -3048,7 +3048,7 @@
 											"containerExtending": false,
 											"left": 853,
 											"top": 465,
-											"width": 181.7890625,
+											"width": 199.8671875,
 											"height": 13,
 											"autoResize": false
 										},
@@ -3072,7 +3072,7 @@
 											"containerExtending": false,
 											"left": 853,
 											"top": 480,
-											"width": 181.7890625,
+											"width": 199.8671875,
 											"height": 13,
 											"autoResize": false
 										}
@@ -3088,7 +3088,7 @@
 									"containerExtending": false,
 									"left": 848,
 									"top": 415,
-									"width": 191.7890625,
+									"width": 209.8671875,
 									"height": 83,
 									"autoResize": false
 								}
@@ -3104,7 +3104,7 @@
 							"containerExtending": false,
 							"left": 848,
 							"top": 392,
-							"width": 191.7890625,
+							"width": 209.8671875,
 							"height": 106,
 							"autoResize": false,
 							"nameLabel": {
@@ -3650,7 +3650,7 @@
 								"$ref": "AAAAAAFi67VeRmodiWc="
 							},
 							"lineStyle": 1,
-							"points": "608:619;607:727"
+							"points": "614:619;608:727"
 						},
 						{
 							"_type": "UMLNoteView",
@@ -3810,7 +3810,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFi62i3Jmae3iw="
 							},
-							"name": "key",
+							"name": "dkey",
 							"type": "VARCHAR",
 							"length": "30",
 							"primaryKey": true,
@@ -3866,7 +3866,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFi62i3Jmae3iw="
 							},
-							"name": "status",
+							"name": "dstatus",
 							"type": "VARCHAR",
 							"length": "20",
 							"primaryKey": false,
@@ -4208,7 +4208,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFi64Ryk2ehNUY="
 							},
-							"name": "key",
+							"name": "dkey",
 							"type": "VARCHAR",
 							"length": "30",
 							"primaryKey": true,
@@ -4288,7 +4288,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFi64d+32gDqeU="
 							},
-							"name": "key",
+							"name": "dkey",
 							"type": "VARCHAR",
 							"length": "30",
 							"primaryKey": false,
@@ -4316,7 +4316,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFi64d+32gDqeU="
 							},
-							"name": "comment",
+							"name": "dcomment",
 							"type": "VARCHAR",
 							"length": "100",
 							"primaryKey": false,
@@ -4791,7 +4791,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFi67VeRmob8zk="
 							},
-							"name": "time",
+							"name": "changeTime",
 							"type": "TIMESTAMP",
 							"length": 0,
 							"primaryKey": true,
@@ -4819,7 +4819,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFi67VeRmob8zk="
 							},
-							"name": "change",
+							"name": "numChange",
 							"type": "INTEGER",
 							"length": "10",
 							"primaryKey": false,
@@ -4885,7 +4885,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFi67eeQ2phgNU="
 							},
-							"name": "status",
+							"name": "ticketStatus",
 							"type": "VARCHAR",
 							"length": "30",
 							"primaryKey": false,
