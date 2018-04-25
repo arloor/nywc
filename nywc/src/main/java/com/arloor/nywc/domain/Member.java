@@ -9,6 +9,8 @@ public class Member {
 
     private Long bonus;
 
+    private String avatarURL;
+
     public String getOpenId() {
         return openId;
     }
@@ -39,5 +41,13 @@ public class Member {
 
     public void setBonus(Long bonus) {
         this.bonus = bonus;
+    }
+
+    public String getAvatarURL() {
+        return avatarURL;
+    }
+
+    public void setAvatarURL(String avatarURL) {
+        this.avatarURL = avatarURL;
     }
 }

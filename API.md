@@ -2,12 +2,12 @@
 
 ## WeixinService
 
-### 通过wx.login获得openid
+### 通过wx.login获得openid以及其他用户信息。
 
-`/api/weixin/openid？js_code=...`
+`/api/weixin/memberinfo？js_code=...`
 
 ```json
-{"openid":"oaRji5KZE-WSmM4_m2dfsUrtouVM","session_key":"9uEDTjJD4cfGffqntjRoeQ=="}
+{"openId":"oPL165XH7WzJiFHWBwQAiMmT5fh0","nickName":"未授权","role":"user","bonus":0,"avatarURL":"https://wx.qlogo.cn/mmopen/vi_32/mb1BYYNugkz6icqUndwg1nVX5cTBuDBY4qhSVTx4HRIGicbaElcKCXkfwB3sNEj9Sk6Q39E0ZVvNuoQBkibFePH9g/0"}
 ```
 
 ### 更新access_token（一般不需要前端调用）

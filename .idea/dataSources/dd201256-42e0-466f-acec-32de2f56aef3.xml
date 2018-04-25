@@ -1045,207 +1045,216 @@ what</ColNames>
     <column id="251" parent="211" name="nickName">
       <Position>2</Position>
       <DataType>varchar(30)|0s</DataType>
+      <DefaultExpression>&apos;未授权&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="252" parent="211" name="role">
       <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
+      <DefaultExpression>&apos;user&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="253" parent="211" name="bonus">
       <Position>4</Position>
       <DataType>decimal(10)|0s</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="254" parent="211" name="PRIMARY">
+    <column id="254" parent="211" name="avatarURL">
+      <Position>5</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <DefaultExpression>&apos;https://wx.qlogo.cn/mmopen/vi_32/mb1BYYNugkz6icqUndwg1nVX5cTBuDBY4qhSVTx4HRIGicbaElcKCXkfwB3sNEj9Sk6Q39E0ZVvNuoQBkibFePH9g/0&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="255" parent="211" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>openId</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="255" parent="212" name="tid">
+    <column id="256" parent="212" name="tid">
       <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="256" parent="212" name="openId">
+    <column id="257" parent="212" name="openId">
       <Position>2</Position>
       <DataType>varchar(30)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="257" parent="212" name="tname">
+    <column id="258" parent="212" name="tname">
       <Position>3</Position>
       <DataType>varchar(30)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="258" parent="212" name="ticketStatus">
+    <column id="259" parent="212" name="ticketStatus">
       <Position>4</Position>
       <DataType>varchar(30)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="259" parent="212" name="getTime">
+    <column id="260" parent="212" name="getTime">
       <Position>5</Position>
       <DataType>timestamp|0s</DataType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="260" parent="212" name="PRIMARY">
+    <key id="261" parent="212" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>tid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="261" parent="213" name="pcid">
+    <column id="262" parent="213" name="pcid">
       <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="262" parent="213" name="pname">
+    <column id="263" parent="213" name="pname">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="263" parent="213" name="openIdComm">
+    <column id="264" parent="213" name="openIdComm">
       <Position>3</Position>
       <DataType>varchar(30)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="264" parent="213" name="pcomment">
+    <column id="265" parent="213" name="pcomment">
       <Position>4</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="265" parent="213" name="reply">
+    <column id="266" parent="213" name="reply">
       <Position>5</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="266" parent="213" name="comTime">
+    <column id="267" parent="213" name="comTime">
       <Position>6</Position>
       <DataType>timestamp|0s</DataType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="267" parent="213" name="replyTime">
+    <column id="268" parent="213" name="replyTime">
       <Position>7</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="268" parent="213" name="numLike">
+    <column id="269" parent="213" name="numLike">
       <Position>8</Position>
       <DataType>int(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="269" parent="213" name="PRIMARY">
+    <key id="270" parent="213" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>pcid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="270" parent="214" name="pname">
+    <column id="271" parent="214" name="pname">
       <Position>1</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="271" parent="214" name="dkey">
+    <column id="272" parent="214" name="dkey">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="272" parent="214" name="pImageURL">
+    <column id="273" parent="214" name="pImageURL">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="273" parent="214" name="pInfo">
+    <column id="274" parent="214" name="pInfo">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="274" parent="214" name="seconds">
+    <column id="275" parent="214" name="seconds">
       <Position>5</Position>
       <DataType>varchar(30)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="275" parent="214" name="releaseTime">
+    <column id="276" parent="214" name="releaseTime">
       <Position>6</Position>
       <DataType>timestamp|0s</DataType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
       <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
     </column>
-    <column id="276" parent="214" name="isNew">
+    <column id="277" parent="214" name="isNew">
       <Position>7</Position>
       <DataType>tinyint(1)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="277" parent="214" name="numLike">
+    <column id="278" parent="214" name="numLike">
       <Position>8</Position>
       <DataType>decimal(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="278" parent="214" name="numDislike">
+    <column id="279" parent="214" name="numDislike">
       <Position>9</Position>
       <DataType>decimal(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="279" parent="214" name="PRIMARY">
+    <key id="280" parent="214" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>pname</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="280" parent="215" name="openId">
+    <column id="281" parent="215" name="openId">
       <Position>1</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="281" parent="215" name="pname">
+    <column id="282" parent="215" name="pname">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="282" parent="215" name="PRIMARY">
+    <key id="283" parent="215" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>openId
 pname</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="283" parent="216" name="tname">
+    <column id="284" parent="216" name="tname">
       <Position>1</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="284" parent="216" name="available">
+    <column id="285" parent="216" name="available">
       <Position>2</Position>
       <DataType>tinyint(1)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="285" parent="216" name="type">
+    <column id="286" parent="216" name="type">
       <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="286" parent="216" name="param0">
+    <column id="287" parent="216" name="param0">
       <Position>4</Position>
       <DataType>int(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="287" parent="216" name="param1">
+    <column id="288" parent="216" name="param1">
       <Position>5</Position>
       <DataType>double(10,2 digit)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="288" parent="216" name="param2">
+    <column id="289" parent="216" name="param2">
       <Position>6</Position>
       <DataType>int(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="289" parent="216" name="PRIMARY">
+    <key id="290" parent="216" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>tname</ColNames>
       <Primary>1</Primary>

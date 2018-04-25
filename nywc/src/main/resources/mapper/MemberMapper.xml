@@ -6,9 +6,10 @@
     <result column="nickName" property="nickName" jdbcType="VARCHAR" />
     <result column="role" property="role" jdbcType="VARCHAR" />
     <result column="bonus" property="bonus" jdbcType="DECIMAL" />
+    <result column="avatarURL" property="avatarURL" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    openId, nickName, role, bonus
+    openId, nickName, role, bonus, avatarURL
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
@@ -22,9 +23,9 @@
   </delete>
   <insert id="insert" parameterType="com.arloor.nywc.domain.Member" >
     insert into member (openId, nickName, role, 
-      bonus)
+      bonus, avatarURL)
     values (#{openId,jdbcType=VARCHAR}, #{nickName,jdbcType=VARCHAR}, #{role,jdbcType=VARCHAR}, 
-      #{bonus,jdbcType=DECIMAL})
+      #{bonus,jdbcType=DECIMAL}, #{avatarURL,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.arloor.nywc.domain.Member" >
     insert into member
@@ -41,6 +42,9 @@
       <if test="bonus != null" >
         bonus,
       </if>
+      <if test="avatarURL != null" >
+        avatarURL,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="openId != null" >
@@ -54,6 +58,9 @@
       </if>
       <if test="bonus != null" >
         #{bonus,jdbcType=DECIMAL},
+      </if>
+      <if test="avatarURL != null" >
+        #{avatarURL,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -69,6 +76,9 @@
       <if test="bonus != null" >
         bonus = #{bonus,jdbcType=DECIMAL},
       </if>
+      <if test="avatarURL != null" >
+        avatarURL = #{avatarURL,jdbcType=VARCHAR},
+      </if>
     </set>
     where openId = #{openId,jdbcType=VARCHAR}
   </update>
@@ -76,7 +86,8 @@
     update member
     set nickName = #{nickName,jdbcType=VARCHAR},
       role = #{role,jdbcType=VARCHAR},
-      bonus = #{bonus,jdbcType=DECIMAL}
+      bonus = #{bonus,jdbcType=DECIMAL},
+      avatarURL = #{avatarURL,jdbcType=VARCHAR}
     where openId = #{openId,jdbcType=VARCHAR}
   </update>
 </mapper>
