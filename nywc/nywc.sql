@@ -10,7 +10,7 @@ Target Server Type    : MariaDB
 Target Server Version : 50556
 File Encoding         : 65001
 
-Date: 2018-04-24 21:38:15
+Date: 2018-04-25 17:26:31
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -51,8 +51,8 @@ CREATE TABLE `dcomment` (
 -- ----------------------------
 -- Records of dcomment
 -- ----------------------------
-INSERT INTO `dcomment` VALUES ('1', 'Fh-shKnrkLFvBpyjbaiYN46Y3JKJ', 'oaRji5EHo9S_lTaqYt8olOOqFgCo', '愁死了', '你是说丑吗', '1', '2018-04-24 13:13:54', '2018-04-24 13:13:57', '24');
-INSERT INTO `dcomment` VALUES ('2', 'FgiEV3aSIa3LeYWZAISgHCSxo7yD', 'oaRji5EHo9S_lTaqYt8olOOqFgCo', '愁死了', '你是说丑吗', '1', '2018-04-24 13:13:54', '2018-04-24 13:13:57', '24');
+INSERT INTO `dcomment` VALUES ('1', 'Fh-shKnrkLFvBpyjbaiYN46Y3JKJ', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', '愁死了', '你是说丑吗', '1', '2018-04-24 13:13:54', '2018-04-24 13:13:57', '24');
+INSERT INTO `dcomment` VALUES ('2', 'FgiEV3aSIa3LeYWZAISgHCSxo7yD', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', '愁死了', '你是说丑吗', '1', '2018-04-24 13:13:54', '2018-04-24 13:13:57', '24');
 
 -- ----------------------------
 -- Table structure for design
@@ -77,8 +77,8 @@ CREATE TABLE `design` (
 -- ----------------------------
 -- Records of design
 -- ----------------------------
-INSERT INTO `design` VALUES ('FgiEV3aSIa3LeYWZAISgHCSxo7yD', 'oaRji5KZE-WSmM4_m2dfsUrtouVM', '无题啊，测试用的', 'http://jianbujingimages.moontell.cn/FgiEV3aSIa3LeYWZAISgHCSxo7yD', 'pass', '测试测试测试测试', '', '15461564764', '2018-04-25 17:06:10', '默认', '100', '20');
-INSERT INTO `design` VALUES ('Fh-shKnrkLFvBpyjbaiYN46Y3JKJ', 'oaRji5KZE-WSmM4_m2dfsUrtouVM', '无题啊，测试用的', 'http://jianbujingimages.moontell.cn/Fh-shKnrkLFvBpyjbaiYN46Y3JKJ', 'pass', '测试测试测试测试', '', '15461564764', '2018-04-24 21:10:13', '默认', '100', '20');
+INSERT INTO `design` VALUES ('FgiEV3aSIa3LeYWZAISgHCSxo7yD', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', '无题啊，测试用的', 'http://jianbujingimages.moontell.cn/FgiEV3aSIa3LeYWZAISgHCSxo7yD', 'pass', '测试测试测试测试', '', '15461564764', '2018-04-25 17:06:10', '默认', '100', '20');
+INSERT INTO `design` VALUES ('Fh-shKnrkLFvBpyjbaiYN46Y3JKJ', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', '无题啊，测试用的', 'http://jianbujingimages.moontell.cn/Fh-shKnrkLFvBpyjbaiYN46Y3JKJ', 'pass', '测试测试测试测试', '', '15461564764', '2018-04-24 21:10:13', '默认', '100', '20');
 
 -- ----------------------------
 -- Table structure for iwant
@@ -95,8 +95,8 @@ CREATE TABLE `iwant` (
 -- ----------------------------
 -- Records of iwant
 -- ----------------------------
-INSERT INTO `iwant` VALUES ('FgiEV3aSIa3LeYWZAISgHCSxo7yD', 'oaRji5EHo9S_lTaqYt8olOOqFgCo', 'T恤', '2018-04-24 21:15:18');
-INSERT INTO `iwant` VALUES ('Fh-shKnrkLFvBpyjbaiYN46Y3JKJ', 'oaRji5EHo9S_lTaqYt8olOOqFgCo', '杯子', '2018-04-24 21:15:18');
+INSERT INTO `iwant` VALUES ('FgiEV3aSIa3LeYWZAISgHCSxo7yD', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', 'T恤', '2018-04-24 21:15:18');
+INSERT INTO `iwant` VALUES ('Fh-shKnrkLFvBpyjbaiYN46Y3JKJ', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', '杯子', '2018-04-24 21:15:18');
 
 -- ----------------------------
 -- Table structure for member
@@ -105,15 +105,18 @@ DROP TABLE IF EXISTS `member`;
 CREATE TABLE `member` (
   `openId` varchar(30) NOT NULL,
   `nickName` varchar(30) DEFAULT NULL,
-  `role` varchar(20) DEFAULT NULL,
-  `bonus` decimal(10,0) DEFAULT NULL,
+  `role` varchar(20) DEFAULT 'user',
+  `bonus` decimal(10,0) DEFAULT '0',
+  `avatarURL` varchar(255) DEFAULT 'https://wx.qlogo.cn/mmopen/vi_32/mb1BYYNugkz6icqUndwg1nVX5cTBuDBY4qhSVTx4HRIGicbaElcKCXkfwB3sNEj9Sk6Q39E0ZVvNuoQBkibFePH9g/0',
   PRIMARY KEY (`openId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of member
 -- ----------------------------
-INSERT INTO `member` VALUES ('oaRji5KZE-WSmM4_m2dfsUrtouVM', 'moontell', 'user', '0');
+INSERT INTO `member` VALUES ('oPL165cCi274DQKc-J5OGJiu-PQg', 'Molloh', 'user', '0', 'https://wx.qlogo.cn/mmopen/vi_32/tibyEIKrKib7yZVdnRH4BiaaCbzRmWm0HwDQrDfN8bgLQMEeKic3CibAWI0Qym7v2WUySiak0VqPe1FZBEib5WO3SMlcQ/0');
+INSERT INTO `member` VALUES ('oPL165f72as52n8d3l9xsulWvKtY', '翦不惊', 'user', '0', 'https://wx.qlogo.cn/mmopen/vi_32/JtMsgJYoRCXqWb3ia2XmplBYGjcoUMAuPzLoRZ08sjG8G8Wlicbq1yr9qvTibkecDUfKQU6XRIy3KhofWViaLlCOibg/0');
+INSERT INTO `member` VALUES ('oPL165XH7WzJiFHWBwQAiMmT5fh0', 'moontell', 'user', '0', 'https://wx.qlogo.cn/mmopen/vi_32/mb1BYYNugkz6icqUndwg1nVX5cTBuDBY4qhSVTx4HRIGicbaElcKCXkfwB3sNEj9Sk6Q39E0ZVvNuoQBkibFePH9g/0');
 
 -- ----------------------------
 -- Table structure for myTicket
