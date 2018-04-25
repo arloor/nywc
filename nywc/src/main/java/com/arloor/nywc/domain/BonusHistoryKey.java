@@ -5,7 +5,7 @@ import java.util.Date;
 public class BonusHistoryKey {
     private String openId;
 
-    private Date time;
+    private Date changeTime;
 
     public String getOpenId() {
         return openId;
@@ -15,11 +15,11 @@ public class BonusHistoryKey {
         this.openId = openId;
     }
 
-    public Date getTime() {
-        return time;
+    public Date getChangeTime() {
+        return changeTime;
     }
 
-    public void setTime(Date time) {
-        this.time = time;
+    public void setChangeTime(Date changeTime) {
+        this.changeTime = changeTime;
     }
 }

@@ -3,7 +3,7 @@ package com.arloor.nywc.domain;
 public class BonusHistory extends BonusHistoryKey {
     private String operatiron;
 
-    private Integer change;
+    private Integer numChange;
 
     public String getOperatiron() {
         return operatiron;
@@ -13,11 +13,11 @@ public class BonusHistory extends BonusHistoryKey {
         this.operatiron = operatiron;
     }
 
-    public Integer getChange() {
-        return change;
+    public Integer getNumChange() {
+        return numChange;
     }
 
-    public void setChange(Integer change) {
-        this.change = change;
+    public void setNumChange(Integer numChange) {
+        this.numChange = numChange;
     }
 }

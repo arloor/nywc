@@ -9,7 +9,7 @@ public class MyTicket {
 
     private String tname;
 
-    private String status;
+    private String ticketStatus;
 
     private Date getTime;
 
@@ -37,12 +37,12 @@ public class MyTicket {
         this.tname = tname;
     }
 
-    public String getStatus() {
-        return status;
+    public String getTicketStatus() {
+        return ticketStatus;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setTicketStatus(String ticketStatus) {
+        this.ticketStatus = ticketStatus;
     }
 
     public Date getGetTime() {

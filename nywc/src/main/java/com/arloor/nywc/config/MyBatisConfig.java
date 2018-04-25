@@ -17,7 +17,7 @@ import javax.sql.DataSource;
 @Configuration
 @EnableTransactionManagement//支持事务
 @ComponentScan
-public class MyBatisConfig implements TransactionManagementConfigurer {
+public class MyBatisConfig  implements TransactionManagementConfigurer{
 
     @Autowired
     private DataSource dataSource;
@@ -30,6 +30,7 @@ public class MyBatisConfig implements TransactionManagementConfigurer {
         return sessionFactory;
     }
 
+    //显式创建、实际可能不需要
     @Bean//事务bean
     @Override
     public PlatformTransactionManager annotationDrivenTransactionManager() {

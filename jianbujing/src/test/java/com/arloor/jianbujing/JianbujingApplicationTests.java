@@ -2,7 +2,6 @@ package com.arloor.jianbujing;
 
 import com.arloor.jianbujing.dao.WeixinDao;
 import com.arloor.jianbujing.utils.TimedRemoveFormIdRunnable;
-import org.apache.ibatis.annotations.Param;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

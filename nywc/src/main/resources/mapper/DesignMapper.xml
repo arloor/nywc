@@ -2,11 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.arloor.nywc.dao.DesignMapper" >
   <resultMap id="BaseResultMap" type="com.arloor.nywc.domain.Design" >
-    <id column="key" property="key" jdbcType="VARCHAR" />
+    <id column="dkey" property="dkey" jdbcType="VARCHAR" />
     <result column="openId" property="openId" jdbcType="VARCHAR" />
     <result column="dname" property="dname" jdbcType="VARCHAR" />
     <result column="imageURL" property="imageURL" jdbcType="VARCHAR" />
-    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="dstatus" property="dstatus" jdbcType="VARCHAR" />
     <result column="dinfo" property="dinfo" jdbcType="VARCHAR" />
     <result column="dTempInfo" property="dTempInfo" jdbcType="VARCHAR" />
     <result column="seconds" property="seconds" jdbcType="VARCHAR" />
@@ -16,27 +16,27 @@
     <result column="numDislike" property="numDislike" jdbcType="DECIMAL" />
   </resultMap>
   <sql id="Base_Column_List" >
-    key, openId, dname, imageURL, status, dinfo, dTempInfo, seconds, uploadTime, theme, 
+    dkey, openId, dname, imageURL, dstatus, dinfo, dTempInfo, seconds, uploadTime, theme, 
     numLike, numDislike
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from design
-    where key = #{key,jdbcType=VARCHAR}
+    where dkey = #{dkey,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from design
-    where key = #{key,jdbcType=VARCHAR}
+    where dkey = #{dkey,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.arloor.nywc.domain.Design" >
-    insert into design (key, openId, dname, 
-      imageURL, status, dinfo, 
+    insert into design (dkey, openId, dname, 
+      imageURL, dstatus, dinfo, 
       dTempInfo, seconds, uploadTime, 
       theme, numLike, numDislike
       )
-    values (#{key,jdbcType=VARCHAR}, #{openId,jdbcType=VARCHAR}, #{dname,jdbcType=VARCHAR}, 
-      #{imageURL,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{dinfo,jdbcType=VARCHAR}, 
+    values (#{dkey,jdbcType=VARCHAR}, #{openId,jdbcType=VARCHAR}, #{dname,jdbcType=VARCHAR}, 
+      #{imageURL,jdbcType=VARCHAR}, #{dstatus,jdbcType=VARCHAR}, #{dinfo,jdbcType=VARCHAR}, 
       #{dTempInfo,jdbcType=VARCHAR}, #{seconds,jdbcType=VARCHAR}, #{uploadTime,jdbcType=TIMESTAMP}, 
       #{theme,jdbcType=VARCHAR}, #{numLike,jdbcType=INTEGER}, #{numDislike,jdbcType=DECIMAL}
       )
@@ -44,8 +44,8 @@
   <insert id="insertSelective" parameterType="com.arloor.nywc.domain.Design" >
     insert into design
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="key != null" >
-        key,
+      <if test="dkey != null" >
+        dkey,
       </if>
       <if test="openId != null" >
         openId,
@@ -56,8 +56,8 @@
       <if test="imageURL != null" >
         imageURL,
       </if>
-      <if test="status != null" >
-        status,
+      <if test="dstatus != null" >
+        dstatus,
       </if>
       <if test="dinfo != null" >
         dinfo,
@@ -82,8 +82,8 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="key != null" >
-        #{key,jdbcType=VARCHAR},
+      <if test="dkey != null" >
+        #{dkey,jdbcType=VARCHAR},
       </if>
       <if test="openId != null" >
         #{openId,jdbcType=VARCHAR},
@@ -94,8 +94,8 @@
       <if test="imageURL != null" >
         #{imageURL,jdbcType=VARCHAR},
       </if>
-      <if test="status != null" >
-        #{status,jdbcType=VARCHAR},
+      <if test="dstatus != null" >
+        #{dstatus,jdbcType=VARCHAR},
       </if>
       <if test="dinfo != null" >
         #{dinfo,jdbcType=VARCHAR},
@@ -132,8 +132,8 @@
       <if test="imageURL != null" >
         imageURL = #{imageURL,jdbcType=VARCHAR},
       </if>
-      <if test="status != null" >
-        status = #{status,jdbcType=VARCHAR},
+      <if test="dstatus != null" >
+        dstatus = #{dstatus,jdbcType=VARCHAR},
       </if>
       <if test="dinfo != null" >
         dinfo = #{dinfo,jdbcType=VARCHAR},
@@ -157,14 +157,14 @@
         numDislike = #{numDislike,jdbcType=DECIMAL},
       </if>
     </set>
-    where key = #{key,jdbcType=VARCHAR}
+    where dkey = #{dkey,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.arloor.nywc.domain.Design" >
     update design
     set openId = #{openId,jdbcType=VARCHAR},
       dname = #{dname,jdbcType=VARCHAR},
       imageURL = #{imageURL,jdbcType=VARCHAR},
-      status = #{status,jdbcType=VARCHAR},
+      dstatus = #{dstatus,jdbcType=VARCHAR},
       dinfo = #{dinfo,jdbcType=VARCHAR},
       dTempInfo = #{dTempInfo,jdbcType=VARCHAR},
       seconds = #{seconds,jdbcType=VARCHAR},
@@ -172,6 +172,6 @@
       theme = #{theme,jdbcType=VARCHAR},
       numLike = #{numLike,jdbcType=INTEGER},
       numDislike = #{numDislike,jdbcType=DECIMAL}
-    where key = #{key,jdbcType=VARCHAR}
+    where dkey = #{dkey,jdbcType=VARCHAR}
   </update>
 </mapper>

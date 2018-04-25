@@ -860,7 +860,7 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="218" parent="207" name="time">
+    <column id="218" parent="207" name="changeTime">
       <Position>2</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
@@ -872,7 +872,7 @@
       <DataType>varchar(30)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="220" parent="207" name="change">
+    <column id="220" parent="207" name="numChange">
       <Position>4</Position>
       <DataType>int(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
@@ -880,7 +880,7 @@
     <key id="221" parent="207" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>openId
-time</ColNames>
+changeTime</ColNames>
       <Primary>1</Primary>
     </key>
     <column id="222" parent="208" name="dcid">
@@ -890,7 +890,7 @@ time</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="223" parent="208" name="key">
+    <column id="223" parent="208" name="dkey">
       <Position>2</Position>
       <DataType>varchar(30)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
@@ -900,7 +900,7 @@ time</ColNames>
       <DataType>varchar(30)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="225" parent="208" name="comment">
+    <column id="225" parent="208" name="dcomment">
       <Position>4</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
@@ -936,7 +936,7 @@ time</ColNames>
       <ColNames>dcid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="232" parent="209" name="key">
+    <column id="232" parent="209" name="dkey">
       <Position>1</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
@@ -957,7 +957,7 @@ time</ColNames>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="236" parent="209" name="status">
+    <column id="236" parent="209" name="dstatus">
       <Position>5</Position>
       <Comment>刚发布、待审核、无效、审核通过</Comment>
       <DataType>varchar(20)|0s</DataType>
@@ -1002,10 +1002,10 @@ time</ColNames>
     </column>
     <key id="244" parent="209" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>key</ColNames>
+      <ColNames>dkey</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="245" parent="210" name="key">
+    <column id="245" parent="210" name="dkey">
       <Position>1</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
@@ -1031,7 +1031,7 @@ time</ColNames>
     </column>
     <key id="249" parent="210" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>key
+      <ColNames>dkey
 wantOpenId
 what</ColNames>
       <Primary>1</Primary>
@@ -1079,7 +1079,7 @@ what</ColNames>
       <DataType>varchar(30)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="258" parent="212" name="status">
+    <column id="258" parent="212" name="ticketStatus">
       <Position>4</Position>
       <DataType>varchar(30)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
@@ -1112,7 +1112,7 @@ what</ColNames>
       <DataType>varchar(30)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="264" parent="213" name="comment">
+    <column id="264" parent="213" name="pcomment">
       <Position>4</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
