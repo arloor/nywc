@@ -3951,6 +3951,30 @@
 									"subViews": [
 										{
 											"_type": "ERDColumnView",
+											"_id": "AAAAAAFjAwWSRc/APHk=",
+											"_parent": {
+												"$ref": "AAAAAAFjAQvBf/yq2OA="
+											},
+											"model": {
+												"$ref": "AAAAAAFjAwWSFc+9CWU="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 1029,
+											"top": 340,
+											"width": 184.6962890625,
+											"height": 13,
+											"autoResize": false
+										},
+										{
+											"_type": "ERDColumnView",
 											"_id": "AAAAAAFjAQv4Y/y3s6g=",
 											"_parent": {
 												"$ref": "AAAAAAFjAQvBf/yq2OA="
@@ -3968,7 +3992,7 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 1029,
-											"top": 340,
+											"top": 355,
 											"width": 184.6962890625,
 											"height": 13,
 											"autoResize": false
@@ -3992,7 +4016,7 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 1029,
-											"top": 355,
+											"top": 370,
 											"width": 184.6962890625,
 											"height": 13,
 											"autoResize": false
@@ -4016,7 +4040,7 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 1029,
-											"top": 370,
+											"top": 385,
 											"width": 184.6962890625,
 											"height": 13,
 											"autoResize": false
@@ -4034,7 +4058,7 @@
 									"left": 1024,
 									"top": 335,
 									"width": 194.6962890625,
-									"height": 53,
+									"height": 68,
 									"autoResize": false
 								}
 							],
@@ -4050,7 +4074,7 @@
 							"left": 1024,
 							"top": 312,
 							"width": 194.6962890625,
-							"height": 76,
+							"height": 91,
 							"autoResize": false,
 							"nameLabel": {
 								"$ref": "AAAAAAFjAQvBf/ypBtw="
@@ -4085,7 +4109,7 @@
 									"containerChangeable": false,
 									"containerExtending": false,
 									"left": 1105,
-									"top": 426,
+									"top": 434,
 									"width": 0,
 									"height": 13,
 									"autoResize": false,
@@ -4147,7 +4171,7 @@
 									"containerChangeable": false,
 									"containerExtending": false,
 									"left": 1105,
-									"top": 406,
+									"top": 421,
 									"width": 0,
 									"height": 13,
 									"autoResize": false,
@@ -4179,7 +4203,7 @@
 								"$ref": "AAAAAAFjAQiQ0fyAqi4="
 							},
 							"lineStyle": 2,
-							"points": "1120:480;1120:387",
+							"points": "1120:480;1120:402",
 							"nameLabel": {
 								"$ref": "AAAAAAFjAQ+9Ifzfs9Q="
 							},
@@ -5809,6 +5833,20 @@
 					"columns": [
 						{
 							"_type": "ERDColumn",
+							"_id": "AAAAAAFjAwWSFc+9CWU=",
+							"_parent": {
+								"$ref": "AAAAAAFjAQvBf/ymD2g="
+							},
+							"name": "recordId",
+							"type": "INTEGER",
+							"length": "10",
+							"primaryKey": true,
+							"foreignKey": false,
+							"nullable": false,
+							"unique": false
+						},
+						{
+							"_type": "ERDColumn",
 							"_id": "AAAAAAFjAQv4Pfy0xKM=",
 							"_parent": {
 								"$ref": "AAAAAAFjAQvBf/ymD2g="
@@ -5816,7 +5854,7 @@
 							"name": "openId",
 							"type": "VARCHAR",
 							"length": "30",
-							"primaryKey": true,
+							"primaryKey": false,
 							"foreignKey": false,
 							"nullable": false,
 							"unique": false
@@ -5830,7 +5868,7 @@
 							"name": "pname",
 							"type": "VARCHAR",
 							"length": "50",
-							"primaryKey": true,
+							"primaryKey": false,
 							"foreignKey": false,
 							"nullable": false,
 							"unique": false
@@ -5844,7 +5882,7 @@
 							"name": "startTime",
 							"type": "TIMESTAMP",
 							"length": 0,
-							"primaryKey": true,
+							"primaryKey": false,
 							"foreignKey": false,
 							"nullable": false,
 							"unique": false

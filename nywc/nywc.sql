@@ -10,7 +10,7 @@ Target Server Type    : MariaDB
 Target Server Version : 50556
 File Encoding         : 65001
 
-Date: 2018-04-26 19:48:01
+Date: 2018-04-27 01:36:00
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -133,18 +133,19 @@ CREATE TABLE `miaosha_activity` (
 -- ----------------------------
 -- Records of miaosha_activity
 -- ----------------------------
-INSERT INTO `miaosha_activity` VALUES ('港欢的打火机', '2018-05-01 10:00:00', '100', '0');
+INSERT INTO `miaosha_activity` VALUES ('港欢的打火机', '2018-05-01 10:00:00', '20', '0');
 
 -- ----------------------------
 -- Table structure for miaosha_record
 -- ----------------------------
 DROP TABLE IF EXISTS `miaosha_record`;
 CREATE TABLE `miaosha_record` (
+  `recordId` int(10) NOT NULL AUTO_INCREMENT,
   `openId` varchar(30) NOT NULL,
   `pname` varchar(50) NOT NULL,
   `startTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`openId`,`pname`,`startTime`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`recordId`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of miaosha_record
