@@ -10,7 +10,7 @@ Target Server Type    : MariaDB
 Target Server Version : 50556
 File Encoding         : 65001
 
-Date: 2018-04-25 17:26:31
+Date: 2018-04-26 19:48:01
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -119,6 +119,38 @@ INSERT INTO `member` VALUES ('oPL165f72as52n8d3l9xsulWvKtY', '翦不惊', 'user'
 INSERT INTO `member` VALUES ('oPL165XH7WzJiFHWBwQAiMmT5fh0', 'moontell', 'user', '0', 'https://wx.qlogo.cn/mmopen/vi_32/mb1BYYNugkz6icqUndwg1nVX5cTBuDBY4qhSVTx4HRIGicbaElcKCXkfwB3sNEj9Sk6Q39E0ZVvNuoQBkibFePH9g/0');
 
 -- ----------------------------
+-- Table structure for miaosha_activity
+-- ----------------------------
+DROP TABLE IF EXISTS `miaosha_activity`;
+CREATE TABLE `miaosha_activity` (
+  `pname` varchar(50) NOT NULL,
+  `startTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `num` int(5) DEFAULT NULL,
+  `isEnd` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`pname`,`startTime`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of miaosha_activity
+-- ----------------------------
+INSERT INTO `miaosha_activity` VALUES ('港欢的打火机', '2018-05-01 10:00:00', '100', '0');
+
+-- ----------------------------
+-- Table structure for miaosha_record
+-- ----------------------------
+DROP TABLE IF EXISTS `miaosha_record`;
+CREATE TABLE `miaosha_record` (
+  `openId` varchar(30) NOT NULL,
+  `pname` varchar(50) NOT NULL,
+  `startTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`openId`,`pname`,`startTime`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of miaosha_record
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for myTicket
 -- ----------------------------
 DROP TABLE IF EXISTS `myTicket`;
@@ -175,6 +207,7 @@ CREATE TABLE `product` (
 -- ----------------------------
 -- Records of product
 -- ----------------------------
+INSERT INTO `product` VALUES ('港欢的打火机', 'FgiEV3aSIa3LeYWZAISgHCSxo7yD', 'http://jianbujingimages.moontell.cn/FgiEV3aSIa3LeYWZAISgHCSxo7yD', '破打火机拿出来卖', null, '2018-04-26 17:12:08', '1', '100', '200');
 
 -- ----------------------------
 -- Table structure for starProduct
