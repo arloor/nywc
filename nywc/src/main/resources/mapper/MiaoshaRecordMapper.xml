@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.arloor.nywc.dao.MiaoshaRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.arloor.nywc.domain.MiaoshaRecordKey" >
+    <id column="openId" property="openId" jdbcType="VARCHAR" />
+    <id column="pname" property="pname" jdbcType="VARCHAR" />
+    <id column="startTime" property="startTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="com.arloor.nywc.domain.MiaoshaRecordKey" >
+    delete from miaosha_record
+    where openId = #{openId,jdbcType=VARCHAR}
+      and pname = #{pname,jdbcType=VARCHAR}
+      and startTime = #{startTime,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.arloor.nywc.domain.MiaoshaRecordKey" >
+    insert into miaosha_record (openId, pname, startTime
+      )
+    values (#{openId,jdbcType=VARCHAR}, #{pname,jdbcType=VARCHAR}, #{startTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.arloor.nywc.domain.MiaoshaRecordKey" >
+    insert into miaosha_record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="openId != null" >
+        openId,
+      </if>
+      <if test="pname != null" >
+        pname,
+      </if>
+      <if test="startTime != null" >
+        startTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="openId != null" >
+        #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="pname != null" >
+        #{pname,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null" >
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

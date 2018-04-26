@@ -5,8 +5,11 @@ import com.arloor.nywc.utils.TimedSetWeixinAccessTokenRunnable;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -17,7 +20,18 @@ import java.util.concurrent.TimeUnit;
 
 @SpringBootApplication
 @EnableTransactionManagement
-public class NYWCApplication {
+@EnableScheduling
+public class NYWCApplication extends SpringBootServletInitializer {
+
+	/**
+	 * 用于war打包
+	 * @param application
+	 * @return
+	 */
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(NYWCApplication.class);
+	}
 
 	public static void main(String[] args) {
 		ApplicationContext app=SpringApplication.run(NYWCApplication.class, args);

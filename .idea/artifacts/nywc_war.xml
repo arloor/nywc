@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="nywc:war">
+    <output-path>$PROJECT_DIR$/nywc/target</output-path>
+    <root id="archive" name="nywc-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="nywc:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.arloor.nywc.dao.MiaoshaActivityMapper" >
+  <resultMap id="BaseResultMap" type="com.arloor.nywc.domain.MiaoshaActivity" >
+    <id column="pname" property="pname" jdbcType="VARCHAR" />
+    <id column="startTime" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+    <result column="isEnd" property="isEnd" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    pname, startTime, num, isEnd
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.arloor.nywc.domain.MiaoshaActivityKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from miaosha_activity
+    where pname = #{pname,jdbcType=VARCHAR}
+      and startTime = #{startTime,jdbcType=TIMESTAMP}
+  </select>
+    <select id="selectMiaoshaByTime" resultMap="BaseResultMap" parameterType="com.arloor.nywc.domain.MiaoshaActivityKey">
+      SELECT
+      <include refid="Base_Column_List" />
+      from miaosha_activity
+      where startTime = #{startTime,jdbcType=TIMESTAMP}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="com.arloor.nywc.domain.MiaoshaActivityKey" >
+    delete from miaosha_activity
+    where pname = #{pname,jdbcType=VARCHAR}
+      and startTime = #{startTime,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.arloor.nywc.domain.MiaoshaActivity" >
+    insert into miaosha_activity (pname, startTime, num, 
+      isEnd)
+    values (#{pname,jdbcType=VARCHAR}, #{startTime,jdbcType=TIMESTAMP}, #{num,jdbcType=INTEGER}, 
+      #{isEnd,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.arloor.nywc.domain.MiaoshaActivity" >
+    insert into miaosha_activity
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="pname != null" >
+        pname,
+      </if>
+      <if test="startTime != null" >
+        startTime,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="isEnd != null" >
+        isEnd,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="pname != null" >
+        #{pname,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null" >
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="isEnd != null" >
+        #{isEnd,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.arloor.nywc.domain.MiaoshaActivity" >
+    update miaosha_activity
+    <set >
+      <if test="num != null" >
+        num = #{num,jdbcType=INTEGER},
+      </if>
+      <if test="isEnd != null" >
+        isEnd = #{isEnd,jdbcType=BIT},
+      </if>
+    </set>
+    where pname = #{pname,jdbcType=VARCHAR}
+      and startTime = #{startTime,jdbcType=TIMESTAMP}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.arloor.nywc.domain.MiaoshaActivity" >
+    update miaosha_activity
+    set num = #{num,jdbcType=INTEGER},
+      isEnd = #{isEnd,jdbcType=BIT}
+    where pname = #{pname,jdbcType=VARCHAR}
+      and startTime = #{startTime,jdbcType=TIMESTAMP}
+  </update>
+</mapper>

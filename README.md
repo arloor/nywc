@@ -35,7 +35,7 @@
 3. BR3: 项目上线半年 40%的用户产生了再次购买行为
 4. BR4: 项目上线一年，有 500的用户是长期用户。
 
-# 项目技术开发方案
+## 项目技术开发方案
 
 技术选择： 使用springboot和mybatis搭建后端。按需加入redis、消息中间件、数据库读写分离、负载均衡等技术
 
@@ -72,24 +72,31 @@
 - 6.8 优化——负载均衡、redis、消息队列等；完善文档
 - 6.9 最后检查，提交作品
 
-
 ## 小程序对后端的要求
-首先要在微信公众平台中增加requesturl，小程序只能访问指定的域名下的api   
-其次，必须使用https来调用api，所以本springboot项目必须进行ssl的配置  
 
-另外，由于小程序本身对代码和静态资源大小的限制，静态资源（主要是图片）需要找到合适的存储方式。这里选择了七牛云的免费10G对象存储。由于七牛云对上传时的安全策略，需要获取一个uptoken。本项目的QiniuService中有获取uptoken的api    
+首先要在微信公众平台中增加requesturl，小程序只能访问指定的域名下的api
+
+其次，必须使用https来调用api，所以本springboot项目必须进行ssl的配置
+
+另外，由于小程序本身对代码和静态资源大小的限制，静态资源（主要是图片）需要找到合适的存储方式。这里选择了七牛云的免费10G对象存储。由于七牛云对上传时的安全策略，需要获取一个uptoken。本项目的QiniuService中有获取uptoken的api
 
 ## 小程序发送模板消息
 
-模板消息用来向用户发送通知  
-关于access_token:  
-access_token 是全局唯一接口调用凭据，开发者调用各接口时都需使用 access_token    
-接口地址：   
-https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET   
+模板消息用来向用户发送通知
+
+关于access_token:
+
+access_token 是全局唯一接口调用凭据，开发者调用各接口时都需使用 access_token
+
+接口地址：
+https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET
+
 access_token目前两个小时就会失效，使用失效的access_token会有`{"errcode": 
-40001, "errmsg": "invalid credential, access_token is invalid or not latest hint: [7c2Oya0303vr61!]"}`  
-对此后端中定时每两个小时执行以此更新access_code的任务。  
-前端需要使用如下代码获得access_code  
+40001, "errmsg": "invalid credential, access_token is invalid or not latest hint: [7c2Oya0303vr61!]"}`
+
+对此后端中定时每两个小时执行以此更新access_code的任务。
+
+前端需要使用如下代码获得access_code
 
 ```js
 //从后端获取access_token
@@ -102,12 +109,13 @@ wx.request({
    }
 })
 ```
-    
-
 
 ## springboot ssl配置
-使用了腾讯云的免费ssl证书   
-将文件夹中用于tomcat的证书复制到`main/resources`文件夹下   
+
+使用了腾讯云的免费ssl证书
+
+将文件夹中用于tomcat的证书复制到`main/resources`文件夹下
+
 ```
 server.port= 443
 server.ssl.key-store= classpath:nywc.moontell.cn.jks
@@ -115,14 +123,16 @@ server.ssl.key-store-password=123456
 server.ssl.keyStoreType= PKCS12
 server.ssl.keyAlias= nywc.moontell.cn
 ```
-注意：比较坑的是，使用jdk8来执行打包好的jar包会报错，必须使用jdk9！重要的事一定要注意！  
+注意：比较坑的是，使用jdk8来执行打包好的jar包会报错，必须使用jdk9！重要的事一定要注意！
 
+下面的自建ssl证书被证明无用
 
-下面的自建ssl证书被证明无用   
-`keytool -genkey -alias jianbujing  -storetype PKCS12 -keyalg RSA -keysize 2048  -keystore keystore.p12`   
-创建名为`keystore.p12`的密钥库，并将它移动到`main/resources`下。  
+`keytool -genkey -alias jianbujing  -storetype PKCS12 -keyalg RSA -keysize 2048  -keystore keystore.p12`
 
-application.properties如下   
+创建名为`keystore.p12`的密钥库，并将它移动到`main/resources`下。
+
+application.properties如下
+
 ```
 server.port= 8443
 server.ssl.key-store= classpath:keystore.p12
@@ -232,7 +242,9 @@ MyBatis Generator可以自动的生成mapper.xml;dao的接口和POJO。
 ```
 
 ## 运维要求
-基本没有  
+
+基本没有
+
 - 使用的`nywc.moontell.cn`服务器的续费
 - `nywc.moontell.cn` ssl证书的一年一次的续费
 - 关注七牛云方面的变化
@@ -244,4 +256,87 @@ MyBatis Generator可以自动的生成mapper.xml;dao的接口和POJO。
 
 ![avatar](南雍文创小程序ER图.jpg)
 
+## springboot打包为war
 
+pom.xml
+
+```xml
+        <!--war打包方式-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+```
+
+```xml
+    <!--war打包方式-->
+    <packaging>war</packaging>
+```
+
+主类配置
+
+```java
+	@SpringBootApplication
+    @EnableTransactionManagement
+    public class NYWCApplication extends SpringBootServletInitializer {
+    
+    	/**
+    	 * 用于war打包
+    	 * @param application
+    	 * @return
+    	 */
+    	@Override
+    	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+    		return application.sources(NYWCApplication.class);
+    	}
+    
+    	public static void main(String[] args) {
+    		ApplicationContext app=SpringApplication.run(NYWCApplication.class, args);
+    	}
+    }
+```
+
+
+
+## 秒杀系统设计
+
+## 秒杀开始问题
+
+使用quartz定时（例如8：00）初始化秒杀开始环境。
+
+秒杀开始环境是什么？
+
+- 客户端视角判断开始：在cdn上放置某一文件或者将文件设置成符合要求。
+- 后端视角判断开始：将某一计数变量n由0设为1000。并且将数据库（硬盘）中的数据缓存/映射到内存中（redis或者普通容器）
+
+
+## 秒杀请求处理 ——逐级降低流量
+
+前端怎么降低暂且不考虑。先考虑真实请求到api的请求。
+
+上面说的计数变量n是允许进行处理的请求数量，每到达一个请求，n减一。n为0时，不再允许新的请求，也就是接口直接返回秒杀失败。这一处理导致只有n个请求真正被处理。
+
+现在有最多n个请求需要处理。下一步：使用有界阻塞队列。这n个请求都尝试加入有界阻塞队列。加入成功，进行下一步处理。加入超时（使用blockqueue的offer方法）则返回秒杀失败。
+
+现在n中又只有一小部分m存活下来，加入了要被处理的队列。
+
+现在就是一个生产者消费者的问题。现在有a个消费者来处理这m个请求。消费者拿着请求去修改内存中货物的缓存/映射。
+
+修改成功，则设置标志表示某位用户秒杀成功，并且减少库存/货物。当减到0时，设置秒杀结束的标志。
+
+## 客户端获取秒杀结果
+
+在网上看到的都是说客户端去轮询秒杀结果。就这样做吧。
+
+上面m个请求真正会被消费者处理。这m个请求者会轮询一个接口，接口返回秒杀成功/秒杀已结束。
+
+## 秒杀结果持久化
+
+上面秒杀请求的处理最终只停留在内存数据的修改上。
+
+下面要将秒杀结果持久化到数据库。
+
+这样考虑，如果有一百件货物，也就是有一百个请求成功，一百个需要数据持久化。最糟糕的情况是：开一百个数据库连接进行处理。我不知道100这个数量对数据库意味着什么，反正觉得不合理，不合理的另外一方面是100个事务的竞争还是挺大的。
+
+解决方案：异步+生产者消费者。异步要么使用消息队列要么还是blockqueue。b个消费者负责数据持久化。b将100个数据库连接减少到一个可以接受的量级。
