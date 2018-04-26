@@ -2,12 +2,22 @@ package com.arloor.nywc.domain;
 
 import java.util.Date;
 
-public class MiaoshaRecordKey {
+public class MiaoshaRecord {
+    private Integer recordId;
+
     private String openId;
 
     private String pname;
 
     private Date startTime;
+
+    public Integer getRecordId() {
+        return recordId;
+    }
+
+    public void setRecordId(Integer recordId) {
+        this.recordId = recordId;
+    }
 
     public String getOpenId() {
         return openId;

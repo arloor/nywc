@@ -1095,7 +1095,7 @@ what</ColNames>
     </column>
     <column id="261" parent="212" name="isEnd">
       <Position>4</Position>
-      <DataType>tinyint(4)|0</DataType>
+      <DataType>tinyint(1)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <key id="262" parent="212" name="PRIMARY">
