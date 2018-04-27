@@ -48,6 +48,13 @@ public class ProcessRequstRun  implements Runnable{
                 //数据持久化。
                 String pname=request.split("<and>")[0];
                 String openId=request.split("<and>")[1];
+
+                //如果已经成功抢到一件，就没有再抢的机会了
+                if(miaoshaStatus.getSuccessUser(openId)){
+                    continue;
+                }
+
+
                 boolean result=storage.checkAndDecremt(pname);
                 if(!result){//如果库存为0，则设置该产品的秒杀结束
                     miaoshaStatus.setStatus(pname,false);
