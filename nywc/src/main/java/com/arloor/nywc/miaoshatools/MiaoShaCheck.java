@@ -83,6 +83,8 @@ public class MiaoShaCheck implements ApplicationContextAware{
     }
 
     private void prepareForMiaoSha(MiaoshaActivity activity){
+        activity.setStatus("正在进行");
+        miaoshaActivityMapper.updateByPrimaryKey(activity);
         //做两件事：放置标志秒杀开始的cdn
         //设置后台秒杀开始标志
         //将库存信息缓存到内存中
@@ -99,6 +101,14 @@ public class MiaoShaCheck implements ApplicationContextAware{
             logger.info("停止所有秒杀处理线程");
             executorService.shutdownNow();
             executorService=null;
+        }
+        //设置数据库中秒杀状态为  已经完成
+        List<String> miaoshaPnames =miaoshaStatus.miaoshaPnames();
+        Date miaoshaDate=miaoshaStatus.getDate();
+        for (String pname:miaoshaPnames
+             ) {
+            miaoshaActivityMapper.setEnd(pname,miaoshaDate);
+            logger.info("设置 "+pname+" 的秒杀为 已经完成");
         }
         miaoshaStatus.clear();
         miaoShaStorage.clear();

@@ -23,3 +23,18 @@
 ```json
 {"access_token":"9_otNI4kiAdULS7IYeoPxSFnek7E6Uj_QbioRWC3cSgi3fHfo3hvMbJtKdLT-BM6x9oz1pxHz5g_IPL4GE9fhUoaXSjt93axzuW_XMXdsJi0IjUOO_Lp2c7BOgnCNwQSye4qyyTlx1fsTHY5jYNFEiAHAVNM","expires_in":7200}
 ```
+## 查看尚未开始和正在进行的秒杀活动
+
+`api/miaosha/unendmiaosha`
+
+```json
+[{"pname":"港欢的打火机","startTime":"2018-05-01T02:00:00.000+0000","num":20,"status":"正在进行"}]
+```
+
+## 查看秒杀结果
+
+`api/miaosha/checkresult`
+
+## 请求秒杀
+
+`api/miaosha/checkresult?pname=港欢的打火机&openId=abcdddd`

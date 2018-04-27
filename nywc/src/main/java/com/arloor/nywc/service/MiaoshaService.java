@@ -1,12 +1,16 @@
 package com.arloor.nywc.service;
 
 
+import com.arloor.nywc.dao.MiaoshaActivityMapper;
+import com.arloor.nywc.domain.MiaoshaActivity;
 import com.arloor.nywc.miaoshatools.MiaoshaRequestQueue;
 import com.arloor.nywc.miaoshatools.MiaoshaStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 
 @RestController
@@ -18,6 +22,9 @@ public class MiaoshaService {
 
     @Autowired
     MiaoshaRequestQueue queue;
+
+    @Autowired
+    MiaoshaActivityMapper miaoshaActivityMapper;
 
     @RequestMapping("/requestmiaosha")
     public String  doMiaosha(@RequestParam String pname,@RequestParam String openId){
@@ -47,5 +54,10 @@ public class MiaoshaService {
         }else {
             return "暂无结果";
         }
+    }
+
+    @RequestMapping("/unendmiaosha")
+    public List<MiaoshaActivity> selectMiaoshaUnend(){
+        return miaoshaActivityMapper.selectMiaoshaUnend();
     }
 }

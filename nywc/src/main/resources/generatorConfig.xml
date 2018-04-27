@@ -73,16 +73,16 @@
             <!--<property name="useActualColumnNames" value="true"/>-->
         <!--</table>-->
 
-        <table tableName="miaosha_record" domainObjectName="MiaoshaRecord"
-               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" selectByExampleQueryId="false" >
-            <property name="useActualColumnNames" value="true"/>
-        </table>
-        <!--<table tableName="miaosha_activity" domainObjectName="MiaoshaActivity"-->
+        <!--<table tableName="miaosha_record" domainObjectName="MiaoshaRecord"-->
                <!--enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
                <!--enableSelectByExample="false" selectByExampleQueryId="false" >-->
             <!--<property name="useActualColumnNames" value="true"/>-->
         <!--</table>-->
+        <table tableName="miaosha_activity" domainObjectName="MiaoshaActivity"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false" >
+            <property name="useActualColumnNames" value="true"/>
+        </table>
     </context>
 </generatorConfiguration>
 

@@ -3,7 +3,7 @@ package com.arloor.nywc.domain;
 public class MiaoshaActivity extends MiaoshaActivityKey {
     private Integer num;
 
-    private Boolean isEnd;
+    private String status;
 
     public Integer getNum() {
         return num;
@@ -13,21 +13,11 @@ public class MiaoshaActivity extends MiaoshaActivityKey {
         this.num = num;
     }
 
-    public Boolean getIsEnd() {
-        return isEnd;
+    public String getStatus() {
+        return status;
     }
 
-    public void setIsEnd(Boolean isEnd) {
-        this.isEnd = isEnd;
-    }
-
-    @Override
-    public String toString() {
-        return "MiaoshaActivity{" +
-                "pname="+getPname()+
-                ",startTime="+getStartTime()+
-                ",num=" + num +
-                ", isEnd=" + isEnd +
-                '}';
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

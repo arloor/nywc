@@ -4,10 +4,7 @@ package com.arloor.nywc.miaoshatools;
 import com.arloor.nywc.domain.MiaoshaActivity;
 import org.springframework.stereotype.Component;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArraySet;
 
@@ -53,5 +50,15 @@ public class MiaoshaStatus {
 
     public boolean getSuccessUser(String openId){
         return miaoShaUser.get(openId)!=null&&miaoShaUser.get(openId);
+    }
+
+
+    public List<String> miaoshaPnames(){
+        List<String> pnames=new LinkedList<>();
+        for (Map.Entry<String,Boolean> entry:miaoShaStatus.entrySet()
+             ) {
+            pnames.add(entry.getKey());
+        }
+        return pnames;
     }
 }
