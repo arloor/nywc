@@ -92,7 +92,7 @@ public class MiaoShaCheck implements ApplicationContextAware{
     }
 
 //    @Scheduled(cron = "0 10 * * * *" )//每小时第10分检查一次，结束秒杀
-    @Scheduled(cron = "50 * * * * *" )//测试用
+    @Scheduled(cron = "40 * * * * *" )//测试用
     public void endMiaosha(){
         //清空此次秒杀的所有东西
         if(executorService!=null){
