@@ -20,7 +20,7 @@ public class MiaoshaService {
     MiaoshaRequestQueue queue;
 
     @RequestMapping("/requestmiaosha")
-    public String  test(@RequestParam String pname,@RequestParam String openId){
+    public String  doMiaosha(@RequestParam String pname,@RequestParam String openId){
         Boolean isStart=miaoshaStatus.getStatus(pname);
         if(isStart==null){
             return "秒杀尚未开始，请不要使用脚本";
@@ -37,6 +37,15 @@ public class MiaoshaService {
                 e.printStackTrace();
                 return "秒杀失败";
             }
+        }
+    }
+
+    @RequestMapping("/checkresult")
+    public String  checkresult(@RequestParam String openId){
+        if(miaoshaStatus.getSuccessUser(openId)){
+            return "秒杀成功，请稍后到个人中心查看";
+        }else {
+            return "暂无结果";
         }
     }
 }

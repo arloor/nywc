@@ -40,8 +40,8 @@ public class MiaoShaCheck implements ApplicationContextAware{
     @Autowired
     MiaoshaActivityMapper miaoshaActivityMapper;
 
-//    @Scheduled(cron = "0 * * * * *" )
-    @Scheduled(cron = "0 0 * * * *" )//每小时检查一次
+    @Scheduled(cron = "0 * * * * *" )
+//    @Scheduled(cron = "0 0 * * * *" )//每小时检查一次
     public void checkStart(){
         Calendar calendar=Calendar.getInstance();
         /**
@@ -91,8 +91,8 @@ public class MiaoShaCheck implements ApplicationContextAware{
         miaoshaStatus.setStatus(pname,true);
     }
 
-    @Scheduled(cron = "0 10 * * * *" )//每小时第10分检查一次，结束秒杀
-//    @Scheduled(cron = "30 * * * * *" )//测试用
+//    @Scheduled(cron = "0 10 * * * *" )//每小时第10分检查一次，结束秒杀
+    @Scheduled(cron = "50 * * * * *" )//测试用
     public void endMiaosha(){
         //清空此次秒杀的所有东西
         if(executorService!=null){

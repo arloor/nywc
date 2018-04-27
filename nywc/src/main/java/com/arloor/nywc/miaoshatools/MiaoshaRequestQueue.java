@@ -17,7 +17,7 @@ public class MiaoshaRequestQueue {
 
     public boolean offer(String request) throws InterruptedException {
         try {
-            boolean result=queue.offer(request,3, TimeUnit.SECONDS);
+            boolean result=queue.offer(request,5, TimeUnit.MILLISECONDS);
             logger.info(request +" 加入队列 "+result);
             return result;
         } catch (InterruptedException e) {

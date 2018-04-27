@@ -55,6 +55,10 @@ public class ProcessRequstRun  implements Runnable{
                 }else{//进行数据持久化
                     //这里最好改成异步的
                     //todo
+
+                    //这里增加内存中秒杀成功的用户
+                    miaoshaStatus.addSuccessUser(openId);
+
                     Date date=miaoshaStatus.getDate();
                     MiaoshaRecord miaoshaRecord=new MiaoshaRecord();
                     miaoshaRecord.setPname(pname);
