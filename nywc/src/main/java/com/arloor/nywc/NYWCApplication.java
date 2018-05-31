@@ -35,10 +35,10 @@ public class NYWCApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
 		ApplicationContext app=SpringApplication.run(NYWCApplication.class, args);
-		TimedSetWeixinAccessTokenRunnable timedSetWeixinAccessTokenRunnable=app.getBean(TimedSetWeixinAccessTokenRunnable.class);
-		ScheduledExecutorService executor= Executors.newScheduledThreadPool(1);
-		//定时执行更新微信access_token的任务,access_token定义为2小时失效，我们就115分钟刷新一次
-		executor.scheduleAtFixedRate(timedSetWeixinAccessTokenRunnable,0, 115, TimeUnit.MINUTES);
+//		TimedSetWeixinAccessTokenRunnable timedSetWeixinAccessTokenRunnable=app.getBean(TimedSetWeixinAccessTokenRunnable.class);
+//		ScheduledExecutorService executor= Executors.newScheduledThreadPool(1);
+//		//定时执行更新微信access_token的任务,access_token定义为2小时失效，我们就115分钟刷新一次
+//		executor.scheduleAtFixedRate(timedSetWeixinAccessTokenRunnable,0, 115, TimeUnit.MINUTES);
 	}
 
 }
