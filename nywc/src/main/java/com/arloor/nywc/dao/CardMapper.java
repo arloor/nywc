@@ -10,7 +10,7 @@ import java.util.List;
 
 @Mapper
 public interface CardMapper {
-    List<CardDetail> getCardsDetails();
+    List<CardDetail> getCardsDetails(@Param("minSeconds") long minSeconds,@Param("maxSeconds")long maxSeconds);
     List<DcommentModel> getCommentsByDkey(@Param("dkey") String dkey);
 }
 

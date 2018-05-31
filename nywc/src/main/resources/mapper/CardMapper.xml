@@ -24,19 +24,37 @@
     </select>
 
     <select id="getCardsDetails" resultMap="cardDetails">
-        select
-  dkey,
-  dname,
-  member.nickName as nickName,
-  member.avatarURL,
-  imageURL,
-  dinfo,
-  uploadTime,
-  seconds,
-  numLike,
-  numDislike,
-  design.theme
-from design
-  left join member on design.openId = member.openId;
+        (select
+        dkey,
+        dname,
+        member.nickName as nickName,
+        member.avatarURL,
+        imageURL,
+        dinfo,
+        uploadTime,
+        seconds,
+        numLike,
+        numDislike,
+        design.theme
+        from design
+        left join member on design.openId = member.openId
+        where seconds>#{maxSeconds} order by seconds ASC limit 0,3)
+        union
+        (select
+        dkey,
+        dname,
+        member.nickName as nickName,
+        member.avatarURL,
+        imageURL,
+        dinfo,
+        uploadTime,
+        seconds,
+        numLike,
+        numDislike,
+        design.theme
+        from design
+        left join member on design.openId = member.openId
+        where seconds&lt;#{minSeconds} order by seconds DESC limit 0,3)
+
 </select>
 </mapper>
