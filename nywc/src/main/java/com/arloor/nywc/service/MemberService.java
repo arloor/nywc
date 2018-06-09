@@ -1,7 +1,11 @@
 package com.arloor.nywc.service;
 
 import com.arloor.nywc.dao.MemberMapper;
+import com.arloor.nywc.dao.MiaoshaRecordMapper;
+import com.arloor.nywc.dao.StarProductMapper;
 import com.arloor.nywc.domain.Member;
+import com.arloor.nywc.domain.MiaoshaRecord;
+import com.arloor.nywc.domain.Product;
 import com.arloor.nywc.model.OpenIdJson;
 import com.arloor.nywc.utils.MyHttpClient;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/member")
@@ -22,6 +27,10 @@ public class MemberService {
 
     @Autowired
     MemberMapper memberMapper;
+    @Autowired
+    MiaoshaRecordMapper miaoshaRecordMapper;
+    @Autowired
+    StarProductMapper starProductMapper;
 
     private Logger logger= LoggerFactory.getLogger(WeixinService.class);
 
@@ -80,5 +89,15 @@ public class MemberService {
             @RequestBody Member member
     ){
         memberMapper.updateByPrimaryKeySelective(member);
+    }
+
+    @RequestMapping("miaoshaRecords")
+    public List<MiaoshaRecord> miaoshaRecords(@RequestParam String openId){
+        return miaoshaRecordMapper.selectMiaoshaRecordsByopenId(openId);
+    }
+
+    @RequestMapping("starProducts")
+    public List<Product> starProducts(@RequestParam String openId){
+        return starProductMapper.selectstarProductsByopenId(openId);
     }
 }

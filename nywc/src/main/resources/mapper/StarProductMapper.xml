@@ -10,6 +10,10 @@
     where openId = #{openId,jdbcType=VARCHAR}
       and pname = #{pname,jdbcType=VARCHAR}
   </delete>
+  <select id="selectstarProductsByopenId" resultType="com.arloor.nywc.domain.Product">
+    select product.* from starProduct join product on product.pname=starProduct.pname
+    where openId=#{openId};
+  </select>
   <insert id="insert" parameterType="com.arloor.nywc.domain.StarProductKey" >
     insert into starProduct (openId, pname)
     values (#{openId,jdbcType=VARCHAR}, #{pname,jdbcType=VARCHAR})

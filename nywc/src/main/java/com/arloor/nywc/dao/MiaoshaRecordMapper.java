@@ -2,6 +2,9 @@ package com.arloor.nywc.dao;
 
 import com.arloor.nywc.domain.MiaoshaRecord;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 @Mapper
 public interface MiaoshaRecordMapper {
@@ -12,6 +15,8 @@ public interface MiaoshaRecordMapper {
     int insertSelective(MiaoshaRecord record);
 
     MiaoshaRecord selectByPrimaryKey(Integer recordId);
+
+    List<MiaoshaRecord> selectMiaoshaRecordsByopenId(@Param("openId") String openId);
 
     int updateByPrimaryKeySelective(MiaoshaRecord record);
 

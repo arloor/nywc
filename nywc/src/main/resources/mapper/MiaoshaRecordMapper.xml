@@ -16,6 +16,9 @@
     from miaosha_record
     where recordId = #{recordId,jdbcType=INTEGER}
   </select>
+  <select id="selectMiaoshaRecordsByopenId"  resultType="com.arloor.nywc.domain.MiaoshaRecord" >
+    select * from miaosha_record where openId=#{openId} order by startTime DESC;
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from miaosha_record
     where recordId = #{recordId,jdbcType=INTEGER}
