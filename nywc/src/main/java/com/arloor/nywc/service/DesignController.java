@@ -1,6 +1,8 @@
 package com.arloor.nywc.service;
 
+import com.arloor.nywc.dao.DCommentMapper;
 import com.arloor.nywc.dao.DesignMapper;
+import com.arloor.nywc.domain.DComment;
 import com.arloor.nywc.domain.Design;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,6 +19,8 @@ public class DesignController {
 
     @Autowired
     DesignMapper designMapper;
+    @Autowired
+    DCommentMapper dCommentMapper;
 
     @RequestMapping("/insert")
     public void insertImage(@RequestBody Design design){
@@ -29,6 +33,18 @@ public class DesignController {
     @RequestMapping("/update")
     public void updateImage(@RequestBody Design design){
         designMapper.updateByPrimaryKeySelective(design);
+    }
+
+
+    @RequestMapping("/newComment")
+    public void insertNewComment(@RequestBody DComment dComment){
+        dCommentMapper.insertSelective(dComment);
+    }
+
+    @RequestMapping("/replyComment")
+    public void replyComment(@RequestBody DComment dComment){
+        dComment.setReplyTime(new Date());
+        dCommentMapper.updateByPrimaryKeySelective(dComment);
     }
 
 }

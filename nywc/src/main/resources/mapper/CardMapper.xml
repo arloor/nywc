@@ -57,4 +57,21 @@
         where seconds&lt;#{minSeconds} order by seconds DESC limit 0,3)
 
 </select>
+    <select id="getNewestCardsDetails" resultMap="cardDetails">
+        select
+        dkey,
+        dname,
+        member.nickName as nickName,
+        member.avatarURL,
+        imageURL,
+        dinfo,
+        uploadTime,
+        seconds,
+        numLike,
+        numDislike,
+        design.theme
+        from design
+        left join member on design.openId = member.openId
+        order by seconds DESC limit 0,6
+    </select>
 </mapper>

@@ -11,6 +11,7 @@ import java.util.List;
 @Mapper
 public interface CardMapper {
     List<CardDetail> getCardsDetails(@Param("minSeconds") long minSeconds,@Param("maxSeconds")long maxSeconds);
+    List<CardDetail> getNewestCardsDetails();
     List<DcommentModel> getCommentsByDkey(@Param("dkey") String dkey);
 }
 

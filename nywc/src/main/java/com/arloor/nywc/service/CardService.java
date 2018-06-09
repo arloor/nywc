@@ -17,6 +17,9 @@ public class CardService {
 
     @RequestMapping("/details")
     List<CardDetail> getCardDetails(@RequestParam(defaultValue = "0") long minSeconds,@RequestParam(defaultValue = "0") long maxSeconds){
-        return cardMapper.getCardsDetails(minSeconds,maxSeconds);
+        if(maxSeconds==0){
+            return cardMapper.getNewestCardsDetails();
+        }
+        else return cardMapper.getCardsDetails(minSeconds,maxSeconds);
     }
 }
