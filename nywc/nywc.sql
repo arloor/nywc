@@ -10,7 +10,7 @@ Target Server Type    : MariaDB
 Target Server Version : 50556
 File Encoding         : 65001
 
-Date: 2018-06-10 00:06:24
+Date: 2018-06-10 17:29:20
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -79,28 +79,28 @@ CREATE TABLE `design` (
 -- ----------------------------
 -- Records of design
 -- ----------------------------
-INSERT INTO `design` VALUES ('FgiEV3aSIa3LeYWZAISgHCSxo7yD', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', '我的头像', 'http://jianbujingimages.moontell.cn/FgiEV3aSIa3LeYWZAISgHCSxo7yD', 'pass', '头像info', '', '2018-04-25 17:06:10', '1524647170', '默认', '100', '20');
-INSERT INTO `design` VALUES ('Fh-shKnrkLFvBpyjbaiYN46Y3JKJ', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', '截图', 'http://jianbujingimages.moontell.cn/Fh-shKnrkLFvBpyjbaiYN46Y3JKJ', 'pass', '截图info', '', '2018-04-24 21:10:13', '1524575413', '默认', '100', '20');
-INSERT INTO `design` VALUES ('Fh31vr0WgaNVqV2D9fs471s9h7ZH', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', '智仁勇', 'http://nywcstatic.moontell.cn/Fh31vr0WgaNVqV2D9fs471s9h7ZH', '刚发布', '', null, '2018-06-09 13:39:50', '1528522790', '默认', '0', '0');
-INSERT INTO `design` VALUES ('FhlyHSbQhFxqkgf2llvl-1-Cpd-W', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', '雍物集', 'http://nywcstatic.moontell.cn/FhlyHSbQhFxqkgf2llvl-1-Cpd-W', '刚发布', '', null, '2018-06-09 13:43:24', '1528523004', '默认', '0', '0');
-INSERT INTO `design` VALUES ('FiS1vv_2up4hq93vu1LEcRlUJl_c', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', '甜品 图书馆', 'http://nywcstatic.moontell.cn/FiS1vv_2up4hq93vu1LEcRlUJl_c', '刚发布', '', null, '2018-06-09 13:43:07', '1528522987', '默认', '0', '0');
-INSERT INTO `design` VALUES ('FjM8vm_yGD49bZMzeiSqsoqzJZVt', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', '雍物集', 'http://nywcstatic.moontell.cn/FjM8vm_yGD49bZMzeiSqsoqzJZVt', '刚发布', '', null, '2018-06-09 13:44:38', '1528523078', '默认', '0', '0');
-INSERT INTO `design` VALUES ('Fk6pPKRyB4-KcyRJM9O2W0yXbJJw', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', '雍物集', 'http://nywcstatic.moontell.cn/Fk6pPKRyB4-KcyRJM9O2W0yXbJJw', '刚发布', '', null, '2018-06-09 13:42:48', '1528522968', '默认', '0', '0');
-INSERT INTO `design` VALUES ('FmJwGnDeiaGRQUwUyJHIY17A5iL4', 'oPL165cCi274DQKc-J5OGJiu-PQg', '菜根菜根', 'http://nywcstatic.moontell.cn/FmJwGnDeiaGRQUwUyJHIY17A5iL4', '刚发布', '', null, '2018-06-09 13:41:55', '1528522915', '默认', '0', '0');
-INSERT INTO `design` VALUES ('Fn7Z4z59F6wELhYQrmOuraMQsLqD', 'oPL165cCi274DQKc-J5OGJiu-PQg', '多读点书哦～', 'http://nywcstatic.moontell.cn/Fn7Z4z59F6wELhYQrmOuraMQsLqD', '刚发布', '', null, '2018-06-09 13:41:37', '1528522897', '默认', '0', '0');
-INSERT INTO `design` VALUES ('FnUiYYHuukVSoEMw0dqAHULIOxCO', 'oPL165cCi274DQKc-J5OGJiu-PQg', '火立方', 'http://nywcstatic.moontell.cn/FnUiYYHuukVSoEMw0dqAHULIOxCO', '刚发布', '', null, '2018-06-09 13:35:51', '1528522551', '默认', '0', '0');
-INSERT INTO `design` VALUES ('FnvjZbcWkUW70_Eeb6HEIgg_eW-p', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', '孔子', 'http://nywcstatic.moontell.cn/FnvjZbcWkUW70_Eeb6HEIgg_eW-p', '刚发布', '', null, '2018-06-09 13:42:15', '1528522935', '默认', '0', '0');
-INSERT INTO `design` VALUES ('FoENOimfd3qTKjIapv2hNFY196vl', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', '大活', 'http://nywcstatic.moontell.cn/FoENOimfd3qTKjIapv2hNFY196vl', '刚发布', '', null, '2018-06-09 13:36:15', '1528522575', '默认', '0', '0');
-INSERT INTO `design` VALUES ('FpNkmzz7syLDWfi2fJ0nIVZhe7O0', 'oPL165cCi274DQKc-J5OGJiu-PQg', '猫与鼎', 'http://nywcstatic.moontell.cn/FpNkmzz7syLDWfi2fJ0nIVZhe7O0', '刚发布', '', null, '2018-06-09 13:40:40', '1528522840', '默认', '0', '0');
-INSERT INTO `design` VALUES ('FpO-Q3dsNhW10RNrXPImSzhPA5Au', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', '猫辟邪', 'http://nywcstatic.moontell.cn/FpO-Q3dsNhW10RNrXPImSzhPA5Au', '刚发布', '', null, '2018-06-09 13:41:07', '1528522867', '默认', '0', '0');
-INSERT INTO `design` VALUES ('Fr53hcGiajnIv0quni8jB0ESm6_s', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', '做得大事', 'http://nywcstatic.moontell.cn/Fr53hcGiajnIv0quni8jB0ESm6_s', '刚发布', '', null, '2018-06-09 13:40:07', '1528522807', '默认', '0', '0');
-INSERT INTO `design` VALUES ('FrbPHAf8rEMSFaKd0d17qzsPehiL', 'oPL165cCi274DQKc-J5OGJiu-PQg', '雍物集', 'http://nywcstatic.moontell.cn/FrbPHAf8rEMSFaKd0d17qzsPehiL', '刚发布', '', null, '2018-06-09 13:44:45', '1528523085', '默认', '0', '0');
-INSERT INTO `design` VALUES ('FrjQE7aRsY52FESLoCu3g0_VXxz2', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', '笔记本  北大楼', 'http://nywcstatic.moontell.cn/FrjQE7aRsY52FESLoCu3g0_VXxz2', '刚发布', '', null, '2018-06-09 13:40:22', '1528522822', '默认', '0', '0');
-INSERT INTO `design` VALUES ('Ft34Rwfiz7tw7xT5d1OYFXf4cQaT', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', '智仁勇', 'http://nywcstatic.moontell.cn/Ft34Rwfiz7tw7xT5d1OYFXf4cQaT', '刚发布', '', null, '2018-06-09 13:42:26', '1528522946', '默认', '0', '0');
-INSERT INTO `design` VALUES ('Ft3L9YjArsKejp8gUsSRKmqLJn_4', 'oPL165cCi274DQKc-J5OGJiu-PQg', '雍物集', 'http://nywcstatic.moontell.cn/Ft3L9YjArsKejp8gUsSRKmqLJn_4', '刚发布', '', null, '2018-06-09 13:44:58', '1528523098', '默认', '0', '0');
-INSERT INTO `design` VALUES ('FuWbvhuuab6VuL_Jd86-urX7ghCP', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', '甜品北大楼', 'http://nywcstatic.moontell.cn/FuWbvhuuab6VuL_Jd86-urX7ghCP', '刚发布', '', null, '2018-06-09 13:39:09', '1528522749', '默认', '0', '0');
-INSERT INTO `design` VALUES ('Fv8Ag6yb6Dn2nwwdjkMjixP4Epbe', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', '雍物集', 'http://nywcstatic.moontell.cn/Fv8Ag6yb6Dn2nwwdjkMjixP4Epbe', '刚发布', '', null, '2018-06-09 13:43:20', '1528523000', '默认', '0', '0');
-INSERT INTO `design` VALUES ('FvKc9xFaIxK1taFqUBc3mSRMia9A', 'oPL165f72as52n8d3l9xsulWvKtY', '甜品大活', 'http://nywcstatic.moontell.cn/FvKc9xFaIxK1taFqUBc3mSRMia9A', '刚发布', '', null, '2018-06-09 13:37:08', '1528522628', '默认', '0', '0');
+INSERT INTO `design` VALUES ('FgiEV3aSIa3LeYWZAISgHCSxo7yD', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', '我的头像', 'http://jianbujingimages.moontell.cn/FgiEV3aSIa3LeYWZAISgHCSxo7yD', 'pass', '头像info', '', '2018-04-25 17:06:10', '1524647170000', '默认', '100', '20');
+INSERT INTO `design` VALUES ('Fh-shKnrkLFvBpyjbaiYN46Y3JKJ', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', '截图', 'http://jianbujingimages.moontell.cn/Fh-shKnrkLFvBpyjbaiYN46Y3JKJ', 'pass', '截图info', '', '2018-04-24 21:10:13', '1524575413000', '默认', '100', '20');
+INSERT INTO `design` VALUES ('Fh31vr0WgaNVqV2D9fs471s9h7ZH', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', '智仁勇', 'http://nywcstatic.moontell.cn/Fh31vr0WgaNVqV2D9fs471s9h7ZH', '刚发布', '', null, '2018-06-09 13:39:50', '1528522790000', '默认', '0', '0');
+INSERT INTO `design` VALUES ('FhlyHSbQhFxqkgf2llvl-1-Cpd-W', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', '雍物集', 'http://nywcstatic.moontell.cn/FhlyHSbQhFxqkgf2llvl-1-Cpd-W', '刚发布', '', null, '2018-06-09 13:43:24', '1528523004000', '默认', '0', '0');
+INSERT INTO `design` VALUES ('FiS1vv_2up4hq93vu1LEcRlUJl_c', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', '甜品 图书馆', 'http://nywcstatic.moontell.cn/FiS1vv_2up4hq93vu1LEcRlUJl_c', '刚发布', '', null, '2018-06-09 13:43:07', '1528522987000', '默认', '0', '0');
+INSERT INTO `design` VALUES ('FjM8vm_yGD49bZMzeiSqsoqzJZVt', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', '雍物集', 'http://nywcstatic.moontell.cn/FjM8vm_yGD49bZMzeiSqsoqzJZVt', '刚发布', '', null, '2018-06-09 13:44:38', '1528523078000', '默认', '0', '0');
+INSERT INTO `design` VALUES ('Fk6pPKRyB4-KcyRJM9O2W0yXbJJw', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', '雍物集', 'http://nywcstatic.moontell.cn/Fk6pPKRyB4-KcyRJM9O2W0yXbJJw', '刚发布', '', null, '2018-06-09 13:42:48', '1528522968000', '默认', '0', '0');
+INSERT INTO `design` VALUES ('FmJwGnDeiaGRQUwUyJHIY17A5iL4', 'oPL165cCi274DQKc-J5OGJiu-PQg', '菜根菜根', 'http://nywcstatic.moontell.cn/FmJwGnDeiaGRQUwUyJHIY17A5iL4', '刚发布', '', null, '2018-06-09 13:41:55', '1528522915000', '默认', '0', '0');
+INSERT INTO `design` VALUES ('Fn7Z4z59F6wELhYQrmOuraMQsLqD', 'oPL165cCi274DQKc-J5OGJiu-PQg', '多读点书哦～', 'http://nywcstatic.moontell.cn/Fn7Z4z59F6wELhYQrmOuraMQsLqD', '刚发布', '', null, '2018-06-09 13:41:37', '1528522897000', '默认', '0', '0');
+INSERT INTO `design` VALUES ('FnUiYYHuukVSoEMw0dqAHULIOxCO', 'oPL165cCi274DQKc-J5OGJiu-PQg', '火立方', 'http://nywcstatic.moontell.cn/FnUiYYHuukVSoEMw0dqAHULIOxCO', '刚发布', '', null, '2018-06-09 13:35:51', '1528522551000', '默认', '0', '0');
+INSERT INTO `design` VALUES ('FnvjZbcWkUW70_Eeb6HEIgg_eW-p', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', '孔子', 'http://nywcstatic.moontell.cn/FnvjZbcWkUW70_Eeb6HEIgg_eW-p', '刚发布', '', null, '2018-06-09 13:42:15', '1528522935000', '默认', '0', '0');
+INSERT INTO `design` VALUES ('FoENOimfd3qTKjIapv2hNFY196vl', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', '大活', 'http://nywcstatic.moontell.cn/FoENOimfd3qTKjIapv2hNFY196vl', '刚发布', '', null, '2018-06-09 13:36:15', '1528522575000', '默认', '0', '0');
+INSERT INTO `design` VALUES ('FpNkmzz7syLDWfi2fJ0nIVZhe7O0', 'oPL165cCi274DQKc-J5OGJiu-PQg', '猫与鼎', 'http://nywcstatic.moontell.cn/FpNkmzz7syLDWfi2fJ0nIVZhe7O0', '刚发布', '', null, '2018-06-09 13:40:40', '1528522840000', '默认', '0', '0');
+INSERT INTO `design` VALUES ('FpO-Q3dsNhW10RNrXPImSzhPA5Au', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', '猫辟邪', 'http://nywcstatic.moontell.cn/FpO-Q3dsNhW10RNrXPImSzhPA5Au', '刚发布', '', null, '2018-06-09 13:41:07', '1528522867000', '默认', '0', '0');
+INSERT INTO `design` VALUES ('Fr53hcGiajnIv0quni8jB0ESm6_s', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', '做得大事', 'http://nywcstatic.moontell.cn/Fr53hcGiajnIv0quni8jB0ESm6_s', '刚发布', '', null, '2018-06-09 13:40:07', '1528522807000', '默认', '0', '0');
+INSERT INTO `design` VALUES ('FrbPHAf8rEMSFaKd0d17qzsPehiL', 'oPL165cCi274DQKc-J5OGJiu-PQg', '雍物集', 'http://nywcstatic.moontell.cn/FrbPHAf8rEMSFaKd0d17qzsPehiL', '刚发布', '', null, '2018-06-09 13:44:45', '1528523085000', '默认', '0', '0');
+INSERT INTO `design` VALUES ('FrjQE7aRsY52FESLoCu3g0_VXxz2', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', '笔记本  北大楼', 'http://nywcstatic.moontell.cn/FrjQE7aRsY52FESLoCu3g0_VXxz2', '刚发布', '', null, '2018-06-09 13:40:22', '1528522822000', '默认', '0', '0');
+INSERT INTO `design` VALUES ('Ft34Rwfiz7tw7xT5d1OYFXf4cQaT', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', '智仁勇', 'http://nywcstatic.moontell.cn/Ft34Rwfiz7tw7xT5d1OYFXf4cQaT', '刚发布', '', null, '2018-06-09 13:42:26', '1528522946000', '默认', '0', '0');
+INSERT INTO `design` VALUES ('Ft3L9YjArsKejp8gUsSRKmqLJn_4', 'oPL165cCi274DQKc-J5OGJiu-PQg', '雍物集', 'http://nywcstatic.moontell.cn/Ft3L9YjArsKejp8gUsSRKmqLJn_4', '刚发布', '', null, '2018-06-09 13:44:58', '1528523098000', '默认', '0', '0');
+INSERT INTO `design` VALUES ('FuWbvhuuab6VuL_Jd86-urX7ghCP', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', '甜品北大楼', 'http://nywcstatic.moontell.cn/FuWbvhuuab6VuL_Jd86-urX7ghCP', '刚发布', '', null, '2018-06-09 13:39:09', '1528522749000', '默认', '0', '0');
+INSERT INTO `design` VALUES ('Fv8Ag6yb6Dn2nwwdjkMjixP4Epbe', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', '雍物集', 'http://nywcstatic.moontell.cn/Fv8Ag6yb6Dn2nwwdjkMjixP4Epbe', '刚发布', '', null, '2018-06-09 13:43:20', '1528523000000', '默认', '0', '0');
+INSERT INTO `design` VALUES ('FvKc9xFaIxK1taFqUBc3mSRMia9A', 'oPL165f72as52n8d3l9xsulWvKtY', '甜品大活', 'http://nywcstatic.moontell.cn/FvKc9xFaIxK1taFqUBc3mSRMia9A', '刚发布', '', null, '2018-06-09 13:37:08', '1528522628000', '默认', '0', '0');
 
 -- ----------------------------
 -- Table structure for iwant
@@ -109,7 +109,7 @@ DROP TABLE IF EXISTS `iwant`;
 CREATE TABLE `iwant` (
   `dkey` varchar(30) NOT NULL,
   `wantOpenId` varchar(30) NOT NULL,
-  `what` varchar(20) NOT NULL,
+  `what` varchar(20) NOT NULL DEFAULT 'T恤',
   `wantTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`dkey`,`wantOpenId`,`what`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -119,6 +119,7 @@ CREATE TABLE `iwant` (
 -- ----------------------------
 INSERT INTO `iwant` VALUES ('FgiEV3aSIa3LeYWZAISgHCSxo7yD', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', 'T恤', '2018-04-24 21:15:18');
 INSERT INTO `iwant` VALUES ('Fh-shKnrkLFvBpyjbaiYN46Y3JKJ', 'oPL165XH7WzJiFHWBwQAiMmT5fh0', '杯子', '2018-04-24 21:15:18');
+INSERT INTO `iwant` VALUES ('Ft3L9YjArsKejp8gUsSRKmqLJn_4', 'oPL165cCi274DQKc-J5OGJiu-PQg', 'T恤', '2018-06-10 16:45:09');
 
 -- ----------------------------
 -- Table structure for member

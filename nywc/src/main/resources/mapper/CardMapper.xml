@@ -74,4 +74,39 @@
         left join member on design.openId = member.openId
         order by seconds DESC limit 0,6
     </select>
+    <select id="getSingleCardDetail" resultMap="cardDetails">
+        select
+        dkey,
+        dname,
+        member.nickName as nickName,
+        member.avatarURL,
+        imageURL,
+        dinfo,
+        uploadTime,
+        seconds,
+        numLike,
+        numDislike,
+        design.theme
+        from design
+        left join member on design.openId = member.openId
+        where dkey=#{dkey};
+    </select>
+    <select id="selectWantedDesinByopenId" resultMap="cardDetails">
+        select
+  design.dkey,
+  dname,
+  member.nickName as nickName,
+  member.avatarURL,
+  imageURL,
+  dinfo,
+  uploadTime,
+  seconds,
+  numLike,
+  numDislike,
+  design.theme
+from iwant
+  left join design on iwant.dkey=design.dkey
+  left join member on design.openId = member.openId
+where iwant.wantOpenId=#{openId};
+    </select>
 </mapper>

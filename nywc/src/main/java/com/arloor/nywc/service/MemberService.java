@@ -1,11 +1,13 @@
 package com.arloor.nywc.service;
 
+import com.arloor.nywc.dao.CardMapper;
 import com.arloor.nywc.dao.MemberMapper;
 import com.arloor.nywc.dao.MiaoshaRecordMapper;
 import com.arloor.nywc.dao.StarProductMapper;
 import com.arloor.nywc.domain.Member;
 import com.arloor.nywc.domain.MiaoshaRecord;
 import com.arloor.nywc.domain.Product;
+import com.arloor.nywc.model.CardDetail;
 import com.arloor.nywc.model.OpenIdJson;
 import com.arloor.nywc.utils.MyHttpClient;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -31,6 +33,9 @@ public class MemberService {
     MiaoshaRecordMapper miaoshaRecordMapper;
     @Autowired
     StarProductMapper starProductMapper;
+
+    @Autowired
+    CardMapper cardMapper;
 
     private Logger logger= LoggerFactory.getLogger(WeixinService.class);
 
@@ -91,13 +96,18 @@ public class MemberService {
         memberMapper.updateByPrimaryKeySelective(member);
     }
 
-    @RequestMapping("miaoshaRecords")
+    @RequestMapping("/miaoshaRecords")
     public List<MiaoshaRecord> miaoshaRecords(@RequestParam String openId){
         return miaoshaRecordMapper.selectMiaoshaRecordsByopenId(openId);
     }
 
-    @RequestMapping("starProducts")
+    @RequestMapping("/starProducts")
     public List<Product> starProducts(@RequestParam String openId){
         return starProductMapper.selectstarProductsByopenId(openId);
+    }
+
+    @RequestMapping("/getiwant")
+    public List<CardDetail> iwant(@RequestParam String openId){
+        return cardMapper.selectWantedDesinByopenId(openId);
     }
 }

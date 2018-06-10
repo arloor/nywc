@@ -13,6 +13,10 @@ public interface CardMapper {
     List<CardDetail> getCardsDetails(@Param("minSeconds") long minSeconds,@Param("maxSeconds")long maxSeconds);
     List<CardDetail> getNewestCardsDetails();
     List<DcommentModel> getCommentsByDkey(@Param("dkey") String dkey);
+
+    CardDetail getSingleCardDetail(@Param("dkey") String dkey);
+
+    List<CardDetail> selectWantedDesinByopenId(@Param("openId") String openId);
 }
 
 
