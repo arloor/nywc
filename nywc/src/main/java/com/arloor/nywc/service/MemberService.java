@@ -1,9 +1,6 @@
 package com.arloor.nywc.service;
 
-import com.arloor.nywc.dao.CardMapper;
-import com.arloor.nywc.dao.MemberMapper;
-import com.arloor.nywc.dao.MiaoshaRecordMapper;
-import com.arloor.nywc.dao.StarProductMapper;
+import com.arloor.nywc.dao.*;
 import com.arloor.nywc.domain.Member;
 import com.arloor.nywc.domain.MiaoshaRecord;
 import com.arloor.nywc.domain.Product;
@@ -33,7 +30,8 @@ public class MemberService {
     MiaoshaRecordMapper miaoshaRecordMapper;
     @Autowired
     StarProductMapper starProductMapper;
-
+    @Autowired
+    IWantMapper iWantMapper;
     @Autowired
     CardMapper cardMapper;
 
@@ -109,5 +107,17 @@ public class MemberService {
     @RequestMapping("/getiwant")
     public List<CardDetail> iwant(@RequestParam String openId){
         return cardMapper.selectWantedDesinByopenId(openId);
+    }
+
+    /**
+     * 判断某用户是否收藏了dkey的设计
+     * @param dkey
+     * @param openId
+     * @return
+     */
+    @RequestMapping("/wantIt")
+    public boolean doUwantIt(@RequestParam String dkey,@RequestParam String openId){
+        int num=iWantMapper.selectCountIwant(openId,dkey);
+        return num!=0;
     }
 }

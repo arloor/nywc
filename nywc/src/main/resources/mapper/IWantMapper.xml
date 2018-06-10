@@ -18,7 +18,10 @@
       and wantOpenId = #{wantOpenId,jdbcType=VARCHAR}
       and what = #{what,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="com.arloor.nywc.domain.IWantKey" >
+    <select id="selectCountIwant" resultType="java.lang.Integer">
+      select count(*) from iwant where dkey=#{dkey} and wantOpenId=#{openId};
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="com.arloor.nywc.domain.IWantKey" >
     delete from iwant
     where dkey = #{dkey,jdbcType=VARCHAR}
       and wantOpenId = #{wantOpenId,jdbcType=VARCHAR}

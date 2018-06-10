@@ -3,6 +3,7 @@ package com.arloor.nywc.dao;
 import com.arloor.nywc.domain.IWant;
 import com.arloor.nywc.domain.IWantKey;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface IWantMapper {
@@ -17,4 +18,6 @@ public interface IWantMapper {
     int updateByPrimaryKeySelective(IWant record);
 
     int updateByPrimaryKey(IWant record);
+
+    int selectCountIwant(@Param("openId") String openId,@Param("dkey") String dkey);
 }
