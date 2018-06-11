@@ -20,4 +20,6 @@ public interface IWantMapper {
     int updateByPrimaryKey(IWant record);
 
     int selectCountIwant(@Param("openId") String openId,@Param("dkey") String dkey);
+
+    int deleteByDkeyOpenId(@Param("dkey") String dkey,@Param("wantOpenId") String wantOpenId);
 }

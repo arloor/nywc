@@ -5,10 +5,7 @@ import com.arloor.nywc.dao.IWantMapper;
 import com.arloor.nywc.domain.IWant;
 import com.arloor.nywc.model.CardDetail;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -38,5 +35,11 @@ public class CardService {
     void iwant(@RequestBody IWant iWant){
         iWant.setWantTime(new Date());
         iWantMapper.insertSelective(iWant);
+    }
+
+    @RequestMapping(value = "/iDontWant")
+    String iDontWant(@RequestParam String dkey,@RequestParam String wantOpenId){
+
+        return "删除的收藏记录数量"+iWantMapper.deleteByDkeyOpenId(dkey,wantOpenId);
     }
 }

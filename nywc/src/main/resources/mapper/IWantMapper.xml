@@ -27,7 +27,10 @@
       and wantOpenId = #{wantOpenId,jdbcType=VARCHAR}
       and what = #{what,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.arloor.nywc.domain.IWant" >
+    <delete id="deleteByDkeyOpenId">
+      delete from iwant where dkey=#{dkey} and wantOpenId=#{wantOpenId};
+    </delete>
+    <insert id="insert" parameterType="com.arloor.nywc.domain.IWant" >
     insert into iwant (dkey, wantOpenId, what, 
       wantTime)
     values (#{dkey,jdbcType=VARCHAR}, #{wantOpenId,jdbcType=VARCHAR}, #{what,jdbcType=VARCHAR}, 
