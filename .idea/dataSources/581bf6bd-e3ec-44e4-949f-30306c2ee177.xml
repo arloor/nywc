@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="jianbujing@mysql.moontell.cn">
-  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.8">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.9">
     <root id="1">
       <ServerVersion>5.5.56</ServerVersion>
+      <RdbmsFlavour>MariaDB</RdbmsFlavour>
+      <DefaultEngine>InnoDB</DefaultEngine>
+      <DefaultTmpEngine>InnoDB</DefaultTmpEngine>
       <DefaultCasing>exact</DefaultCasing>
     </root>
     <schema id="2" parent="1" name="information_schema">
@@ -824,23 +827,15 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="207" parent="3" name="comments">
-      <Engine>InnoDB</Engine>
-    </table>
+    <table id="207" parent="3" name="comments"/>
     <table id="208" parent="3" name="imageinfo">
       <Comment>图片信息表</Comment>
-      <Engine>InnoDB</Engine>
       <Collation>latin1_swedish_ci</Collation>
     </table>
-    <table id="209" parent="3" name="openidformid">
-      <Engine>InnoDB</Engine>
-    </table>
-    <table id="210" parent="3" name="starimage">
-      <Engine>InnoDB</Engine>
-    </table>
+    <table id="209" parent="3" name="openidformid"/>
+    <table id="210" parent="3" name="starimage"/>
     <table id="211" parent="3" name="userInfo">
       <Comment>&quot;用户信息表&quot;</Comment>
-      <Engine>InnoDB</Engine>
     </table>
     <column id="212" parent="207" name="key">
       <Position>1</Position>

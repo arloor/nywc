@@ -5,6 +5,7 @@ import com.arloor.nywc.dao.DesignMapper;
 import com.arloor.nywc.dao.IWantMapper;
 import com.arloor.nywc.domain.IWant;
 import com.arloor.nywc.model.CardDetail;
+import com.arloor.nywc.model.SingleCardDetail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,8 +36,10 @@ public class CardService {
     }
 
     @RequestMapping("/singleCardDetails")
-    CardDetail getSingleCardDetail(@RequestParam String dkey){
-        return cardMapper.getSingleCardDetail(dkey);
+    SingleCardDetail getSingleCardDetail(@RequestParam String dkey){
+        SingleCardDetail singleCardDetail=cardMapper.getSingleCardDetail(dkey);
+        singleCardDetail.getImageURLs().add(0,singleCardDetail.getImageURL());
+        return singleCardDetail;
     }
 
     @RequestMapping("/iwant")

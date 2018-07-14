@@ -15,6 +15,24 @@
         <result column="theme" property="theme"/>
         <collection property="comments" column="dkey" ofType="com.arloor.nywc.model.DcommentModel" select="getCommentsByDkey"/>
     </resultMap>
+    <resultMap id="singleCardDetail" type="com.arloor.nywc.model.SingleCardDetail">
+        <id column="dkey" property="dkey"/>
+        <result column="dname" property="dname"/>
+        <result column="dinfo" property="dinfo"/>
+        <result column="imageURL" property="imageURL"/>
+
+        <result column="nickName" property="nickName"/>
+        <result column="avatarURL" property="avatarURL"/>
+        <result column="numLike" property="numLike"/>
+        <result column="numDislike" property="numDislike"/>
+        <result column="uploadTime" property="uploadTime"/>
+        <result column="seconds" property="seconds"/>
+        <result column="theme" property="theme"/>
+        <collection property="comments" column="dkey" ofType="com.arloor.nywc.model.DcommentModel" select="getCommentsByDkey"/>
+        <collection property="imageURLs" ofType="java.lang.String" javaType="list">
+            <result column="imageURLs" />
+        </collection>
+    </resultMap>
 
     <select id="getCommentsByDkey"  resultType="com.arloor.nywc.model.DcommentModel">
         select member.nickName,member.avatarURL,dcomment.*
@@ -74,13 +92,14 @@
         left join member on design.openId = member.openId
         order by seconds DESC limit 0,6
     </select>
-    <select id="getSingleCardDetail" resultMap="cardDetails">
+    <select id="getSingleCardDetail" resultMap="singleCardDetail">
         select
-        dkey,
+        design.dkey,
         dname,
         member.nickName as nickName,
         member.avatarURL,
-        imageURL,
+        design.imageURL,
+        designImg.imageURL as imageURLs,
         dinfo,
         uploadTime,
         seconds,
@@ -89,7 +108,8 @@
         design.theme
         from design
         left join member on design.openId = member.openId
-        where dkey=#{dkey};
+        left join designImg on designImg.dkey=design.dkey
+        where design.dkey=#{dkey};
     </select>
     <select id="selectWantedDesinByopenId" resultMap="cardDetails">
         select

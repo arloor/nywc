@@ -3,11 +3,12 @@ package com.arloor.nywc.model;
 import java.util.Date;
 import java.util.List;
 
-public class CardDetail {
+public class SingleCardDetail {
     private String dkey;
     private String dname;
     private String dinfo;
     private String imageURL;
+    private List<String> imageURLs;
     private String nickName;
     private String avatarURL;
     private int numLike;
@@ -48,7 +49,14 @@ public class CardDetail {
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
     }
-    
+
+    public List<String> getImageURLs() {
+        return imageURLs;
+    }
+
+    public void setImageURLs(List<String> imageURLs) {
+        this.imageURLs = imageURLs;
+    }
 
     public String getNickName() {
         return nickName;
