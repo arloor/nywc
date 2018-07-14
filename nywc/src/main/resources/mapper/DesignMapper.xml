@@ -174,4 +174,11 @@
       numDislike = #{numDislike,jdbcType=DECIMAL}
     where dkey = #{dkey,jdbcType=VARCHAR}
   </update>
+    <update id="minusNumLike">
+      update design set numLike=numLike-1 where dkey=#{dkey}
+    </update>
+
+  <update id="addNumLike">
+      update design set numLike=numLike+1 where dkey=#{dkey}
+    </update>
 </mapper>

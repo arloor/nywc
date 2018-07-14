@@ -109,4 +109,21 @@ from iwant
   left join member on design.openId = member.openId
 where iwant.wantOpenId=#{openId};
     </select>
+    <select id="getCardsDetailsByTheme" resultType="com.arloor.nywc.model.CardDetail">
+        select
+        dkey,
+        dname,
+        member.nickName as nickName,
+        member.avatarURL,
+        imageURL,
+        dinfo,
+        uploadTime,
+        seconds,
+        numLike,
+        numDislike,
+        design.theme
+        from design
+        left join member on design.openId = member.openId
+        where theme=#{theme}
+    </select>
 </mapper>

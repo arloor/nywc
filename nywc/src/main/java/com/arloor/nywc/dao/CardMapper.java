@@ -17,6 +17,8 @@ public interface CardMapper {
     CardDetail getSingleCardDetail(@Param("dkey") String dkey);
 
     List<CardDetail> selectWantedDesinByopenId(@Param("openId") String openId);
+
+    List<CardDetail> getCardsDetailsByTheme(@Param("theme") String theme);
 }
 
 

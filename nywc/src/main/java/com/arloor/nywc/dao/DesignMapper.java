@@ -2,6 +2,7 @@ package com.arloor.nywc.dao;
 
 import com.arloor.nywc.domain.Design;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface DesignMapper {
@@ -16,4 +17,7 @@ public interface DesignMapper {
     int updateByPrimaryKeySelective(Design record);
 
     int updateByPrimaryKey(Design record);
+
+    void minusNumLike(@Param("dkey") String dkey);
+    void addNumLike(@Param("dkey") String dkey);
 }
