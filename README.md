@@ -187,54 +187,10 @@ MyBatis Generator可以自动的生成mapper.xml;dao的接口和POJO。
                           targetProject="src/main/java">
         </javaClientGenerator>
 
-        <table tableName="design" domainObjectName="Design"
-            enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
-            enableSelectByExample="false" selectByExampleQueryId="false" >
-            <property name="useActualColumnNames" value="true"/>
-        </table>
-        <table tableName="bonusHistory" domainObjectName="BonusHistory"
-               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" selectByExampleQueryId="false" >
-            <property name="useActualColumnNames" value="true"/>
-        </table>
         <table tableName="dcomment" domainObjectName="DComment"
                enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false" >
-            <property name="useActualColumnNames" value="true"/>
-        </table>
-        <table tableName="iwant" domainObjectName="IWant"
-               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" selectByExampleQueryId="false" >
-            <property name="useActualColumnNames" value="true"/>
-        </table>
-        <table tableName="member" domainObjectName="Member"
-               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" selectByExampleQueryId="false" >
-            <property name="useActualColumnNames" value="true"/>
-        </table>
-        <table tableName="myTicket" domainObjectName="MyTicket"
-               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" selectByExampleQueryId="false" >
-            <property name="useActualColumnNames" value="true"/>
-        </table>
-        <table tableName="pcomment" domainObjectName="PComment"
-               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" selectByExampleQueryId="false" >
-            <property name="useActualColumnNames" value="true"/>
-        </table>
-        <table tableName="product" domainObjectName="Product"
-               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" selectByExampleQueryId="false" >
-            <property name="useActualColumnNames" value="true"/>
-        </table>
-        <table tableName="starProduct" domainObjectName="StarProduct"
-               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" selectByExampleQueryId="false" >
-            <property name="useActualColumnNames" value="true"/>
-        </table>
-        <table tableName="ticket" domainObjectName="Ticket"
-               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" selectByExampleQueryId="false" >
+	    <!--将数据库的蛇形命名改成驼峰式命名-->
             <property name="useActualColumnNames" value="true"/>
         </table>
     </context>
